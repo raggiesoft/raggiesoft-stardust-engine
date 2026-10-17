@@ -262,6 +262,7 @@ export function renderCosmicShell({
     </footer>
 
     <script src="https://assets.raggiesoft.com/stardust-engine/js/cosmic-client.js" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js" defer></script>
   </body>
 </html>`;
 }
