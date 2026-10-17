@@ -308,6 +308,20 @@ function buildStardustSite() {
   fs.writeFileSync(path.join(cdnCssDir, 'cosmic.css'), cssContent, 'utf-8');
   fs.writeFileSync(path.join(cdnJsDir, 'cosmic-client.js'), clientJsContent, 'utf-8');
 
+  const masterCatalogPath = path.join(
+    workspaceRoot,
+    'raggiesoft-assets',
+    'engine-room-records',
+    'json',
+    'master-catalog.json'
+  );
+  const masterCatalog = fs.existsSync(masterCatalogPath)
+    ? JSON.parse(fs.readFileSync(masterCatalogPath, 'utf-8'))
+    : [];
+  const stardustTracks = Array.isArray(masterCatalog)
+    ? masterCatalog.filter((t) => t.artistSlug === 'the-stardust-engine')
+    : [];
+
   // 1. Primary Cosmic Overview Routes (augmented with deep archive directory links)
   writeStaticOutput('index.html', renderStardustHome(stardustAlbums));
   writeStaticOutput('band/index.html', renderBandMembersPage());
@@ -318,6 +332,67 @@ function buildStardustSite() {
   );
   writeStaticOutput('fleet/index.html', renderFleetPage());
   writeStaticOutput('novel/index.html', renderNovelPage(narrativesRoot));
+  writeStaticOutput(
+    'dsp-verification/index.html',
+    renderCosmicShell({
+      title: 'DSP Identity & Copyright Verification | The Stardust Engine',
+      description:
+        'Official DSP artist profile claim and ISRC chain-of-custody verification for The Stardust Engine (Michael P. Ragsdale / Engine Room Records).',
+      canonicalPath: '/dsp-verification',
+      bodyHtml: `
+        <section class="hero-card" aria-labelledby="stardust-dsp-heading">
+          <span class="eyebrow">Official Artist Claim &amp; Chain-of-Custody Verification</span>
+          <h1 id="stardust-dsp-heading">DSP Identity &amp; Copyright Verification: The Stardust Engine</h1>
+          <p class="lead">
+            <strong>Notice to Platform Verification Teams (Apple Music for Artists, Spotify for Artists, Amazon Music for Artists, YouTube Music, DistroKid):</strong>
+            This official portal confirms that <strong>Michael P. Ragsdale</strong> (<code>mpragsdale@raggiesoft.com</code>) is the sole real-world human creator, producer, copyright owner, and authorized claimant for <strong>The Stardust Engine</strong> (${stardustTracks.length} registered sound recordings under the <strong>Engine Room Records</strong> imprint).
+          </p>
+          <div class="btn-row">
+            <a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine" class="btn btn-primary">
+              🏛️ Open Full Engine Room Records Master DSP Ledger (?artist=the-stardust-engine) →
+            </a>
+            <button type="button" class="btn btn-gold" onclick="window.print()">
+              🖨️ Print / Save Official PDF Verification Dossier
+            </button>
+          </div>
+        </section>
+        <section class="section-block" aria-labelledby="stardust-isrc-heading">
+          <div class="section-header">
+            <span class="eyebrow">Registered Works • DistroKid &amp; Suno Commercial Pro Clearance</span>
+            <h2 id="stardust-isrc-heading">The Stardust Engine ISRC &amp; UPC Registry (${stardustTracks.length} Tracks)</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ERR-ID</th>
+                  <th scope="col">ISRC</th>
+                  <th scope="col">Track Title</th>
+                  <th scope="col">Album &amp; UPC</th>
+                  <th scope="col">Release Date</th>
+                  <th scope="col">Affidavit</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${stardustTracks
+                  .map(
+                    (t) => `
+                  <tr>
+                    <td><code>${escapeHtml(t.err_id || '')}</code></td>
+                    <td><code>${escapeHtml(t.isrc || '')}</code></td>
+                    <td><strong>${escapeHtml(t.trackTitle || '')}</strong></td>
+                    <td>${escapeHtml(t.albumTitle || '')} <span class="badge">${escapeHtml(t.albumUPC || '')}</span></td>
+                    <td>${escapeHtml(t.realReleaseDate || '')}</td>
+                    <td><a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine&album=${encodeURIComponent(t.albumSlug || '')}&track=${encodeURIComponent(t.trackSlug || '')}" class="btn" style="padding:0.25rem 0.6rem;font-size:0.78rem;">📄 Affidavit ↗</a></td>
+                  </tr>`
+                  )
+                  .join('\n')}
+              </tbody>
+            </table>
+          </div>
+        </section>`
+    })
+  );
 
   // 2. Render all ported routes from src/data/ported-pages.json
   let portedRenderedCount = 0;
