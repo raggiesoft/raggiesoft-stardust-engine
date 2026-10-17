@@ -1,8 +1,8 @@
 /**
  * @license MIT
  * cosmic-client.js — Client Progressive Enhancement for stardust.raggiesoft.com
- * Implements Modern Web Guidance dark-mode-toggle (Exoplanet Light vs. Deep Space Dark)
- * and strict prefers-reduced-motion + manual Pause Cosmic Motion controls.
+ * Implements Modern Web Guidance dark-mode-toggle (Exoplanet Light vs. Deep Space Dark),
+ * strict prefers-reduced-motion + manual Pause Cosmic Motion controls, and mobile menu toggle.
  */
 (function () {
   var meta = document.querySelector('meta[name="color-scheme"]');
@@ -10,6 +10,23 @@
   var themeLabel = document.getElementById('theme-toggle-label');
   var motionBtn = document.getElementById('motion-toggle');
   var motionLabel = document.getElementById('motion-toggle-label');
+  var mobileToggle = document.getElementById('mobile-menu-toggle');
+  var primaryNav = document.getElementById('primary-navigation');
+
+  if (mobileToggle && primaryNav) {
+    mobileToggle.addEventListener('click', function () {
+      var expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      primaryNav.classList.toggle('is-open', !expanded);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && primaryNav.classList.contains('is-open')) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        primaryNav.classList.remove('is-open');
+        mobileToggle.focus();
+      }
+    });
+  }
 
   function getSystemScheme() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -32,15 +49,7 @@
     var current = getRenderedScheme();
     document.documentElement.setAttribute('data-bs-theme', current);
     if (!themeLabel) return;
-    var stored = null;
-    try {
-      stored = localStorage.getItem('color-scheme');
-    } catch (e) {}
-    if (stored === 'light' || stored === 'dark') {
-      themeLabel.textContent = current === 'dark' ? '🌌 Deep Space (Pinned)' : '🪐 Exoplanet Day (Pinned)';
-    } else {
-      themeLabel.textContent = current === 'dark' ? '🌌 System (Deep Space)' : '🪐 System (Exoplanet)';
-    }
+    themeLabel.textContent = current === 'dark' ? '🌌 Deep Space' : '🪐 Exoplanet';
   }
 
   if (themeBtn && meta) {
@@ -84,7 +93,7 @@
     if (!motionLabel || !motionBtn) return;
     var paused = isMotionPaused();
     motionBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-    motionLabel.textContent = paused ? '▶ Resume Motion' : '⏸ Pause Motion';
+    motionLabel.textContent = paused ? '▶ Motion' : '⏸ Motion';
   }
 
   if (motionBtn) {

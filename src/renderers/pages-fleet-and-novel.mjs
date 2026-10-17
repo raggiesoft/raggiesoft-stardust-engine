@@ -80,7 +80,7 @@ export function renderFleetPage() {
       </div>
       <div class="card card-accent-gold">
         <img
-          src="https://assets.raggiesoft.com/stardust-engine/images/fleet/2002-sainte-claire-45h3.jpg"
+          src="https://assets.raggiesoft.com/stardust-engine/images/fleet/2002-sainte-claire-45h3-iron-horse.jpg"
           alt="2002 Sainte-Claire 45H3 brushed stainless steel motorcoach with mid-ship hydraulic wheelchair lift deployed"
           class="fleet-photo"
           loading="lazy"

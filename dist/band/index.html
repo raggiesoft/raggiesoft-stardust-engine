@@ -37,7 +37,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
-    <link rel="stylesheet" href="/assets/cosmic.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/root.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/extras.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/safety-net.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/cosmic.css" />
   </head>
   <body>
     <div class="cosmos-sky" aria-hidden="true"></div>
@@ -50,27 +54,42 @@
             src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png"
             alt="The Stardust Engine Rocket-and-Gear emblem"
             class="brand-logo"
-            width="44"
-            height="44"
+            width="36"
+            height="36"
           />
-          <span>
+          <span class="brand-text">
             <span class="brand-title">The Stardust Engine</span>
-            <span class="brand-subtitle">Ad Astra • Blacksburg, VA • Est. 1985</span>
+            <span class="brand-subtitle">Ad Astra • Blacksburg, VA</span>
           </span>
         </a>
 
-        <nav aria-label="Primary Cosmic Navigation">
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Toggle navigation menu"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary Cosmic Navigation">
           <ul class="nav-links">
-            <li><a href="/" class="nav-link">Cosmic Home</a></li>
-            <li><a href="/band" class="nav-link" aria-current="page">The Iron Five (Band)</a></li>
-            <li><a href="/discography" class="nav-link">Discography &amp; Playlists</a></li>
-            <li><a href="/lore" class="nav-link">Deep Band Lore</a></li>
-            <li><a href="/story" class="nav-link">Story Archives (64 Dossiers)</a></li>
-            <li><a href="/fleet" class="nav-link">Rolling Sanctuary Fleet</a></li>
-            <li><a href="/novel" class="nav-link">Cosmic Novel Reader</a></li>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/band" class="nav-link" aria-current="page">The Band</a></li>
+            <li><a href="/discography" class="nav-link">Discography</a></li>
+            <li><a href="/lore" class="nav-link">Lore</a></li>
+            <li><a href="/story" class="nav-link">Story (64)</a></li>
+            <li><a href="/fleet" class="nav-link">Fleet</a></li>
+            <li><a href="/novel" class="nav-link">Novel</a></li>
             <li>
               <a href="https://music.raggiesoft.com/the-stardust-engine" class="nav-cta" target="_blank" rel="noopener noreferrer">
-                🎧 Listen in The Listening Room ↗
+                🎧 Listen ↗
               </a>
             </li>
             <li>
@@ -81,7 +100,7 @@
                 aria-label="Toggle between Exoplanet Light Mode and Deep Space Dark Mode"
                 title="Switch between Exoplanet Surface (Light) and Deep Space (Dark)"
               >
-                <span id="theme-toggle-label">🪐 Environment</span>
+                <span id="theme-toggle-label">🪐 Theme</span>
               </button>
             </li>
             <li>
@@ -93,7 +112,7 @@
                 aria-label="Pause or resume cosmic starfield animations"
                 title="Pause or resume twinkling starfield motion"
               >
-                <span id="motion-toggle-label">⏸ Pause Motion</span>
+                <span id="motion-toggle-label">⏸ Motion</span>
               </button>
             </li>
           </ul>
@@ -120,19 +139,21 @@
         
     <article class="card card-accent-gold">
       <div>
-        <div style="display: flex; gap: 1.15rem; align-items: center; margin-bottom: 1rem;">
+        <div class="badge-row" style="margin-bottom: 0.65rem;">
+          <span class="badge">CPI Class of 1988 • T10 Paraplegic Wheelchair User • Cassidy’s Safe Person</span>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
           <img
             src="https://assets.raggiesoft.com/stardust-engine/images/band-members/ryan.jpg"
             alt="Portrait of Ryan O&#39;Connell"
             class="member-portrait"
-            width="88"
-            height="88"
+            width="80"
+            height="80"
             loading="lazy"
           />
-          <div>
-            <span class="badge" style="margin-bottom: 0.35rem;">CPI Class of 1988 • T10 Paraplegic Wheelchair User • Cassidy’s Safe Person</span>
-            <h2 style="font-size: 1.35rem; margin: 0 0 0.2rem;">Ryan O&#39;Connell</h2>
-            <p style="margin: 0; font-size: 0.86rem; font-weight: 700; color: var(--accent-cyan);">
+          <div style="min-width: 0; flex: 1;">
+            <h2 style="font-size: 1.25rem; margin: 0 0 0.2rem; overflow-wrap: break-word;">Ryan O&#39;Connell</h2>
+            <p style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); overflow-wrap: break-word;">
               Co-Lead Vocals, Lead Electric Guitar &amp; Lyricist
             </p>
           </div>
@@ -153,19 +174,21 @@
 
     <article class="card card-accent-gold">
       <div>
-        <div style="display: flex; gap: 1.15rem; align-items: center; margin-bottom: 1rem;">
+        <div class="badge-row" style="margin-bottom: 0.65rem;">
+          <span class="badge">Pioneer of The Cosmic Tidal Lock Sound™ • Composer of &quot;Escape Velocity (Ad Astra)&quot;</span>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
           <img
             src="https://assets.raggiesoft.com/stardust-engine/images/band-members/cassidy.jpg"
             alt="Portrait of Cassidy O&#39;Connell"
             class="member-portrait"
-            width="88"
-            height="88"
+            width="80"
+            height="80"
             loading="lazy"
           />
-          <div>
-            <span class="badge" style="margin-bottom: 0.35rem;">Pioneer of The Cosmic Tidal Lock Sound™ • Composer of &quot;Escape Velocity (Ad Astra)&quot;</span>
-            <h2 style="font-size: 1.35rem; margin: 0 0 0.2rem;">Cassidy O&#39;Connell</h2>
-            <p style="margin: 0; font-size: 0.86rem; font-weight: 700; color: var(--accent-cyan);">
+          <div style="min-width: 0; flex: 1;">
+            <h2 style="font-size: 1.25rem; margin: 0 0 0.2rem; overflow-wrap: break-word;">Cassidy O&#39;Connell</h2>
+            <p style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); overflow-wrap: break-word;">
               Co-Lead Vocals, Analog Synthesizers, Grand Piano &amp; Chief Audio Architect
             </p>
           </div>
@@ -186,19 +209,21 @@
 
     <article class="card card-accent-gold">
       <div>
-        <div style="display: flex; gap: 1.15rem; align-items: center; margin-bottom: 1rem;">
+        <div class="badge-row" style="margin-bottom: 0.65rem;">
+          <span class="badge">Architect of the 1992 Friction Walkout &amp; 1994 Apex Settlement</span>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
           <img
             src="https://assets.raggiesoft.com/stardust-engine/images/band-members/holly.jpg"
             alt="Portrait of Holly O&#39;Connell, J.D., CFA"
             class="member-portrait"
-            width="88"
-            height="88"
+            width="80"
+            height="80"
             loading="lazy"
           />
-          <div>
-            <span class="badge" style="margin-bottom: 0.35rem;">Architect of the 1992 Friction Walkout &amp; 1994 Apex Settlement</span>
-            <h2 style="font-size: 1.35rem; margin: 0 0 0.2rem;">Holly O&#39;Connell, J.D., CFA</h2>
-            <p style="margin: 0; font-size: 0.86rem; font-weight: 700; color: var(--accent-cyan);">
+          <div style="min-width: 0; flex: 1;">
+            <h2 style="font-size: 1.25rem; margin: 0 0 0.2rem; overflow-wrap: break-word;">Holly O&#39;Connell, J.D., CFA</h2>
+            <p style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); overflow-wrap: break-word;">
               Band Manager, Legal Architect &amp; Co-Driver (Class A CDL w/ Passenger &amp; Airbrake)
             </p>
           </div>
@@ -219,19 +244,21 @@
 
     <article class="card card-accent-gold">
       <div>
-        <div style="display: flex; gap: 1.15rem; align-items: center; margin-bottom: 1rem;">
+        <div class="badge-row" style="margin-bottom: 0.65rem;">
+          <span class="badge">Identical Twin Maternal Cousin • Joined at CPI in 1986</span>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
           <img
             src="https://assets.raggiesoft.com/stardust-engine/images/band-members/evan.jpg"
             alt="Portrait of Evan Wright"
             class="member-portrait"
-            width="88"
-            height="88"
+            width="80"
+            height="80"
             loading="lazy"
           />
-          <div>
-            <span class="badge" style="margin-bottom: 0.35rem;">Identical Twin Maternal Cousin • Joined at CPI in 1986</span>
-            <h2 style="font-size: 1.35rem; margin: 0 0 0.2rem;">Evan Wright</h2>
-            <p style="margin: 0; font-size: 0.86rem; font-weight: 700; color: var(--accent-cyan);">
+          <div style="min-width: 0; flex: 1;">
+            <h2 style="font-size: 1.25rem; margin: 0 0 0.2rem; overflow-wrap: break-word;">Evan Wright</h2>
+            <p style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); overflow-wrap: break-word;">
               Bass Guitar, Fretless Bass, Moog Taurus Pedals &amp; Co-Driver (Class A CDL)
             </p>
           </div>
@@ -252,19 +279,21 @@
 
     <article class="card card-accent-gold">
       <div>
-        <div style="display: flex; gap: 1.15rem; align-items: center; margin-bottom: 1rem;">
+        <div class="badge-row" style="margin-bottom: 0.65rem;">
+          <span class="badge">Identical Twin Maternal Cousin • Joined at CPI in 1986</span>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
           <img
             src="https://assets.raggiesoft.com/stardust-engine/images/band-members/tyler.jpg"
             alt="Portrait of Tyler Wright"
             class="member-portrait"
-            width="88"
-            height="88"
+            width="80"
+            height="80"
             loading="lazy"
           />
-          <div>
-            <span class="badge" style="margin-bottom: 0.35rem;">Identical Twin Maternal Cousin • Joined at CPI in 1986</span>
-            <h2 style="font-size: 1.35rem; margin: 0 0 0.2rem;">Tyler Wright</h2>
-            <p style="margin: 0; font-size: 0.86rem; font-weight: 700; color: var(--accent-cyan);">
+          <div style="min-width: 0; flex: 1;">
+            <h2 style="font-size: 1.25rem; margin: 0 0 0.2rem; overflow-wrap: break-word;">Tyler Wright</h2>
+            <p style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); overflow-wrap: break-word;">
               Acoustic &amp; Electronic Drums, Percussion &amp; Lead Fleet Driver (Class A CDL)
             </p>
           </div>
@@ -332,6 +361,6 @@
       </div>
     </footer>
 
-    <script src="/assets/cosmic-client.js" defer></script>
+    <script src="https://assets.raggiesoft.com/stardust-engine/js/cosmic-client.js" defer></script>
   </body>
 </html>

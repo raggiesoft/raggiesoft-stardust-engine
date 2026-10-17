@@ -225,19 +225,21 @@ export function renderBandMembersPage() {
     (m) => `
     <article class="card card-accent-gold">
       <div>
-        <div style="display: flex; gap: 1.15rem; align-items: center; margin-bottom: 1rem;">
+        <div class="badge-row" style="margin-bottom: 0.65rem;">
+          <span class="badge">${escapeHtml(m.badge)}</span>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
           <img
             src="${escapeHtml(m.portrait)}"
             alt="Portrait of ${escapeHtml(m.name)}"
             class="member-portrait"
-            width="88"
-            height="88"
+            width="80"
+            height="80"
             loading="lazy"
           />
-          <div>
-            <span class="badge" style="margin-bottom: 0.35rem;">${escapeHtml(m.badge)}</span>
-            <h2 style="font-size: 1.35rem; margin: 0 0 0.2rem;">${escapeHtml(m.name)}</h2>
-            <p style="margin: 0; font-size: 0.86rem; font-weight: 700; color: var(--accent-cyan);">
+          <div style="min-width: 0; flex: 1;">
+            <h2 style="font-size: 1.25rem; margin: 0 0 0.2rem; overflow-wrap: break-word;">${escapeHtml(m.name)}</h2>
+            <p style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); overflow-wrap: break-word;">
               ${escapeHtml(m.role)}
             </p>
           </div>

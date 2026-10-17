@@ -85,8 +85,8 @@ function buildCosmicClientJs() {
   return `/**
  * @license MIT
  * cosmic-client.js — Client Progressive Enhancement for stardust.raggiesoft.com
- * Implements Modern Web Guidance dark-mode-toggle (Exoplanet Light vs. Deep Space Dark)
- * and strict prefers-reduced-motion + manual Pause Cosmic Motion controls.
+ * Implements Modern Web Guidance dark-mode-toggle (Exoplanet Light vs. Deep Space Dark),
+ * strict prefers-reduced-motion + manual Pause Cosmic Motion controls, and mobile menu toggle.
  */
 (function () {
   var meta = document.querySelector('meta[name="color-scheme"]');
@@ -94,6 +94,23 @@ function buildCosmicClientJs() {
   var themeLabel = document.getElementById('theme-toggle-label');
   var motionBtn = document.getElementById('motion-toggle');
   var motionLabel = document.getElementById('motion-toggle-label');
+  var mobileToggle = document.getElementById('mobile-menu-toggle');
+  var primaryNav = document.getElementById('primary-navigation');
+
+  if (mobileToggle && primaryNav) {
+    mobileToggle.addEventListener('click', function () {
+      var expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      primaryNav.classList.toggle('is-open', !expanded);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && primaryNav.classList.contains('is-open')) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        primaryNav.classList.remove('is-open');
+        mobileToggle.focus();
+      }
+    });
+  }
 
   function getSystemScheme() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -116,15 +133,7 @@ function buildCosmicClientJs() {
     var current = getRenderedScheme();
     document.documentElement.setAttribute('data-bs-theme', current);
     if (!themeLabel) return;
-    var stored = null;
-    try {
-      stored = localStorage.getItem('color-scheme');
-    } catch (e) {}
-    if (stored === 'light' || stored === 'dark') {
-      themeLabel.textContent = current === 'dark' ? '🌌 Deep Space (Pinned)' : '🪐 Exoplanet Day (Pinned)';
-    } else {
-      themeLabel.textContent = current === 'dark' ? '🌌 System (Deep Space)' : '🪐 System (Exoplanet)';
-    }
+    themeLabel.textContent = current === 'dark' ? '🌌 Deep Space' : '🪐 Exoplanet';
   }
 
   if (themeBtn && meta) {
@@ -168,7 +177,7 @@ function buildCosmicClientJs() {
     if (!motionLabel || !motionBtn) return;
     var paused = isMotionPaused();
     motionBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-    motionLabel.textContent = paused ? '▶ Resume Motion' : '⏸ Pause Motion';
+    motionLabel.textContent = paused ? '▶ Motion' : '⏸ Motion';
   }
 
   if (motionBtn) {
@@ -287,8 +296,17 @@ function buildStardustSite() {
   fs.rmSync(nitroPublicDir, { recursive: true, force: true });
 
   const cssContent = fs.readFileSync(path.join(projectRoot, 'src', 'styles', 'cosmic.css'), 'utf-8');
+  const clientJsContent = buildCosmicClientJs();
   writeStaticOutput('assets/cosmic.css', cssContent);
-  writeStaticOutput('assets/cosmic-client.js', buildCosmicClientJs());
+  writeStaticOutput('assets/cosmic-client.js', clientJsContent);
+
+  // Sync CSS & JS into raggiesoft-assets/stardust-engine/ for https://assets.raggiesoft.com/ delivery
+  const cdnCssDir = path.join(workspaceRoot, 'raggiesoft-assets', 'stardust-engine', 'css');
+  const cdnJsDir = path.join(workspaceRoot, 'raggiesoft-assets', 'stardust-engine', 'js');
+  fs.mkdirSync(cdnCssDir, { recursive: true });
+  fs.mkdirSync(cdnJsDir, { recursive: true });
+  fs.writeFileSync(path.join(cdnCssDir, 'cosmic.css'), cssContent, 'utf-8');
+  fs.writeFileSync(path.join(cdnJsDir, 'cosmic-client.js'), clientJsContent, 'utf-8');
 
   // 1. Primary Cosmic Overview Routes (augmented with deep archive directory links)
   writeStaticOutput('index.html', renderStardustHome(stardustAlbums));

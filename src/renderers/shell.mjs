@@ -56,13 +56,13 @@ export function renderCosmicShell({
   const canonicalUrl = `https://stardust.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
 
   const navItems = [
-    { href: '/', label: 'Cosmic Home' },
-    { href: '/band', label: 'The Iron Five (Band)' },
-    { href: '/discography', label: 'Discography & Playlists' },
-    { href: '/lore', label: 'Deep Band Lore' },
-    { href: '/story', label: 'Story Archives (64 Dossiers)' },
-    { href: '/fleet', label: 'Rolling Sanctuary Fleet' },
-    { href: '/novel', label: 'Cosmic Novel Reader' }
+    { href: '/', label: 'Home' },
+    { href: '/band', label: 'The Band' },
+    { href: '/discography', label: 'Discography' },
+    { href: '/lore', label: 'Lore' },
+    { href: '/story', label: 'Story (64)' },
+    { href: '/fleet', label: 'Fleet' },
+    { href: '/novel', label: 'Novel' }
   ];
 
   const navHtml = navItems
@@ -111,7 +111,11 @@ export function renderCosmicShell({
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
-    <link rel="stylesheet" href="/assets/cosmic.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/root.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/extras.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/safety-net.css" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/cosmic.css" />
   </head>
   <body>
     <div class="cosmos-sky" aria-hidden="true"></div>
@@ -124,21 +128,36 @@ export function renderCosmicShell({
             src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png"
             alt="The Stardust Engine Rocket-and-Gear emblem"
             class="brand-logo"
-            width="44"
-            height="44"
+            width="36"
+            height="36"
           />
-          <span>
+          <span class="brand-text">
             <span class="brand-title">The Stardust Engine</span>
-            <span class="brand-subtitle">Ad Astra • Blacksburg, VA • Est. 1985</span>
+            <span class="brand-subtitle">Ad Astra • Blacksburg, VA</span>
           </span>
         </a>
 
-        <nav aria-label="Primary Cosmic Navigation">
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Toggle navigation menu"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary Cosmic Navigation">
           <ul class="nav-links">
             ${navHtml}
             <li>
               <a href="https://music.raggiesoft.com/the-stardust-engine" class="nav-cta" target="_blank" rel="noopener noreferrer">
-                🎧 Listen in The Listening Room ↗
+                🎧 Listen ↗
               </a>
             </li>
             <li>
@@ -149,7 +168,7 @@ export function renderCosmicShell({
                 aria-label="Toggle between Exoplanet Light Mode and Deep Space Dark Mode"
                 title="Switch between Exoplanet Surface (Light) and Deep Space (Dark)"
               >
-                <span id="theme-toggle-label">🪐 Environment</span>
+                <span id="theme-toggle-label">🪐 Theme</span>
               </button>
             </li>
             <li>
@@ -161,7 +180,7 @@ export function renderCosmicShell({
                 aria-label="Pause or resume cosmic starfield animations"
                 title="Pause or resume twinkling starfield motion"
               >
-                <span id="motion-toggle-label">⏸ Pause Motion</span>
+                <span id="motion-toggle-label">⏸ Motion</span>
               </button>
             </li>
           </ul>
@@ -218,7 +237,7 @@ export function renderCosmicShell({
       </div>
     </footer>
 
-    <script src="/assets/cosmic-client.js" defer></script>
+    <script src="https://assets.raggiesoft.com/stardust-engine/js/cosmic-client.js" defer></script>
   </body>
 </html>`;
 }
