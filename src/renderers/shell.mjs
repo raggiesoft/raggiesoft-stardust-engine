@@ -112,7 +112,7 @@ export function renderCosmicShell({
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
     <link rel="stylesheet" href="/assets/cosmic.css?v=20261017e" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017h" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017j" />
   </head>
   <body>
     <div class="cosmos-sky" aria-hidden="true"></div>
@@ -146,7 +146,6 @@ export function renderCosmicShell({
               <li role="none"><a role="menuitem" href="https://stardust.raggiesoft.com" class="is-active" aria-current="page">🚀 The Stardust Engine</a></li>
             </ul>
           </li>
-          <li><a href="https://lore.raggiesoft.com">🏛️ Lore</a></li>
           <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
           <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
           <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
@@ -243,7 +242,6 @@ export function renderCosmicShell({
               <li><a href="https://music.raggiesoft.com/the-stardust-engine">🎧 The Listening Room (music.raggiesoft.com)</a></li>
               <li><a href="https://books.raggiesoft.com/books/stardust-engine">📚 RaggieSoft Book Reader (books.raggiesoft.com)</a></li>
               <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records (engineroom.raggiesoft.com)</a></li>
-              <li><a href="https://lore.raggiesoft.com">🏛️ Universe Lore Omnibus (lore.raggiesoft.com)</a></li>
               <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (nebulae.raggiesoft.com)</a></li>
               <li><a href="https://raggiesoft.com">🌐 RaggieSoft Hub (raggiesoft.com)</a></li>
               <li><a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media (corporate.raggiesoft.com)</a></li>
@@ -276,7 +274,7 @@ export function renderCosmicShell({
     </footer>
 
     <script src="/assets/cosmic-client.js?v=20261017e" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017h" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017j" defer></script>
   </body>
 </html>`;
 }
