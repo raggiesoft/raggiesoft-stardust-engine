@@ -111,8 +111,8 @@ export function renderCosmicShell({
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
-    <link rel="stylesheet" href="/assets/cosmic.css?v=20261017d" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017d" />
+    <link rel="stylesheet" href="/assets/cosmic.css?v=20261017e" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017e" />
   </head>
   <body>
     <div class="cosmos-sky" aria-hidden="true"></div>
@@ -124,7 +124,6 @@ export function renderCosmicShell({
         <ul class="rs-network-links">
           <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
           <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
-          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
           <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
           <li class="rs-network-dropdown">
             <button type="button" class="rs-network-dropdown-toggle is-active" aria-expanded="false" aria-haspopup="true">
@@ -134,6 +133,7 @@ export function renderCosmicShell({
             </button>
             <ul class="rs-network-dropdown-menu" role="menu" aria-label="Engine Room Records &amp; Band Roster">
               <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Hub</a></li>
+              <li role="none"><a role="menuitem" href="https://music.raggiesoft.com">🎧 The Listening Room</a></li>
               <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists">🎸 All Artists Directory (7)</a></li>
               <li class="rs-network-dropdown-divider" role="separator"></li>
               <li class="rs-network-dropdown-header" role="presentation">✦ Band Roster (A–Z)</li>
@@ -275,8 +275,8 @@ export function renderCosmicShell({
       </div>
     </footer>
 
-    <script src="/assets/cosmic-client.js?v=20261017d" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017d" defer></script>
+    <script src="/assets/cosmic-client.js?v=20261017e" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017e" defer></script>
   </body>
 </html>`;
 }
