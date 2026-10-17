@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+        if (localStorage.getItem('cosmic-motion') === 'paused') {
+          document.documentElement.setAttribute('data-cosmic-motion', 'paused');
+        }
+      } catch (e) {}
+    </script>
+    <title>The London Discovery (1999) | Engine Room Records</title>
+    <meta name="description" content="How Holly O&#39;Connell uncovered the decaying Carnaby Street archives and rescued the master tapes of Fractured Prisms during the 1999 European tour." />
+    <link rel="canonical" href="https://stardust.raggiesoft.com/story/hard-reset/hard-reset-tour/london-discovery" />
+    <meta property="og:title" content="The London Discovery (1999) | Engine Room Records" />
+    <meta property="og:description" content="How Holly O&#39;Connell uncovered the decaying Carnaby Street archives and rescued the master tapes of Fractured Prisms during the 1999 European tour." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <meta property="og:url" content="https://stardust.raggiesoft.com/story/hard-reset/hard-reset-tour/london-discovery" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Stardust Engine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The London Discovery (1999) | Engine Room Records" />
+    <meta name="twitter:description" content="How Holly O&#39;Connell uncovered the decaying Carnaby Street archives and rescued the master tapes of Fractured Prisms during the 1999 European tour." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/cosmic.css" />
+  </head>
+  <body>
+    <div class="cosmos-sky" aria-hidden="true"></div>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="The Stardust Engine Cosmic Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png"
+            alt="The Stardust Engine Rocket-and-Gear emblem"
+            class="brand-logo"
+            width="44"
+            height="44"
+          />
+          <span>
+            <span class="brand-title">The Stardust Engine</span>
+            <span class="brand-subtitle">Ad Astra • Blacksburg, VA • Est. 1985</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Cosmic Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Cosmic Home</a></li>
+            <li><a href="/band" class="nav-link">The Iron Five (Band)</a></li>
+            <li><a href="/discography" class="nav-link">Discography &amp; Playlists</a></li>
+            <li><a href="/lore" class="nav-link">Deep Band Lore</a></li>
+            <li><a href="/story" class="nav-link" aria-current="page">Story Archives (64 Dossiers)</a></li>
+            <li><a href="/fleet" class="nav-link">Rolling Sanctuary Fleet</a></li>
+            <li><a href="/novel" class="nav-link">Cosmic Novel Reader</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com/the-stardust-engine" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 Listen in The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="control-btn"
+                aria-label="Toggle between Exoplanet Light Mode and Deep Space Dark Mode"
+                title="Switch between Exoplanet Surface (Light) and Deep Space (Dark)"
+              >
+                <span id="theme-toggle-label">🪐 Environment</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="motion-toggle"
+                class="control-btn"
+                aria-pressed="false"
+                aria-label="Pause or resume cosmic starfield animations"
+                title="Pause or resume twinkling starfield motion"
+              >
+                <span id="motion-toggle-label">⏸ Pause Motion</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+<div class="container py-5">
+    
+    
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+            <span class="badge bg-warning text-dark px-3 py-2 shadow-sm mb-3 text-uppercase">
+                <i class="fa-duotone fa-handshake me-2"></i>Engine Room Records History
+            </span>
+            <h1 class="display-3 fw-bold text-uppercase text-body-emphasis mb-0" style="font-family: 'Impact', sans-serif;">
+                The Discovery
+            </h1>
+            <p class="lead text-body-secondary font-monospace mt-2">
+                October 22, 1998 // Camden Town, London // "The Underworld"
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-9">
+            
+            <div class="card wa-ported-card card border-0 shadow-sm bg-body-tertiary p-4 mb-5 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body p-4">
+                    <h3 class="h5 fw-bold text-body-emphasis border-bottom pb-2 mb-3">The Wake in the Bar</h3>
+                    <p class="text-body-secondary">
+                        It was sheer chance. Ryan O'Connell and Evan Wright had ducked into the basement club just to escape the London rain.
+                    </p>
+                    <p class="text-body-secondary">
+                        On stage, it wasn't a reunion; it was a ghost story. <strong>Origin</strong> had once been a massive six-piece art-rock orchestra. Now, only two remained: the singer and the flautist. Brother and sister.
+                    </p>
+                    
+                    <div class="alert alert-primary d-flex align-items-start gap-3 mt-4 d-block" role="note">
+                        <i slot="icon" class="fa-duotone fa-music text-primary"></i>
+                        <div>
+                            <strong class="text-primary-emphasis d-block">The Signal</strong> 
+                            <span class="text-body-secondary small">The flautist stepped up to the mic and played seven notes. Ryan froze. It was the "Safe Harbor" melody—the exact tune Cassidy used to hum to him over the phone during his paralysis rehab in 1991.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card wa-ported-card card bg-body-tertiary border-info p-4 mb-5 shadow-lg w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 class="text-info fw-bold text-uppercase mb-2">The Phone Call</h4>
+                        <p class="text-body-secondary mb-0 fst-italic font-monospace">
+                            "Cass. You're not going to believe who is on stage. Get Holly. Come to Camden. Now."
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <i class="fa-duotone fa-mobile-signal fa-4x text-info opacity-25"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="h4 fw-bold text-body-emphasis mb-4">The Approach: "The Common Language"</h3>
+            <p class="text-body-secondary fs-5 mb-4">
+                In the music industry, deals are made over whisky and cocaine. Holly O'Connell walked into the pub and broke every rule.
+            </p>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card wa-ported-card card h-100 bg-body-secondary border-0 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                        <div class="card-body p-4">
+                            <h5 class="text-body-emphasis fw-bold"><i class="fa-duotone fa-glass-water me-2"></i>The Order</h5>
+                            <p class="small text-body-secondary mb-0">
+                                Holly walked up to the band's table. "Five pints of Cola. And a round of chips."
+                                <br><br>
+                                The lead singer stared at the sodas, then at her. "Are you taking the mickey?" He assumed she was mocking them.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card wa-ported-card card h-100 bg-body-secondary border-0 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                        <div class="card-body p-4">
+                            <h5 class="text-body-emphasis fw-bold"><i class="fa-duotone fa-hand-heart me-2"></i>The Truth</h5>
+                            <p class="small text-body-secondary mb-0">
+                                "We don't drink," Holly said simply. "We're a dry tour."
+                                <br><br>
+                                The singer's defensiveness vanished. He looked at his sister. "Neither do we. Not after what the London scene did to the rest of us."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="alert alert-warning d-flex align-items-start gap-3 mt-5 shadow-sm d-block" role="note">
+                <div class="d-flex align-items-start">
+                    <i class="fa-duotone fa-dna text-warning fs-2 me-3 mt-1"></i>
+                    <div>
+                        <h4 class="alert-heading h6 fw-bold text-warning-emphasis text-uppercase">The "Mirror Image"</h4>
+                        <p class="mb-2 small text-body-secondary">
+                            As they talked, the pieces fell into place. Like Ryan and Cassidy, the Origin siblings were <strong>autistic</strong>. The "Safe Harbor" flute melody wasn't just a hook; it was a <strong>Stimming Signal</strong> they had written to ground each other during sensory overload.
+                        </p>
+                        <p class="mb-0 small text-body-secondary border-top border-secondary border-opacity-25 pt-2 mt-2 fst-italic">
+                            "I didn't just hear a song," Ryan told Holly later. "I heard family."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <h3 class="h5 text-uppercase text-body-secondary fw-bold mb-3">The Deal</h3>
+            <div class="card wa-ported-card card bg-body-tertiary shadow-lg transform-rotate-1 p-4 w-100" style="font-family: ">
+                <p class="fs-3 text-body-emphasis mb-2">The "Napkin" Deal</p>
+                <ul class="list-unstyled fs-5 text-body-secondary text-start mx-auto" style="max-width: 400px;">
+                    <li class="mb-2">1. You un-retire.</li>
+                    <li class="mb-2">2. Record at The Fortress (Blacksburg).</li>
+                    <li class="mb-2">3. You keep the masters (Clause 88).</li>
+                    <li class="mb-0">4. No Grunge. Only Art Rock.</li>
+                </ul>
+                <div class="mt-3 border-top pt-2">
+                    <span class="text-primary">Signed: H. O'Connell / Origin</span>
+                </div>
+            </div>
+            <p class="small text-body-secondary mt-4">
+                The singer laughed. <strong>"Luv, we live in Williamsport, Maryland. Just down the I-81."</strong>
+                <br>They were at The Fortress three weeks later.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="/story/hard-reset/hard-reset-tour/paternoster-incident" class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2 px-4">
+                <i slot="start" class="fa-duotone fa-backward"></i>Back to Prague
+            </a>
+            <a href="/band/history" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center gap-2 px-4 ms-2">
+                <i slot="start" class="fa-duotone fa-timeline"></i>Return to Timeline
+            </a>
+        </div>
+    </div>
+
+</div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">The Stardust Engine (ERR-001)</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              Named after the very first song Ryan, Cassidy, Evan, and Tyler wrote together at CPI in <strong>1986</strong>—celebrating their shared love of the cosmos (<strong>&ldquo;Stardust&rdquo;</strong>) and the rockets to get you there (<strong>&ldquo;Engine&rdquo;</strong>).
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Audio, Literary &amp; Archive Gateways</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com/the-stardust-engine">🎧 Stream &amp; Download in The Listening Room</a></li>
+              <li><a href="https://books.raggiesoft.com/books/stardust-engine">📚 Read Band Novel on RaggieSoft Book Reader</a></li>
+              <li><a href="https://books.raggiesoft.com/books/erin">📖 Read Before the Distance (John &amp; Erin)</a></li>
+              <li><a href="/story">🗂️ Complete 64-Dossier Story &amp; Exhibit Index</a></li>
+              <li><a href="/about">📜 About the Band</a> • <a href="/license">⚖️ Licensing</a> • <a href="/contact">✉️ Contact Policy</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Imprint Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Real-World Imprint Disclosure</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, all music by <strong>The Stardust Engine</strong> is produced and published by <strong>Michael P. Ragsdale</strong> under his real-world creative brand <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;).
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media (Real-World B2B &amp; Commercial Sync Portal)</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, John and Erin, and Julian Vance), bands (including The Stardust Engine), universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are works of fiction. Any resemblance to actual persons (living or dead), businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/cosmic-client.js" defer></script>
+  </body>
+</html>

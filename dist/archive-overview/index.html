@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+        if (localStorage.getItem('cosmic-motion') === 'paused') {
+          document.documentElement.setAttribute('data-cosmic-motion', 'paused');
+        }
+      } catch (e) {}
+    </script>
+    <title>The Stardust Engine | Official Band Overview</title>
+    <meta name="description" content="Explore the history, discography, and lore of The Stardust Engine, the flagship synth-rock band of Engine Room Records." />
+    <link rel="canonical" href="https://stardust.raggiesoft.com/archive-overview" />
+    <meta property="og:title" content="The Stardust Engine | Official Band Overview" />
+    <meta property="og:description" content="Explore the history, discography, and lore of The Stardust Engine, the flagship synth-rock band of Engine Room Records." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <meta property="og:url" content="https://stardust.raggiesoft.com/archive-overview" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Stardust Engine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Stardust Engine | Official Band Overview" />
+    <meta name="twitter:description" content="Explore the history, discography, and lore of The Stardust Engine, the flagship synth-rock band of Engine Room Records." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/cosmic.css" />
+  </head>
+  <body>
+    <div class="cosmos-sky" aria-hidden="true"></div>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="The Stardust Engine Cosmic Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png"
+            alt="The Stardust Engine Rocket-and-Gear emblem"
+            class="brand-logo"
+            width="44"
+            height="44"
+          />
+          <span>
+            <span class="brand-title">The Stardust Engine</span>
+            <span class="brand-subtitle">Ad Astra • Blacksburg, VA • Est. 1985</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Cosmic Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Cosmic Home</a></li>
+            <li><a href="/band" class="nav-link">The Iron Five (Band)</a></li>
+            <li><a href="/discography" class="nav-link">Discography &amp; Playlists</a></li>
+            <li><a href="/lore" class="nav-link">Deep Band Lore</a></li>
+            <li><a href="/story" class="nav-link">Story Archives (64 Dossiers)</a></li>
+            <li><a href="/fleet" class="nav-link">Rolling Sanctuary Fleet</a></li>
+            <li><a href="/novel" class="nav-link">Cosmic Novel Reader</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com/the-stardust-engine" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 Listen in The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="control-btn"
+                aria-label="Toggle between Exoplanet Light Mode and Deep Space Dark Mode"
+                title="Switch between Exoplanet Surface (Light) and Deep Space (Dark)"
+              >
+                <span id="theme-toggle-label">🪐 Environment</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="motion-toggle"
+                class="control-btn"
+                aria-pressed="false"
+                aria-label="Pause or resume cosmic starfield animations"
+                title="Pause or resume twinkling starfield motion"
+              >
+                <span id="motion-toggle-label">⏸ Pause Motion</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+
+<div class="border-bottom border-primary border-opacity-50" style="
+    position: relative;
+    background-image: linear-gradient(rgba(13, 6, 26, 0.7), rgba(13, 6, 26, 0.7)), 
+                      url('https://assets.raggiesoft.com/stardust-engine/images/stardust-engine-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+">
+    <div class="container-fluid text-center pt-5 pb-5">
+        <div class="container pt-5 pb-4">
+            <h1 class="display-2 text-uppercase text-glow-primary text-white" 
+                style="font-family: 'Audiowide', sans-serif; letter-spacing: 2px;">
+                <i class="fa-solid fa-rocket me-3"></i>The Stardust Engine
+            </h1>
+            <p class="lead fs-3 text-uppercase text-white" 
+               style="font-family: 'Exo 2', sans-serif; font-weight: 300; letter-spacing: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                A musical universe forged in the fires of CPI.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 mb-2">
+    <div class="alert alert-secondary d-flex align-items-start gap-3 shadow-sm d-block" role="note">
+        <i slot="icon" class="fa-duotone fa-robot-astromech fa-3x text-info d-none d-md-block"></i>
+        <div>
+            <h4 class="alert-heading h6 fw-bold mb-1 text-uppercase letter-spacing-1"><i class="fa-duotone fa-robot-astromech me-2 text-info d-inline-block d-md-none"></i>Transparency & Timeline Notice</h4>
+            <p class="mb-2 small text-body-secondary border-bottom border-secondary-subtle pb-2">
+                <strong>The Stardust Engine</strong> is a multimedia storytelling and world-building project. The music is generated using a commercial Suno license, with conceptual lore, characters, and lyrics co-written by human direction and Gemini.
+            </p>
+            <p class="mb-0 small text-body-secondary">
+                <strong>Dual Timelines:</strong> To maintain our immersive fictional universe while strictly complying with modern digital distribution standards, our catalog features two timelines: a fictional <strong>Narrative Era</strong> (e.g., 1987) tied to the band's lore, and a real-world <strong>Actual Release Date</strong> (e.g., 2026) reflecting when the audio was officially distributed to streaming platforms.
+                <a href="https://raggiesoft.com/about/ai-disclaimer" class="alert-link fw-bold text-info border-bottom border-info text-decoration-none ms-1">Read the full AI Disclaimer.</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 border-bottom border-secondary border-opacity-25 position-relative" style="z-index: 1050;">
+    <div class="bg-body-tertiary rounded shadow-sm border border-secondary border-opacity-50">
+        <div class="row g-0 align-items-center">
+            
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="https://assets.raggiesoft.com/stardust-engine/images/band-members/family-portraits/artist-header-oconnell.jpg" 
+                     alt="Ryan, Cassidy, and Holly O'Connell in the studio" 
+                     class="img-fluid h-100 object-fit-cover rounded-start"
+                     style="min-height: 400px;">
+            </div>
+
+            <div class="col-lg-6 p-4 p-md-5 text-center text-lg-start">
+                <span class="badge bg-success text-success-emphasis mb-3 px-3 py-2 text-uppercase letter-spacing-1" style="border: 1px solid var(--bs-success-border-subtle);">
+                    <i class="fa-solid fa-satellite-dish me-2 pulse-icon"></i>Now Streaming
+                </span>
+                <h2 class="display-5 fw-bold text-uppercase mb-3" style="font-family: 'Impact', sans-serif;">The Engine is Live</h2>
+                <p class="lead text-body-secondary mb-4">
+                    The complete, uncompromised discography of The Stardust Engine has officially cleared the global distribution network. Support the family and stream their entire catalog.
+                </p>
+                
+                <img src="https://assets.raggiesoft.com/stardust-engine/images/band-members/family-portraits/artist-header-oconnell.jpg" 
+                     alt="The O'Connell Family" 
+                     class="img-fluid rounded mb-4 d-block d-lg-none shadow-sm border border-secondary">
+
+                <style>
+                    /* Official Meta Brand Colors */
+                    .btn-facebook {
+                        background-color: #1877F2;
+                        color: #ffffff;
+                        border: 1px solid #1877F2;
+                        transition: all 0.2s ease-in-out;
+                    }
+                    .btn-facebook:hover, .btn-facebook:focus {
+                        background-color: #166FE5;
+                        color: #ffffff;
+                        border-color: #166FE5;
+                    }
+                    /* Ensure the SVG icon scales correctly */
+                    .btn-facebook svg {
+                        width: 1.25rem;
+                        height: 1.25rem;
+                    }
+                </style>
+
+                <div class="d-flex flex-column align-items-center align-items-lg-start">
+                    
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                        <a href="https://music.raggiesoft.com/the-stardust-engine" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2 shadow-sm px-4 fw-bold d-inline-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                            <i slot="start" class="fa-duotone fa-headphones"></i>The Listening Room
+                        </a>
+
+                        
+<style>
+/* Patch for Web Awesome Button Group not recognizing wa-dropdown in split buttons */
+wa-button-group.dynamic-store-group {
+    display: flex !important;
+    gap: 0 !important;
+}
+wa-button-group.dynamic-store-group wa-button.main-store-btn::part(base) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    margin-right: -1px !important;
+    z-index: 1 !important;
+}
+wa-button-group.dynamic-store-group wa-button.main-store-btn:hover::part(base) {
+    z-index: 3 !important;
+}
+wa-button-group.dynamic-store-group wa-dropdown {
+    display: flex !important;
+}
+wa-button-group.dynamic-store-group wa-dropdown wa-button::part(base) {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    z-index: 2 !important;
+}
+wa-button-group.dynamic-store-group wa-dropdown wa-button:hover::part(base) {
+    z-index: 3 !important;
+}
+
+/* DSP Custom Colors */
+wa-button.dsp-spotify::part(base) { background-color: #1DB954 !important; border-color: #1DB954 !important; color: white !important; }
+wa-button.dsp-spotify:hover::part(base) { background-color: #1ed760 !important; border-color: #1ed760 !important; }
+
+wa-button.dsp-apple::part(base) { background-color: #FA243C !important; border-color: #FA243C !important; color: white !important; }
+wa-button.dsp-apple:hover::part(base) { background-color: #ff4055 !important; border-color: #ff4055 !important; }
+
+wa-button.dsp-amazon::part(base) { background-color: #00A8E1 !important; border-color: #00A8E1 !important; color: white !important; }
+wa-button.dsp-amazon:hover::part(base) { background-color: #00c0ff !important; border-color: #00c0ff !important; }
+
+wa-button.dsp-youtube::part(base) { background-color: #FF0000 !important; border-color: #FF0000 !important; color: white !important; }
+wa-button.dsp-youtube:hover::part(base) { background-color: #ff3333 !important; border-color: #ff3333 !important; }
+
+/* DSP Custom Text Colors for Dropdown Icons */
+.text-dsp-spotify { color: #1DB954 !important; }
+.text-dsp-apple { color: #FA243C !important; }
+.text-dsp-amazon { color: #00A8E1 !important; }
+.text-dsp-youtube { color: #FF0000 !important; }
+</style>
+
+<div class="d-flex flex-wrap gap-2">
+    
+    <div class="btn-group d-inline-flex align-items-stretch dynamic-store-group" role="group">
+        <a href="https://open.spotify.com/artist/7Lr6o5qOo1OgVQGumUjFFT" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2 main-store-btn fw-bold dsp-spotify" target="_blank" rel="noopener noreferrer" data-default-text="Artist on">
+            <i slot="start" class="main-store-icon fa-brands fa-spotify"></i>
+            <span class="main-store-text">Artist on Spotify</span>
+        </a>
+        
+        <details class="wa-ported-dropdown position-relative d-inline-block"><summary class="btn toggle-store-btn px-2 dsp-spotify list-unstyled d-inline-flex align-items-center gap-1" aria-label="Toggle platform options">
+                <i class="fa-solid fa-chevron-down"></i>
+            </summary><div class="wa-ported-dropdown-menu position-absolute end-0 mt-1 p-2 rounded-3 border shadow-lg bg-body z-3" style="min-width: 220px;">
+            
+            
+            <div class="px-3 py-2 bg-body-tertiary border-bottom border-secondary-subtle mb-1" style="max-width: 240px;">
+                <span class="d-block fw-bold text-primary mb-1"><i class="fa-solid fa-memory me-1"></i> Set Global Default</span>
+                <span class="d-block small text-body-secondary lh-sm" style="font-size: 0.8em;">Select your preferred app. We will remember it for all future albums.</span>
+            </div>
+                                                
+                    <div class="wa-ported-dropdown-item py-1 px-2 rounded store-selector-link position-relative">
+                        <i slot="icon" class="fa-brands fa-spotify text-dsp-spotify"></i> 
+                        <a href="https://open.spotify.com/artist/7Lr6o5qOo1OgVQGumUjFFT" target="_blank" class="text-decoration-none text-body fw-bold stretched-link">
+                            Spotify                        </a>
+                    </div>
+                                                                
+                    <div class="wa-ported-dropdown-item py-1 px-2 rounded store-selector-link position-relative">
+                        <i slot="icon" class="fa-brands fa-apple text-dsp-apple"></i> 
+                        <a href="https://music.apple.com/us/artist/1889194363" target="_blank" class="text-decoration-none text-body fw-bold stretched-link">
+                            Apple Music                        </a>
+                    </div>
+                                                                
+                    <div class="wa-ported-dropdown-item py-1 px-2 rounded store-selector-link position-relative">
+                        <i slot="icon" class="fa-brands fa-amazon text-dsp-amazon"></i> 
+                        <a href="https://music.amazon.com/artists/B0GVGL5RS7" target="_blank" class="text-decoration-none text-body fw-bold stretched-link">
+                            Amazon Music                        </a>
+                    </div>
+                                                                
+                    <div class="wa-ported-dropdown-item py-1 px-2 rounded store-selector-link position-relative">
+                        <i slot="icon" class="fa-brands fa-youtube text-dsp-youtube"></i> 
+                        <a href="https://music.youtube.com/channel/UCqtJNbYErxJ7ivveQXVS2mg" target="_blank" class="text-decoration-none text-body fw-bold stretched-link">
+                            YouTube                        </a>
+                    </div>
+                                    </div></details>
+    </div>
+
+    
+</div>
+
+                        <a href="https://facebook.com/TheStardustEngine" class="btn btn-secondary d-inline-flex align-items-center justify-content-center gap-2 btn-facebook shadow-sm px-4 fw-bold d-inline-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                            </svg>
+                            Find us on Facebook
+                        </a>
+                    </div>
+                    <p class="small text-muted mt-3 mb-0">
+                        <i class="fa-duotone fa-sliders-up me-1 text-secondary"></i> <strong>Pro Tip:</strong> Click the arrow next to the streaming button to set your default app, or visit <a href="https://music.raggiesoft.com/the-stardust-engine" target="_blank" rel="noopener" class="text-info text-decoration-none fw-bold">music.raggiesoft.com</a> for full lyrics and liner notes.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 border-bottom border-secondary border-opacity-25 position-relative" style="z-index: 1050;">
+    <div class="card wa-ported-card card bg-transparent border-primary shadow-glow overflow-hidden w-100" style="border-width: 2px; --body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+        <div class="row g-0">
+            <div class="col-md-5 d-flex align-items-center justify-content-center p-4 position-relative" style="background: radial-gradient(circle at center, rgba(13, 202, 240, 0.15) 0%, rgba(0,0,0,0) 70%);">
+                <img src="https://assets.raggiesoft.com/raggiesoft-corporate/images/fw/engineroom-records/stardust-engine/err-fw-stardust-store.jpg" 
+                     alt="The Stardust Engine Official Merchandise" 
+                     class="img-fluid rounded shadow-lg"
+                     style="max-height: 300px;">
+                
+                <div class="position-absolute top-0 start-0 m-3">
+                    <span class="badge bg-primary shadow-sm px-3 py-2 text-uppercase letter-spacing-1">
+                        <i class="fa-solid fa-store me-2 pulse-icon"></i>Now Open
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-7 p-4 p-md-5 d-flex flex-column justify-content-center">
+                <h2 class="display-6 fw-bold text-uppercase text-info mb-3" style="font-family: 'Impact', sans-serif;">
+                    The Official Storefront
+                </h2>
+                <p class="lead text-body-secondary mb-4">
+                    Step into the Engine Room. We've officially launched the centralized hub for The Stardust Engine's physical hardware and digital master tapes. 
+                </p>
+                
+                <ul class="list-unstyled text-body-secondary mb-4">
+                    <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> <strong>Physical Hardware:</strong> Heavyweight apparel, clear mobile shells, and premium decals.</li>
+                    <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> <strong>The Audiophile Vault:</strong> Pure, uncompressed WAV master files (LZMA2 compressed).</li>
+                    <li><i class="fa-solid fa-check text-success me-2"></i> <strong>Standard Archives:</strong> Highly compatible MP3/OGG payloads with digital lore booklets.</li>
+                </ul>
+
+                <div>
+                    <a href="https://store.raggiesoft.com/pages/the-stardust-engine" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2 px-5 fw-bold shadow-lg hover-lift" target="_blank" rel="noopener noreferrer">
+                        <i slot="start" class="fa-solid fa-bag-shopping"></i>Shop the Collection
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 border-bottom border-secondary border-opacity-25 position-relative" style="z-index: 1050;">
+    <div class="card wa-ported-card w-100 shadow-lg border-info overflow-hidden" style="--header-padding: 0; --body-padding: 0; --wa-panel-bg: var(--bs-tertiary-bg);">
+        <div slot="header" class="bg-dark text-white border-bottom border-info p-3 px-4 d-flex flex-wrap justify-content-between align-items-center gap-2 w-100">
+            <div class="d-flex align-items-center gap-2">
+                <i class="fa-duotone fa-satellite text-info fs-5"></i>
+                <span class="fw-bold text-uppercase letter-spacing-1 font-monospace">Featured Release &amp; Lore Spotlight // October 18, 2011</span>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-warning text-dark ">
+                    <i slot="start" class="fa-duotone fa-fire-flame-curved"></i>25 Years of "Ignition" (1986&ndash;2011)
+                </span>
+                <span class="badge bg-primary ">
+                    <i slot="start" class="fa-duotone fa-stars"></i>The Cosmic Tidal Lock Sound&trade;
+                </span>
+            </div>
+        </div>
+
+        <div class="p-4 p-lg-5">
+            <div class="row align-items-center justify-content-center g-5 mb-4">
+                
+                <div class="col-md-5 col-lg-4 text-center">
+                    <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration" target="_blank" rel="noopener" class="text-decoration-none d-inline-block">
+                        <img src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/2011-starfield-calibration/album-art.jpg" 
+                             class="img-fluid rounded shadow-lg border border-info hover-lift" 
+                             alt="Starfield Calibration Album Art — The Stardust Engine"
+                             style="transition: transform 0.3s ease;">
+                    </a>
+                </div>
+
+                
+                <div class="col-md-7 col-lg-8">
+                    <h2 class="display-5 fw-bold text-uppercase text-body-emphasis mb-2" style="font-family: 'Impact', sans-serif;">
+                        Starfield Calibration
+                    </h2>
+                    <p class="text-info font-monospace small text-uppercase mb-3 fw-bold">
+                        <i class="fa-solid fa-calendar-star me-1"></i>Released Oct 18, 2011 &bull; 25th Anniversary of <em>"Ignition (The Forger's Call)"</em> &bull; 80s Cosmic Pop
+                    </p>
+                    <p class="lead text-body-secondary mb-3">
+                        Released on <strong>Tuesday, October 18, 2011</strong>—twenty-five years to the exact day after <em>"Ignition (The Forger's Call)"</em> first detonated inside <strong>The Crucible</strong> on Homecoming Saturday, October 18, 1986—<strong>Starfield Calibration</strong> is the band's silver-anniversary gift to Forger Nation while recharging from their exhausting 2004 post-<em>Progress Street</em> burnout.
+                    </p>
+                    <p class="text-body mb-4">
+                        Rather than rushing back onto a high-friction stadium tour before Ryan and Cassidy were ready, Chief Audio Architect <strong>Cassidy O'Connell</strong> retreated to the family's private Blacksburg studio to rebuild fourteen foundational tracks (1987&ndash;2001) entirely within <a href="/story/cosmic-tidal-lock-sound" class="fw-bold text-info text-decoration-underline">The Cosmic Tidal Lock Sound&trade;</a>—including retrospective lyric updates celebrating their liberation from Apex Records' <em>"Plastic Sky"</em> and the <strong>first-ever finalized studio master of <em>"Atmosphere"</em></strong> (rescuing the song from its rough 1992 early-90s <em>Friction</em> demo and bringing it back to the lush 1980s sound the band loves so much).
+                    </p>
+
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2" target="_blank" rel="noopener noreferrer">
+                            <i slot="start" class="fa-duotone fa-headphones"></i>Listen to Starfield Calibration
+                        </a>
+                        <a href="/story/cosmic-tidal-lock-sound" class="btn btn-outline-warning d-inline-flex align-items-center justify-content-center gap-2">
+                            <i slot="start" class="fa-duotone fa-satellite"></i>The Cosmic Tidal Lock Sound&trade; Explainer
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-3 border-secondary opacity-25">
+
+            
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-7 d-flex">
+                    <div class="alert alert-secondary d-flex align-items-start gap-3 w-100 mb-0" role="note">
+                        <i slot="icon" class="fa-duotone fa-chess-queen text-warning fs-4"></i>
+                        <div class="fw-bold text-uppercase mb-2 text-body-emphasis">
+                            While the Band Recharges, Holly Builds an Empire (1997 &rarr; 2011 &rarr; 2015)
+                        </div>
+                        <p class="small text-body-secondary mb-2">
+                            To the outside world, the 2004&ndash;2014 Burnout Hiatus looked like a quiet retreat. Behind closed doors, CEO <strong>Holly O'Connell</strong> was executing an <strong>18-year institutional wealth and liability blueprint</strong> she first conceived in <strong>1997 during <em>Hard Reset</em></strong>—when the <em>"$13.99 War"</em> and the 1996 <em>"American Dream"</em> Jackpot taught her that the family's capital and master catalog had to be ruthlessly siloed and diversified.
+                        </p>
+                        <p class="small text-body-secondary mb-0">
+                            By the time <em>Starfield Calibration</em> dropped in <strong>October 2011</strong>, Holly had already stripped all operational liabilities out of <strong>Engine Room Records, LLC</strong> (2005), spun off <strong>Artists First Management, LLC</strong> and <strong>Stardust Strategic Assets, LLC</strong> (2005), built CPI barrier-free housing via <strong>Stardust Blacksburg, LLC</strong> (2007), and used the 2008&ndash;2010 financial crash to acquire Class-A Century City office towers for cash through <strong>Pacific Rim Properties, LLC</strong> (2009&ndash;2011)—laying the final bricks for <strong>The O'Connell Family Revocable Trust</strong> (2012) and the <strong>August 2015 Delaware Migration</strong> ($2.4B+ AUM).
+                        </p>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-5 d-flex">
+                    <div class="p-4 rounded border border-secondary border-opacity-50 bg-body w-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="h6 fw-bold text-uppercase font-monospace text-info mb-3">
+                                <i class="fa-duotone fa-book-atlas me-2"></i>Deep-Dive Lore Archives
+                            </h3>
+                            <p class="small text-body-secondary mb-3">
+                                Explore the sonic engineering, stadium history, and corporate architecture behind the 2011 hiatus era:
+                            </p>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="/story/cosmic-tidal-lock-sound" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center gap-2">
+                                <i slot="start" class="fa-duotone fa-wave-sine"></i>The Cosmic Tidal Lock Sound&trade; vs. 80s Cosmic Pop
+                            </a>
+                            <a href="/story/cpi/anthems-and-redline" class="btn btn-outline-warning d-inline-flex align-items-center justify-content-center gap-2">
+                                <i slot="start" class="fa-duotone fa-fire-flame-curved"></i>Oct 18, 1986: Debut of "Ignition" at The Crucible
+                            </a>
+                            <a href="https://engineroom.raggiesoft.com/corporate/structure" class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2">
+                                <i slot="start" class="fa-duotone fa-sitemap"></i>Holly's $2.4B Corporate Web (2015 Org Chart)
+                            </a>
+                            <a href="/story/2015-delaware-migration" class="btn btn-outline-success d-inline-flex align-items-center justify-content-center gap-2">
+                                <i slot="start" class="fa-duotone fa-file-signature"></i>The 2015 Delaware Migration Archive
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container py-5 border-bottom border-secondary border-opacity-25 position-relative" style="z-index: 1050;">
+    <div class="row align-items-center justify-content-center g-5">
+        
+        <div class="col-md-5 col-lg-4 text-center">
+            <a href="https://music.raggiesoft.com/the-stardust-engine/2004-progress-street" class="text-decoration-none">
+                <img src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/2004-progress-street/album-art.jpg" 
+                     class="img-fluid rounded shadow-lg border border-warning hover-lift" 
+                     alt="Progress Street Album Art - The Stardust Engine standing beside their 2004 Prairie Coachworks RLFD30 bus at dusk"
+                     style="transition: transform 0.3s ease;">
+            </a>
+        </div>
+        
+        <div class="col-md-7 col-lg-6">
+            <span class="badge bg-warning text-dark px-3 py-2 text-uppercase letter-spacing-1 shadow-glow mb-3 fw-bold">
+                <i class="fa-duotone fa-compact-disc me-2 pulse-icon"></i>2004 Pre-Hiatus Studio Milestone
+            </span>
+            <h2 class="display-5 fw-bold text-uppercase text-body-emphasis mb-2" style="font-family: 'Impact', sans-serif;">
+                Progress Street
+            </h2>
+            <p class="text-warning font-monospace small text-uppercase mb-3">
+                <i class="fa-solid fa-location-dot me-1"></i>1985 Origins &bull; 2004 Studio Release &bull; Blacksburg, VA
+            </p>
+            <p class="lead text-body-secondary mb-3">
+                A roaring eleven-track 1980s AOR and stadium synth-rock homecoming. Named after Progress Street NE in Blacksburg—where Ryan, Cassidy, Holly, Evan, and Tyler lived in an off-campus rental house while attending <strong>Commonwealth Polytechnic Institute (CPI)</strong>—this record celebrates the unbreakable family bond that carried them from a basement upright piano to sold-out arenas.
+            </p>
+            <p class="text-body mb-4">
+                Featuring the Fourth Quarter stadium stomper <em>"Saturday Night Lights: The Crucible"</em> (cleared under Holly's legendary 1986 <strong>$1.00 Perpetual Mutual Cross-License</strong> with CPI), the full-band AOR resurrection of <em>"Empty Arenas,"</em> and their heartfelt pre-hiatus promise to Forger Nation, <em>"Last Bus Home: Lights Out on Progress Street."</em>
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+                <a href="https://music.raggiesoft.com/the-stardust-engine/2004-progress-street" class="btn btn-warning d-inline-flex align-items-center justify-content-center gap-2 px-4 fw-bold text-dark shadow-glow hover-lift">
+                    <i slot="start" class="fa-solid fa-play"></i>Explore Progress Street
+                </a>
+                <a href="https://music.raggiesoft.com/the-stardust-engine/2004-progress-street" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center gap-2 px-4 fw-bold hover-lift" target="_blank" rel="noopener noreferrer">
+                    <i slot="start" class="fa-duotone fa-headphones"></i>Stream &amp; Read Lyrics
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="container py-5 border-bottom border-secondary border-opacity-25 position-relative" style="z-index: 1050;">
+    <div class="text-center mb-5">
+        <span class="badge bg-primary text-info-emphasis px-3 py-2 text-uppercase letter-spacing-1 mb-2">
+            <i class="fa-duotone fa-bus me-2"></i>Driven Exclusively by Family &bull; Class A CDL Certified
+        </span>
+        <h2 class="display-5 fw-bold text-uppercase text-body-emphasis mb-2" style="font-family: 'Impact', sans-serif;">
+            The Stardust Fleet: Rolling Sanctuary
+        </h2>
+        <p class="lead text-body-secondary mx-auto" style="max-width: 820px;">
+            For The Stardust Engine, accessibility and privacy are non-negotiable. Rather than leasing third-party tour buses or hiring outside drivers, <strong>Tyler Wright, Evan Wright, and Holly O'Connell</strong> all earned their <strong>Class A Commercial Driver's Licenses</strong> (with Passenger and Airbrake endorsements)—and the band commissioned two custom-engineered coaches built around Ryan's wheelchair.
+        </p>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+        
+        <div class="col-lg-6 d-flex">
+            <div class="card wa-ported-card card bg-body-tertiary border-info border-opacity-50 shadow-sm w-100 overflow-hidden hover-lift d-flex flex-column" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="position-relative">
+                    <a href="https://engineroom.raggiesoft.com/corporate/strategic-assets/the-iron-horse">
+                        <img src="https://assets.raggiesoft.com/stardust-engine/images/fleet/2002-sainte-claire-45h3-iron-horse.jpg" 
+                             class="img-fluid w-100 object-fit-cover border-bottom border-info border-opacity-25" 
+                             style="max-height: 280px;"
+                             alt="2002 Sainte-Claire 45H3 The Iron Horse 45-foot high-deck luxury tour bus with mid-ship hydraulic wheelchair lift deployed">
+                    </a>
+                    <span class="badge bg-primary text-info position-absolute top-0 end-0 m-3 px-3 py-2 font-monospace">
+                        45-FT INTERSTATE FLAGSHIP
+                    </span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column flex-grow-1">
+                    <div class="small text-info font-monospace text-uppercase mb-1">2002 Custom High-Deck Motorcoach &bull; Sainte-Claire, QC</div>
+                    <h3 class="h4 fw-bold text-body-emphasis mb-2">Sainte-Claire 45H3 (<em>"The Iron Horse"</em>)</h3>
+                    <p class="text-body-secondary small mb-3">
+                        Forged in Québec stainless steel with a bespoke Cosmic Nebula exterior wrap, <strong>The Iron Horse</strong> is the family's 54,000-lb coast-to-coast touring fortress. Engineered with a mid-ship <strong>60-inch vertical hydraulic cassette lift</strong>, zero-threshold 38-inch interior corridors, five private family berths, and an onboard acoustic isolation lounge.
+                    </p>
+                    <div class="mt-auto pt-2 d-flex flex-wrap gap-2">
+                        <a href="https://engineroom.raggiesoft.com/corporate/strategic-assets/the-iron-horse" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2 fw-bold text-uppercase text-dark">
+                            <i slot="start" class="fa-solid fa-bus"></i>View Fleet Roster &amp; Specs
+                        </a>
+                        <a href="/fleet/iron-horse/negotiation" class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2 text-uppercase">
+                            <i slot="start" class="fa-solid fa-handshake"></i>2001 Québec Deal
+                        </a>
+                        <a href="/fleet/iron-horse/delivery" class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2 text-uppercase">
+                            <i slot="start" class="fa-solid fa-truck-ramp-box"></i>2002 Delivery
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-lg-6 d-flex">
+            <div class="card wa-ported-card card bg-body-tertiary border-warning border-opacity-50 shadow-sm w-100 overflow-hidden hover-lift d-flex flex-column" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="position-relative">
+                    <a href="https://engineroom.raggiesoft.com/corporate/strategic-assets/the-iron-horse">
+                        <img src="https://assets.raggiesoft.com/stardust-engine/images/fleet/2004-prairie-coachworks-rlfd30.jpg" 
+                             class="img-fluid w-100 object-fit-cover border-bottom border-warning border-opacity-25" 
+                             style="max-height: 280px;"
+                             alt="2004 Prairie Coachworks RLFD30 30-foot restyled low-floor shuttle bus with kneeling front ADA ramp and PROGRESS STREET amber LED sign">
+                    </a>
+                    <span class="badge bg-warning text-dark text-warning position-absolute top-0 end-0 m-3 px-3 py-2 font-monospace">
+                        30-FT LOW-FLOOR LAUNCH UNIT
+                    </span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column flex-grow-1">
+                    <div class="small text-warning font-monospace text-uppercase mb-1">2004 Restyled Low-Floor Diesel &bull; Launch Customer</div>
+                    <h3 class="h4 fw-bold text-body-emphasis mb-2">Prairie Coachworks RLFD30 (<em>"Progress Street"</em>)</h3>
+                    <p class="text-body-secondary small mb-3">
+                        Immortalized on the cover of <em>Progress Street</em>, The Stardust Engine became <strong>Prairie Coachworks' very first launch customer</strong> for the restyled 30-foot low-floor coach. Built with a front-door-only executive layout and pneumatic kneeling suspension, it unfolds a simple <strong>1:6 front flip-out ADA ramp</strong> right onto the Blacksburg curb so Ryan can roll aboard in seconds.
+                    </p>
+                    <div class="mt-auto pt-2 d-flex flex-wrap gap-2">
+                        <a href="https://engineroom.raggiesoft.com/corporate/strategic-assets/the-iron-horse" class="btn btn-warning d-inline-flex align-items-center justify-content-center gap-2 fw-bold text-uppercase text-dark">
+                            <i slot="start" class="fa-solid fa-bus"></i>Explore the Fleet Archive
+                        </a>
+                        <a href="https://music.raggiesoft.com/the-stardust-engine/2004-progress-street" class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2 text-uppercase">
+                            <i slot="start" class="fa-solid fa-compact-disc"></i>Progress Street Lore
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card wa-ported-card h-100 hover-lift w-100">
+                <div class="d-flex flex-column text-center p-2">
+                    <div class="mb-3 text-primary"><i class="fa-duotone fa-users fa-3x"></i></div>
+                    <h3 class="fw-bold text-primary">The Band</h3>
+                    <p class="text-secondary small">
+                        Meet the five family members who started it all: Cassidy, Ryan, Holly, Evan, and Tyler.
+                    </p>
+                    <a href="/band" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center gap-2 mt-auto">View Bios</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card wa-ported-card h-100 hover-lift w-100">
+                <div class="d-flex flex-column text-center p-2">
+                    <div class="mb-3 text-danger"><i class="fa-duotone fa-book-atlas fa-3x"></i></div>
+                    <h3 class="fw-bold text-danger">The Lore</h3>
+                    <p class="text-secondary small">
+                        Learn about the "Friction" scandal, the "Cold War" with Apex Records, and the birth of independence.
+                    </p>
+                    <a href="/story" class="btn btn-outline-danger d-inline-flex align-items-center justify-content-center gap-2 mt-auto">Read History</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card wa-ported-card h-100 hover-lift w-100">
+                <div class="d-flex flex-column text-center p-2">
+                    <div class="mb-3 text-success"><i class="fa-duotone fa-compact-disc fa-3x"></i></div>
+                    <h3 class="fw-bold text-success">The Discography</h3>
+                    <p class="text-secondary small">
+                        Explore the full catalog, from the polished 80s pop to the raw, independent rock of their rebirth.
+                    </p>
+                    <a href="/discography" class="btn btn-outline-success d-inline-flex align-items-center justify-content-center gap-2 mt-auto">View Albums</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.hover-lift { transition: transform 0.2s; }
+.hover-lift:hover { transform: translateY(-5px); }
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+.pulse-icon {
+    animation: pulse 2s infinite;
+}
+
+
+</style>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">The Stardust Engine (ERR-001)</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              Named after the very first song Ryan, Cassidy, Evan, and Tyler wrote together at CPI in <strong>1986</strong>—celebrating their shared love of the cosmos (<strong>&ldquo;Stardust&rdquo;</strong>) and the rockets to get you there (<strong>&ldquo;Engine&rdquo;</strong>).
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Audio, Literary &amp; Archive Gateways</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com/the-stardust-engine">🎧 Stream &amp; Download in The Listening Room</a></li>
+              <li><a href="https://books.raggiesoft.com/books/stardust-engine">📚 Read Band Novel on RaggieSoft Book Reader</a></li>
+              <li><a href="https://books.raggiesoft.com/books/erin">📖 Read Before the Distance (John &amp; Erin)</a></li>
+              <li><a href="/story">🗂️ Complete 64-Dossier Story &amp; Exhibit Index</a></li>
+              <li><a href="/about">📜 About the Band</a> • <a href="/license">⚖️ Licensing</a> • <a href="/contact">✉️ Contact Policy</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Imprint Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Real-World Imprint Disclosure</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, all music by <strong>The Stardust Engine</strong> is produced and published by <strong>Michael P. Ragsdale</strong> under his real-world creative brand <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;).
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media (Real-World B2B &amp; Commercial Sync Portal)</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, John and Erin, and Julian Vance), bands (including The Stardust Engine), universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are works of fiction. Any resemblance to actual persons (living or dead), businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/cosmic-client.js" defer></script>
+  </body>
+</html>

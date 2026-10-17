@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+        if (localStorage.getItem('cosmic-motion') === 'paused') {
+          document.documentElement.setAttribute('data-cosmic-motion', 'paused');
+        }
+      } catch (e) {}
+    </script>
+    <title>Day 03: Ship&#39;s Time | Flight Log</title>
+    <meta name="description" content="Living arrangements and the 24-hour cycle aboard the Aethelgard." />
+    <link rel="canonical" href="https://stardust.raggiesoft.com/story/ad-astra/voyage/day-03" />
+    <meta property="og:title" content="Day 03: Ship&#39;s Time | Flight Log" />
+    <meta property="og:description" content="Living arrangements and the 24-hour cycle aboard the Aethelgard." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/stardust-engine/images/story/ad-astra/ad-astra-hero.jpg" />
+    <meta property="og:url" content="https://stardust.raggiesoft.com/story/ad-astra/voyage/day-03" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Stardust Engine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Day 03: Ship&#39;s Time | Flight Log" />
+    <meta name="twitter:description" content="Living arrangements and the 24-hour cycle aboard the Aethelgard." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/stardust-engine/images/story/ad-astra/ad-astra-hero.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/cosmic.css" />
+  </head>
+  <body>
+    <div class="cosmos-sky" aria-hidden="true"></div>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="The Stardust Engine Cosmic Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png"
+            alt="The Stardust Engine Rocket-and-Gear emblem"
+            class="brand-logo"
+            width="44"
+            height="44"
+          />
+          <span>
+            <span class="brand-title">The Stardust Engine</span>
+            <span class="brand-subtitle">Ad Astra • Blacksburg, VA • Est. 1985</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Cosmic Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Cosmic Home</a></li>
+            <li><a href="/band" class="nav-link">The Iron Five (Band)</a></li>
+            <li><a href="/discography" class="nav-link">Discography &amp; Playlists</a></li>
+            <li><a href="/lore" class="nav-link">Deep Band Lore</a></li>
+            <li><a href="/story" class="nav-link" aria-current="page">Story Archives (64 Dossiers)</a></li>
+            <li><a href="/fleet" class="nav-link">Rolling Sanctuary Fleet</a></li>
+            <li><a href="/novel" class="nav-link">Cosmic Novel Reader</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com/the-stardust-engine" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 Listen in The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="control-btn"
+                aria-label="Toggle between Exoplanet Light Mode and Deep Space Dark Mode"
+                title="Switch between Exoplanet Surface (Light) and Deep Space (Dark)"
+              >
+                <span id="theme-toggle-label">🪐 Environment</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="motion-toggle"
+                class="control-btn"
+                aria-pressed="false"
+                aria-label="Pause or resume cosmic starfield animations"
+                title="Pause or resume twinkling starfield motion"
+              >
+                <span id="motion-toggle-label">⏸ Pause Motion</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+<div class="wa-theme-dark w-100" data-bs-theme="dark">
+<div class="starfield-container"><div class="starfield-twinkling"></div></div>
+
+<div class="container py-5 glass-container">
+    
+    
+    <div class="d-flex justify-content-between align-items-center mb-5 border-bottom border-light pb-3" style="border-color: var(--astra-text) !important;">
+        <div>
+            <span class="badge bg-secondary font-monospace mb-2">LOG: DAY 03</span>
+            <h1 class="display-4 fw-bold text-uppercase text-light mb-0" style="font-family: 'Audiowide';">Ship's Time</h1>
+        </div>
+        <div class="text-end text-white-50 font-monospace small">
+            LOC: TRANS-LUNAR<br>
+            CYCLE: 2200 HOURS (NIGHT)<br>
+            G-FORCE: 1.0 (ARTIFICIAL)
+        </div>
+    </div>
+    
+
+    
+    <div class="row g-5">
+        
+        
+        <div class="col-lg-8">
+            <div class="mb-5">
+                <p class="lead text-light">
+                    The hardest part of space travel isn't the G-force. It's the clock.
+                </p>
+                <p class="text-white-50">
+                    To keep us from losing our minds in the eternal void, the <em>Aethelgard</em> runs a strict circadian simulation. At 0600, the panels blast us with blue-white light. At 2000, they shift to amber. Now, at 2200, the corridors are dim red, and the ceiling of our quarters has gone transparent—or at least, the screens <em>look</em> transparent. We are sleeping under a digital projection of the stars we're flying through.
+                </p>
+                
+                <h3 class="h4 text-uppercase text-light fw-bold mt-5 mb-3" style="font-family: 'Audiowide';">Suite 4B: "The Hab"</h3>
+                <p class="text-white-50">
+                    Our quarters are essentially a high-tech efficiency apartment bolted to a bulkhead. It's tight, utilitarian, and surprisingly comfortable. Everything is magnetic—coffee cups, data pads, even the pillows have weak mag-strips to keep them from drifting if the gravity fluctuating.
+                </p>
+                
+                
+                <div class="card wa-ported-card card terminal-card mt-4 border-light w-100" style="border-color: var(--astra-secondary) !important; --body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                    <div slot="header" class=" border-bottom border-secondary text-secondary fw-bold font-monospace p-3">
+                        <i class="fa-duotone fa-bed-bunk me-2"></i>BERTHING MANIFEST
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-group list-group-flush bg-transparent">
+                            <li class="list-group-item bg-transparent text-white-50 border-bottom border-secondary border-opacity-25">
+                                <strong class="text-light d-block text-uppercase mb-1">Primary Berthing (King Module)</strong>
+                                <div class="row">
+                                    <div class="col-md-4"><i class="fa-solid fa-user me-2 text-info"></i>Holly</div>
+                                    <div class="col-md-4"><i class="fa-solid fa-user-wheelchair me-2 text-warning"></i>Ryan (Center)</div>
+                                    <div class="col-md-4"><i class="fa-solid fa-user me-2 text-info"></i>Cassidy</div>
+                                </div>
+                                <small class="d-block mt-2 text-white-50 fst-italic">
+                                    *Note: Center positioning mandatory for R. O'Connell (T-10 Paraplegic). Flanking crew members serve as stabilization rails during gravity fluctuations.
+                                </small>
+                            </li>
+                            <li class="list-group-item bg-transparent text-white-50">
+                                <strong class="text-light d-block text-uppercase mb-1">Secondary Berthing (Fold-Out Module)</strong>
+                                <div class="row">
+                                    <div class="col-md-4"><i class="fa-solid fa-drum me-2 text-secondary"></i>Tyler</div>
+                                    <div class="col-md-4"><i class="fa-solid fa-guitar-electric me-2 text-secondary"></i>Evan</div>
+                                </div>
+                                <small class="d-block mt-2 text-white-50 fst-italic">
+                                    *Note: Rhythm section. Snoring protocols active.
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+        
+
+        
+        <div class="col-lg-4">
+            
+            
+            <div class="card wa-ported-card card glass-card mb-4 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div slot="header" class=" text-light fw-bold text-uppercase border-bottom border-secondary p-3">
+                    <i class="fa-duotone fa-clock me-2"></i>Cycle Status
+                </div>
+                <div class="card-body text-white-50 small p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-moon fa-2x text-primary me-3"></i>
+                        <div>
+                            <span class="d-block fw-bold text-light">BETA SHIFT</span>
+                            <span class="font-monospace">2200 - 0600</span>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled mb-0 font-monospace">
+                        <li class="mb-2">> <strong>Lighting:</strong> Low (Red/Amber)</li>
+                        <li class="mb-2">> <strong>Noise:</strong> Restricted</li>
+                        <li class="mb-2">> <strong>Venue:</strong> Closed</li>
+                        <li class="mb-0">> <strong>Gravity:</strong> Stable (1.0)</li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="card wa-ported-card card bg-black border-secondary mb-4 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body p-4">
+                    <h6 class="text-secondary fw-bold text-uppercase mb-2">
+                        <i class="fa-duotone fa-mug-hot me-2"></i>Personal Log
+                    </h6>
+                    <p class="small text-white-50 mb-0 fst-italic">
+                        "The couch isn't bad, actually. Better than the tour bus bunk in '93. But looking out the window and seeing... nothing? That takes some getting used to." — Evan
+                    </p>
+                </div>
+            </div>
+            
+
+        </div>
+        
+
+    </div>
+    
+
+    
+    
+
+<div class="row mt-5 pt-4 border-top border-secondary border-opacity-25 align-items-center">
+    
+    <div class="col-4">
+                    <a href="/story/ad-astra/voyage/day-02" class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2">
+                <i slot="start" class="fa-solid fa-arrow-left"></i>
+                <span class="d-none d-md-inline">Day 02: Stabilization</span>
+                <span class="d-md-none">Back</span>
+            </a>
+            </div>
+
+    
+    <div class="col-4 text-center">
+        <a href="/story/hard-reset/hard-reset-tour/london-discovery" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center gap-2">
+            <i slot="start" class="fa-duotone fa-list-tree"></i>
+            <span class="d-none d-md-inline">Flight Log</span>
+            <span class="d-md-none">Hub</span>
+        </a>
+    </div>
+
+    <div class="col-4 text-end">
+                    <a href="/story/ad-astra/voyage/day-10" class="btn btn-primary d-inline-flex align-items-center justify-content-center gap-2 shadow-sm">
+                <span class="d-none d-md-inline">Day 10: The Drift</span>
+                <span class="d-md-none">Next</span>
+                <i slot="end" class="fa-solid fa-arrow-right"></i>
+            </a>
+            </div>
+
+</div>    
+
+</div>
+</div> 
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">The Stardust Engine (ERR-001)</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              Named after the very first song Ryan, Cassidy, Evan, and Tyler wrote together at CPI in <strong>1986</strong>—celebrating their shared love of the cosmos (<strong>&ldquo;Stardust&rdquo;</strong>) and the rockets to get you there (<strong>&ldquo;Engine&rdquo;</strong>).
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Audio, Literary &amp; Archive Gateways</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com/the-stardust-engine">🎧 Stream &amp; Download in The Listening Room</a></li>
+              <li><a href="https://books.raggiesoft.com/books/stardust-engine">📚 Read Band Novel on RaggieSoft Book Reader</a></li>
+              <li><a href="https://books.raggiesoft.com/books/erin">📖 Read Before the Distance (John &amp; Erin)</a></li>
+              <li><a href="/story">🗂️ Complete 64-Dossier Story &amp; Exhibit Index</a></li>
+              <li><a href="/about">📜 About the Band</a> • <a href="/license">⚖️ Licensing</a> • <a href="/contact">✉️ Contact Policy</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Imprint Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Real-World Imprint Disclosure</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, all music by <strong>The Stardust Engine</strong> is produced and published by <strong>Michael P. Ragsdale</strong> under his real-world creative brand <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;).
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media (Real-World B2B &amp; Commercial Sync Portal)</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, John and Erin, and Julian Vance), bands (including The Stardust Engine), universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are works of fiction. Any resemblance to actual persons (living or dead), businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/cosmic-client.js" defer></script>
+  </body>
+</html>

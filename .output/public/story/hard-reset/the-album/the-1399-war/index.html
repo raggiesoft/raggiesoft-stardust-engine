@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+        if (localStorage.getItem('cosmic-motion') === 'paused') {
+          document.documentElement.setAttribute('data-cosmic-motion', 'paused');
+        }
+      } catch (e) {}
+    </script>
+    <title>The $13.99 War (1997) | The Stardust Engine</title>
+    <meta name="description" content="How Holly O&#39;Connell defied 1990s major-label CD price-fixing by stamping $13.99 directly into the spine artwork of Hard Reset (1997)." />
+    <link rel="canonical" href="https://stardust.raggiesoft.com/story/hard-reset/the-album/the-1399-war" />
+    <meta property="og:title" content="The $13.99 War (1997) | The Stardust Engine" />
+    <meta property="og:description" content="How Holly O&#39;Connell defied 1990s major-label CD price-fixing by stamping $13.99 directly into the spine artwork of Hard Reset (1997)." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <meta property="og:url" content="https://stardust.raggiesoft.com/story/hard-reset/the-album/the-1399-war" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Stardust Engine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The $13.99 War (1997) | The Stardust Engine" />
+    <meta name="twitter:description" content="How Holly O&#39;Connell defied 1990s major-label CD price-fixing by stamping $13.99 directly into the spine artwork of Hard Reset (1997)." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/cosmic.css" />
+  </head>
+  <body>
+    <div class="cosmos-sky" aria-hidden="true"></div>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="The Stardust Engine Cosmic Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png"
+            alt="The Stardust Engine Rocket-and-Gear emblem"
+            class="brand-logo"
+            width="44"
+            height="44"
+          />
+          <span>
+            <span class="brand-title">The Stardust Engine</span>
+            <span class="brand-subtitle">Ad Astra • Blacksburg, VA • Est. 1985</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Cosmic Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Cosmic Home</a></li>
+            <li><a href="/band" class="nav-link">The Iron Five (Band)</a></li>
+            <li><a href="/discography" class="nav-link">Discography &amp; Playlists</a></li>
+            <li><a href="/lore" class="nav-link">Deep Band Lore</a></li>
+            <li><a href="/story" class="nav-link" aria-current="page">Story Archives (64 Dossiers)</a></li>
+            <li><a href="/fleet" class="nav-link">Rolling Sanctuary Fleet</a></li>
+            <li><a href="/novel" class="nav-link">Cosmic Novel Reader</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com/the-stardust-engine" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 Listen in The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="control-btn"
+                aria-label="Toggle between Exoplanet Light Mode and Deep Space Dark Mode"
+                title="Switch between Exoplanet Surface (Light) and Deep Space (Dark)"
+              >
+                <span id="theme-toggle-label">🪐 Environment</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="motion-toggle"
+                class="control-btn"
+                aria-pressed="false"
+                aria-label="Pause or resume cosmic starfield animations"
+                title="Pause or resume twinkling starfield motion"
+              >
+                <span id="motion-toggle-label">⏸ Pause Motion</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+<div class="container py-5">
+    
+    
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+            <span class="badge bg-danger text-danger-emphasis px-3 py-2 mb-3 text-uppercase letter-spacing-1 shadow-sm">
+                <i class="fa-duotone fa-gavel me-2"></i>Historical Archive: Summer 1997
+            </span>
+            <h1 class="display-4 fw-bold text-body-emphasis mb-2 text-uppercase" style="font-family: 'Impact', sans-serif;">
+                The $13.99 War
+            </h1>
+            <p class="lead text-body-secondary font-monospace">
+                How a 28-year-old law student broke the industry's pricing cartel.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+            
+            <div class="card wa-ported-card card border-0 shadow-lg bg-body-tertiary mb-5 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-header bg-body-secondary border-bottom border-secondary py-3">
+                    <h2 class="h5 text-body-emphasis fw-bold text-uppercase mb-0 letter-spacing-2">
+                        <i class="fa-duotone fa-tags me-2"></i>Phase 1: The Kitchen Table Consensus
+                    </h2>
+                </div>
+                <div class="card-body p-5 text-body-secondary">
+                    <p class="lead text-body-emphasis">
+                        By the spring of 1997, the master tapes for <em>Hard Reset</em> were finished. The problem wasn't the music; it was the math.
+                    </p>
+                    <p>
+                        The industry standard for a premium, 16-track double album on CD was <strong>$24.99</strong>. But Cassidy and Ryan O'Connell refused to price-gouge the loyal underground fanbase that had kept them alive during their "Wilderness Years." They wanted to price the double album exactly the same as a standard single-disc release: <strong>$13.99</strong>.
+                    </p>
+                    <p>
+                        For a normal independent label, this would be financial suicide. The manufacturing and distribution costs alone for a double-disc jewel case, pressed vinyl, and cassette run would eat the entire profit margin. 
+                    </p>
+                    <p>
+                        But Engine Room Records, LLC was not a normal label. 
+                    </p>
+                    <div class="alert alert-success d-flex align-items-start gap-3 shadow-sm my-4 d-block" role="note">
+                        <h6 class="fw-bold text-uppercase mb-2"><i class="fa-solid fa-calculator me-2"></i>The Treasury Subsidy</h6>
+                        <p class="mb-0 small">
+                            Acting as the band's manager and newly certified Enrolled Agent, 28-year-old Holly O'Connell ran the numbers at the kitchen table. The family's $2.04 Billion lottery payout from 1996 was safely parked in U.S. Treasury Bonds, generating roughly $37 Million a year in risk-free interest. Holly realized that dedicating just a tiny fraction of one month's interest yield could entirely subsidize the physical pressing costs of the album. <strong>At $13.99, it wouldn't just be cheap—it would be pure profit.</strong>
+                        </p>
+                    </div>
+                    <p>
+                        The family took a vote. It was unanimous. Engine Room Records sent the sell-sheets to major retailers. Pre-orders absolutely exploded. Retailers began clearing out massive end-cap displays. 
+                    </p>
+                    <p class="fw-bold text-danger">
+                        And the music industry went into total panic.
+                    </p>
+                </div>
+            </div>
+
+            
+            <div class="alert alert-primary d-flex align-items-start gap-3 shadow-sm my-4 d-block" role="note">
+                <h6 class="fw-bold text-uppercase mb-2 text-info"><i class="fa-solid fa-truck-fast me-2"></i>Bypassing the MAP Cartel</h6>
+                <p class="mb-0 small">
+                    In 1997, the major labels controlled retail prices through strict MAP (Minimum Advertised Price) policies, threatening to pull cooperative advertising funds from any national retail chain or specialty record store that discounted CDs. Because Engine Room Records&trade; funded its own marketing via the Trust, Holly bypassed the traditional distributors entirely. She sold directly to the massive big-box retailers, offering them an unprecedented wholesale margin on the condition they place <em>Hard Reset</em> on their front end-caps for exactly $13.99. She broke the supply chain.
+                </p>
+            </div>
+
+            <div class="card wa-ported-card card bg-black text-white border-danger border-2 shadow-lg mb-5 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-body p-5">
+                    <div class="d-flex align-items-center mb-4 border-bottom border-danger pb-3">
+                        <i class="fa-solid fa-building-columns fa-3x text-danger me-4"></i>
+                        <div>
+                            <h3 class="text-uppercase text-danger fw-bold mb-0">Phase 2: The Cartel Injunction</h3>
+                            <p class="text-white-50 mb-0 font-monospace">Case No. 2:97-cv-00401 (E.D. Va.)</p>
+                        </div>
+                    </div>
+
+                    <p class="text-white-75">
+                        In late July 1997, staring down a Q3 financial disaster as <em>Hard Reset</em> threatened to monopolize consumer spending and cannibalize the entire summer release slate, the major labels struck back. They didn't compete on the shelves; they weaponized the legal system.
+                    </p>
+
+                    <p class="text-white-75 mb-4">
+                        A coalition of the four largest conglomerates in the music industry filed an emergency antitrust injunction in the Eastern District of Virginia. The Plaintiffs included:
+                    </p>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded h-100" style="background-color: #1a1a1a;">
+                                <strong class="text-warning d-block mb-1">Apex Records</strong>
+                                <span class="small text-white-50">The scorned former label. Driven by vengeance and fear of their former stars succeeding without them.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded h-100" style="background-color: #1a1a1a;">
+                                <strong class="text-warning d-block mb-1">Omni-Global Media Corp.</strong>
+                                <span class="small text-white-50">The massive, faceless conglomerate. They viewed Engine Room's pricing as a virus that would ruin retail expectations forever.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded h-100" style="background-color: #1a1a1a;">
+                                <strong class="text-warning d-block mb-1">Centurion Music Group</strong>
+                                <span class="small text-white-50">The old-money legacy establishment. Terrified of independent artists gaining structural leverage.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded h-100" style="background-color: #1a1a1a;">
+                                <strong class="text-warning d-block mb-1">Pinnacle Sound</strong>
+                                <span class="small text-white-50">The aggressive mass-market pop machine. Unable to match the $13.99 price point without defaulting on their own debts.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-danger mt-4">The Charge: Predatory Pricing</h5>
+                    <p class="text-white-50 fst-italic border-start border-4 border-danger ps-3">
+                        "The Defendants are engaged in a malicious campaign of predatory pricing under the Sherman Antitrust Act. By deliberately selling a premium two-disc product below the cost of manufacturing and distribution, Engine Room Records seeks to unlawfully destroy market competition and create an illegal monopoly."
+                    </p>
+
+                    <p class="text-white-75 mt-3 mb-0">
+                        The cartel's strategy was simple: bury the startup label in discovery. They assumed Engine Room Records would have to hire expensive outside counsel, file for an extension, and ultimately delay the album's release until the holiday season, bleeding them dry in legal fees.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card wa-ported-card card border-0 shadow-lg bg-body-tertiary mb-4 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-header bg-body-secondary border-bottom border-secondary py-3">
+                    <h2 class="h5 text-body-emphasis fw-bold text-uppercase mb-0 letter-spacing-2">
+                        <i class="fa-duotone fa-scale-balanced me-2"></i>Phase 3: The Pro Se Defense
+                    </h2>
+                </div>
+                <div class="card-body p-5 text-body-secondary">
+                    <p>
+                        The cartel made one fatal miscalculation: they filed the suit in the Eastern District of Virginia (EDVA), assuming the band's home turf would lack sophisticated entertainment lawyers.
+                    </p>
+                    <p>
+                        They didn't know that Holly O'Connell had just passed the Virginia Bar Exam.
+                    </p>
+                    <p>
+                        Within 48 hours of the injunction being filed, Engine Room Records did not request an extension. They did not hire outside counsel. Instead, 28-year-old Holly O'Connell walked into the federal courthouse in Norfolk and filed a response brief <em>pro se</em> (representing her own LLC as General Counsel).
+                    </p>
+
+                    <div class="card wa-ported-card card bg-body border-primary mb-4 shadow-sm w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                        <div class="card-body font-monospace small text-body-emphasis p-4">
+                            <h6 class="fw-bold text-uppercase border-bottom pb-2 mb-3 text-primary">Excerpt: Defendant's Motion to Dismiss Injunction</h6>
+                            <p>
+                                <strong>I. PLAINTIFFS LACK STANDING ON CLAIMS OF PREDATORY PRICING</strong>
+                            </p>
+                            <p>
+                                The Plaintiffs allege that Engine Room Records, LLC is selling the album <em>Hard Reset</em> "below cost" to incur intentional losses. This claim is mathematically and factually false.
+                            </p>
+                            <p>
+                                To satisfy the standard for Predatory Pricing under <em>Brooke Group Ltd. v. Brown & Williamson Tobacco Corp.</em>, the Plaintiffs must prove that the Defendant is pricing products below an appropriate measure of its rival's costs. 
+                            </p>
+                            <p>
+                                Included as <strong>Exhibit A</strong> are the certified financial ledgers for Engine Room Records, LLC, alongside certified yield statements from the United States Treasury. The physical manufacturing and distribution costs of the album in question are subsidized completely by the risk-free interest yields of the LLC's parent Trust. 
+                            </p>
+                            <p class="fw-bold bg-primary-subtle p-2">
+                                Therefore, at a retail price of $13.99, Engine Room Records, LLC operates at a net profit of 100% per unit sold. 
+                            </p>
+                            <p class="mb-0">
+                                The Defendant is not engaged in predatory pricing; the Defendant simply possesses a vastly superior capital structure to the Plaintiffs. The Sherman Antitrust Act was designed to protect consumers from monopolies, not to protect inefficient, debt-leveraged corporations from superior business models.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        The judge read the brief, looked at the certified Treasury yields proving Engine Room was backed by billions in federal bonds, and summarily threw the injunction out of court. 
+                    </p>
+                    <p class="lead text-body-emphasis fw-bold mt-4">
+                        The cartel didn't just lose the lawsuit; they accidentally forced Holly to enter the family's financial invulnerability into the public record. 
+                    </p>
+                    <p>
+                        On release day, <em>Hard Reset</em> hit the shelves at $13.99. It decimated the charts, proving once and for all that The Stardust Engine was entirely, terrifyingly unstoppable.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card wa-ported-card card border-0 shadow-lg bg-body-tertiary mb-4 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-header bg-body-secondary border-bottom border-secondary py-3">
+                    <h2 class="h5 text-body-emphasis fw-bold text-uppercase mb-0 letter-spacing-2">
+                        <i class="fa-duotone fa-truck-container me-2"></i>Phase 4: The Kitchen-Table Dispatch
+                    </h2>
+                </div>
+                <div class="card-body p-5 text-body-secondary">
+                    <p>
+                        Winning the legal battle was only half the war. The albums were pressed and packaged, sitting on hundreds of wooden pallets at commercial CD manufacturing plants. But the cartel controlled the traditional music distribution network—the specialized warehouses and trucking fleets that actually moved records to stores. They instituted a shadow embargo, threatening to blacklist any music distributor that touched the Engine Room release.
+                    </p>
+                    <p>
+                        They assumed that without a distributor, the physical albums would sit rotting on the factory floor. They assumed Holly was trapped because she didn't own a warehouse, a loading dock, or a single delivery truck. Engine Room Records was still just a residential house on Progress Street. 
+                    </p>
+                    <div class="alert alert-warning d-flex align-items-start gap-3 p-4 shadow-sm my-4 d-block" role="note">
+                        <h6 class="text-warning fw-bold text-uppercase mb-2"><i class="fa-solid fa-route me-2"></i>The LTL Freight Hack</h6>
+                        <p class="small text-white-75 mb-0">
+                            Holly realized she didn't need <em>music</em> distributors. She just needed trucks. Using the Trust's capital, she picked up the phone and started booking standard LTL (Less-Than-Truckload) commercial freight carriers—the independent, blue-collar haulers who usually moved auto parts and refrigerated goods. Commercial freight dispatchers didn't care about Apex Records or music industry politics; they just cared about a cleared check and a Bill of Lading.
+                        </p>
+                    </div>
+                    <p>
+                        For three sleepless weeks, the dining room table became a chaotic dispatch center. Holly, Ryan, and Evan manually routed hundreds of independent 18-wheelers from the manufacturing plants directly to the receiving docks of the national big-box retailers.
+                    </p>
+                    <p class="mb-0 fw-bold text-body-emphasis border-top border-secondary-subtle pt-3 mt-3">
+                        The albums hit the shelves exactly on time, and the cartel's embargo was shattered. But the family barely survived the logistical nightmare. It was the grueling, desperate reality of the "Kitchen-Table Dispatch" that taught Holly her most valuable lesson: <span class="fst-italic text-danger">Never rely on third-party infrastructure again. Next time, we buy the warehouse. We buy the trucks.</span> This moment became the direct catalyst for the creation of Stardust Logistics and the Fleet Command network.
+                    </p>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+
+</div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">The Stardust Engine (ERR-001)</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              Named after the very first song Ryan, Cassidy, Evan, and Tyler wrote together at CPI in <strong>1986</strong>—celebrating their shared love of the cosmos (<strong>&ldquo;Stardust&rdquo;</strong>) and the rockets to get you there (<strong>&ldquo;Engine&rdquo;</strong>).
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Audio, Literary &amp; Archive Gateways</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com/the-stardust-engine">🎧 Stream &amp; Download in The Listening Room</a></li>
+              <li><a href="https://books.raggiesoft.com/books/stardust-engine">📚 Read Band Novel on RaggieSoft Book Reader</a></li>
+              <li><a href="https://books.raggiesoft.com/books/erin">📖 Read Before the Distance (John &amp; Erin)</a></li>
+              <li><a href="/story">🗂️ Complete 64-Dossier Story &amp; Exhibit Index</a></li>
+              <li><a href="/about">📜 About the Band</a> • <a href="/license">⚖️ Licensing</a> • <a href="/contact">✉️ Contact Policy</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Imprint Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Real-World Imprint Disclosure</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, all music by <strong>The Stardust Engine</strong> is produced and published by <strong>Michael P. Ragsdale</strong> under his real-world creative brand <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;).
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media (Real-World B2B &amp; Commercial Sync Portal)</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, John and Erin, and Julian Vance), bands (including The Stardust Engine), universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are works of fiction. Any resemblance to actual persons (living or dead), businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/cosmic-client.js" defer></script>
+  </body>
+</html>

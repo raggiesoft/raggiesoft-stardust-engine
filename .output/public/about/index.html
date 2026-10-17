@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolvedBsTheme = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', resolvedBsTheme);
+        if (localStorage.getItem('cosmic-motion') === 'paused') {
+          document.documentElement.setAttribute('data-cosmic-motion', 'paused');
+        }
+      } catch (e) {}
+    </script>
+    <title>About The Stardust Engine | Band History &amp; Mission</title>
+    <meta name="description" content="Learn about the history, family foundation, and artistic mission of The Stardust Engine." />
+    <link rel="canonical" href="https://stardust.raggiesoft.com/about" />
+    <meta property="og:title" content="About The Stardust Engine | Band History &amp; Mission" />
+    <meta property="og:description" content="Learn about the history, family foundation, and artistic mission of The Stardust Engine." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <meta property="og:url" content="https://stardust.raggiesoft.com/about" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Stardust Engine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About The Stardust Engine | Band History &amp; Mission" />
+    <meta name="twitter:description" content="Learn about the history, family foundation, and artistic mission of The Stardust Engine." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
+    <link rel="stylesheet" href="/assets/cosmic.css" />
+  </head>
+  <body>
+    <div class="cosmos-sky" aria-hidden="true"></div>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="The Stardust Engine Cosmic Home">
+          <img
+            src="https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/band-logo.png"
+            alt="The Stardust Engine Rocket-and-Gear emblem"
+            class="brand-logo"
+            width="44"
+            height="44"
+          />
+          <span>
+            <span class="brand-title">The Stardust Engine</span>
+            <span class="brand-subtitle">Ad Astra • Blacksburg, VA • Est. 1985</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Cosmic Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Cosmic Home</a></li>
+            <li><a href="/band" class="nav-link">The Iron Five (Band)</a></li>
+            <li><a href="/discography" class="nav-link">Discography &amp; Playlists</a></li>
+            <li><a href="/lore" class="nav-link">Deep Band Lore</a></li>
+            <li><a href="/story" class="nav-link">Story Archives (64 Dossiers)</a></li>
+            <li><a href="/fleet" class="nav-link">Rolling Sanctuary Fleet</a></li>
+            <li><a href="/novel" class="nav-link">Cosmic Novel Reader</a></li>
+            <li>
+              <a href="https://music.raggiesoft.com/the-stardust-engine" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                🎧 Listen in The Listening Room ↗
+              </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="theme-toggle"
+                class="control-btn"
+                aria-label="Toggle between Exoplanet Light Mode and Deep Space Dark Mode"
+                title="Switch between Exoplanet Surface (Light) and Deep Space (Dark)"
+              >
+                <span id="theme-toggle-label">🪐 Environment</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                id="motion-toggle"
+                class="control-btn"
+                aria-pressed="false"
+                aria-label="Pause or resume cosmic starfield animations"
+                title="Pause or resume twinkling starfield motion"
+              >
+                <span id="motion-toggle-label">⏸ Pause Motion</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container" tabindex="-1">
+      
+<div class="starfield-container"><div class="starfield-twinkling"></div></div>
+
+<div class="container py-5 glass-container">
+    
+    <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold text-uppercase text-glow-primary" style="font-family: 'Audiowide', cursive;">
+            Mission Profile
+        </h1>
+        <p class="lead text-light mx-auto" style="max-width: 800px;">
+            <strong class="text-info">The Stardust Engine</strong> is a "Dual-Layer" reality: 
+            part technical experiment, part narrative art project.
+        </p>
+    </div>
+
+    <div class="row g-5 mb-5">
+        
+        <div class="col-lg-6">
+            <div class="card wa-ported-card card glass-card h-100 border-secondary w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-header bg-transparent border-secondary text-warning fw-bold text-uppercase py-3">
+                    <i class="fa-duotone fa-planet-ringed me-2"></i> Layer 1: The Universe
+                </div>
+                <div class="card-body text-light p-4">
+                    <h3 class="h4 text-light mb-3" style="font-family: 'Audiowide', cursive;">In-Universe Archive</h3>
+                    <p>
+                        You are currently viewing the official data archive of <strong>The Stardust Engine</strong>, a synth-rock band originating from the Class of '89 at CPI.
+                    </p>
+                    <p>
+                        The narrative follows their struggle against the corporate monolith <strong>Apex Records</strong>, their retreat to the "Fortress," and their eventual broadcast from <strong>Port Telsus</strong>, a space station orbiting Telsus Minor.
+                    </p>
+                    <a href="/band" class="btn btn-outline-warning d-inline-flex align-items-center justify-content-center gap-2 mt-2">
+                        <i slot="start" class="fa-duotone fa-book-open"></i>Read the History
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card wa-ported-card card glass-card h-100 border-info shadow-glow w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                <div class="card-header bg-transparent border-info text-info fw-bold text-uppercase py-3">
+                    <i class="fa-duotone fa-code-branch me-2"></i> Layer 2: The Project
+                </div>
+                <div class="card-body text-light p-4">
+                    <h3 class="h4 text-light mb-3" style="font-family: 'Audiowide', cursive;">AI Collaboration</h3>
+                    <p>
+                        In reality, this entire universe—the music, the art, the code, and the history—was generated in 2025 as a collaboration between a human director and a suite of generative AI tools.
+                    </p>
+                    <p>
+                        It serves as a portfolio piece demonstrating how AI can be used not just to generate assets, but to build cohesive, emotionally resonant worlds.
+                    </p>
+                    <a href="/contact" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center gap-2 mt-2">
+                        <i slot="start" class="fa-duotone fa-id-card"></i>Contact the Director
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mb-5">
+        <h2 class="display-6 fw-bold text-uppercase text-light border-bottom border-secondary pb-3 mb-4">
+            <i class="fa-duotone fa-users-viewfinder me-3 text-secondary"></i>Crew Manifest
+        </h2>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            
+            <div class="col">
+                <div class="card wa-ported-card card glass-card h-100 text-center p-4 border-info border-opacity-50 w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                    <div class="mb-3">
+                        <i class="fa-duotone fa-user-astronaut fa-5x text-info"></i>
+                    </div>
+                    <h4 class="h5 text-light fw-bold">Michael Ragsdale</h4>
+                    <span class="badge bg-primary mb-2">FLIGHT DIRECTOR</span>
+                    <p class="small mb-0">
+                        Concept, Direction, Coding, & Curation. The human element that guides the machine.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card wa-ported-card card glass-card h-100 text-center p-4 border-secondary w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                    <div class="mb-3">
+                        <i class="fa-duotone fa-brain-circuit fa-5x text-primary"></i>
+                    </div>
+                    <h4 class="h5 text-light fw-bold">Google Gemini</h4>
+                    <span class="badge bg-primary mb-2">NAV & VISUALS</span>
+                    <p class="small mb-0">
+                        Lore Generation, Code Assistance, and Historical Photography (via Nano Banana).
+                    </p>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card wa-ported-card card glass-card h-100 text-center p-4 border-secondary w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                    <div class="mb-3">
+                        <i class="fa-duotone fa-waveform-lines fa-5x text-warning"></i>
+                    </div>
+                    <h4 class="h5 text-light fw-bold">Suno AI</h4>
+                    <span class="badge bg-warning text-dark mb-2">ENGINE CORE</span>
+                    <p class="small mb-0">
+                        Audio Synthesis, Composition, and Vocal Performance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card wa-ported-card card glass-card h-100 text-center p-4 border-secondary w-100" style="--body-padding: 0; --header-padding: 0; --wa-panel-bg: transparent;">
+                    <div class="mb-3">
+                        <i class="fa-duotone fa-palette fa-5x text-danger"></i>
+                    </div>
+                    <h4 class="h5 text-light fw-bold">DALL-E 3</h4>
+                    <span class="badge bg-danger mb-2">ART DEPT</span>
+                    <p class="small mb-0">
+                        Album Artwork, Conceptual Design, and Atmospheric Visuals.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">The Stardust Engine (ERR-001)</h2>
+            <p style="margin: 0; font-size: 0.83rem;">
+              Named after the very first song Ryan, Cassidy, Evan, and Tyler wrote together at CPI in <strong>1986</strong>—celebrating their shared love of the cosmos (<strong>&ldquo;Stardust&rdquo;</strong>) and the rockets to get you there (<strong>&ldquo;Engine&rdquo;</strong>).
+            </p>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Audio, Literary &amp; Archive Gateways</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.83rem; display: grid; gap: 0.3rem;">
+              <li><a href="https://music.raggiesoft.com/the-stardust-engine">🎧 Stream &amp; Download in The Listening Room</a></li>
+              <li><a href="https://books.raggiesoft.com/books/stardust-engine">📚 Read Band Novel on RaggieSoft Book Reader</a></li>
+              <li><a href="https://books.raggiesoft.com/books/erin">📖 Read Before the Distance (John &amp; Erin)</a></li>
+              <li><a href="/story">🗂️ Complete 64-Dossier Story &amp; Exhibit Index</a></li>
+              <li><a href="/about">📜 About the Band</a> • <a href="/license">⚖️ Licensing</a> • <a href="/contact">✉️ Contact Policy</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Imprint Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 The RaggieSoft Nebulae (Master Network Sitemap)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Real-World Imprint Disclosure</h2>
+            <p style="margin: 0 0 0.5rem; font-size: 0.83rem;">
+              In real life, all music by <strong>The Stardust Engine</strong> is produced and published by <strong>Michael P. Ragsdale</strong> under his real-world creative brand <strong>Engine Room Records</strong> (never &ldquo;Engine Room Records, LLC&rdquo;).
+            </p>
+            <p style="margin: 0; font-size: 0.8rem;">
+              <a href="https://corporate.raggiesoft.com">🏢 RaggieSoft Media (Real-World B2B &amp; Commercial Sync Portal)</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="disclaimer-box" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Bands &amp; Entities Disclaimer:</strong> All narrative characters (including Ryan, Cassidy, and Holly O'Connell, Evan and Tyler Wright, John and Erin, and Julian Vance), bands (including The Stardust Engine), universities (including Commonwealth Polytechnic Institute / CPI, The Forgers, and The Crucible), corporations (including OmniCorp, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit), in-universe legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family Revocable Trust</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are works of fiction. Any resemblance to actual persons (living or dead), businesses, institutions, or events is purely coincidental.
+        </div>
+
+        <p style="margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+          &copy; 2026 Michael P. Ragsdale / Engine Room Records. Code licensed under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          Creative narrative &amp; 128kbps web audio archives licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/cosmic-client.js" defer></script>
+  </body>
+</html>
