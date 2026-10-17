@@ -36,13 +36,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:wght@400;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-grid.css" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/root.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/extras.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/webawesome/safety-net.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/stardust-engine/css/cosmic.css" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017c" />
+    <link rel="stylesheet" href="/assets/cosmic.css?v=20261017d" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017d" />
   </head>
   <body>
     <div class="cosmos-sky" aria-hidden="true"></div>
@@ -56,8 +52,26 @@
           <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
           <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
           <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
-          <li><a href="https://stardust.raggiesoft.com" aria-current="page" class="is-active">🚀 Stardust</a></li>
-          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+          <li class="rs-network-dropdown">
+            <button type="button" class="rs-network-dropdown-toggle is-active" aria-expanded="false" aria-haspopup="true">
+              <span aria-hidden="true">⚙️</span>
+              <span>Engine Room</span>
+              <span class="rs-network-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="rs-network-dropdown-menu" role="menu" aria-label="Engine Room Records &amp; Band Roster">
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com">⚙️ Engine Room Records Hub</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists">🎸 All Artists Directory (7)</a></li>
+              <li class="rs-network-dropdown-divider" role="separator"></li>
+              <li class="rs-network-dropdown-header" role="presentation">✦ Band Roster (A–Z)</li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/crimson-node">🔴 Crimson Node</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/firelight">🔥 Firelight</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/fractured-prisms">💎 Fractured Prisms</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/mana-canvas">🎨 Mana Canvas</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/the-arctic-symphony-project">❄️ The Arctic Symphony Project</a></li>
+              <li role="none"><a role="menuitem" href="https://engineroom.raggiesoft.com/artists/the-paper-wall">🧱 The Paper Wall</a></li>
+              <li role="none"><a role="menuitem" href="https://stardust.raggiesoft.com" class="is-active" aria-current="page">🚀 The Stardust Engine</a></li>
+            </ul>
+          </li>
           <li><a href="https://lore.raggiesoft.com">🏛️ Lore</a></li>
           <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
           <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
@@ -414,7 +428,7 @@
       </div>
     </footer>
 
-    <script src="https://assets.raggiesoft.com/stardust-engine/js/cosmic-client.js" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017c" defer></script>
+    <script src="/assets/cosmic-client.js?v=20261017d" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017d" defer></script>
   </body>
 </html>
