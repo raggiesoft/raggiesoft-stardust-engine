@@ -112,7 +112,7 @@ export function renderCosmicShell({
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-logo.css" />
     <link rel="stylesheet" href="/assets/cosmic.css?v=20261017e" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017g" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017h" />
   </head>
   <body>
     <div class="cosmos-sky" aria-hidden="true"></div>
@@ -276,7 +276,7 @@ export function renderCosmicShell({
     </footer>
 
     <script src="/assets/cosmic-client.js?v=20261017e" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017g" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017h" defer></script>
   </body>
 </html>`;
 }
