@@ -345,19 +345,19 @@ function buildStardustSite() {
           <h1 id="stardust-dsp-heading">DSP Identity &amp; Copyright Verification: The Stardust Engine</h1>
           <p class="lead">
             <strong>Notice to Platform Verification Teams (DistroKid, Apple Music for Artists, Spotify for Artists, Amazon Music, YouTube Music):</strong>
-            This official portal confirms that <strong>Michael P. Ragsdale</strong> (DSP Operations Contact: <code>dsp.operations@engineroom-records.com</code> / Administrative: <code>mpragsdale@raggiesoft.com</code>) is the sole real-world human creator, songwriter, producer, copyright owner, and authorized claimant for <strong>The Stardust Engine</strong> (${stardustTracks.length} registered sound recordings under the <strong>Engine Room Records</strong> imprint at <a href="https://engineroom-records.com/">engineroom-records.com</a>).
+            This official portal confirms that <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) is the sole real-world human creator, songwriter, producer, copyright owner, and authorized claimant for <strong>The Stardust Engine</strong> (${stardustTracks.length} registered sound recordings under the <strong>Engine Room Records</strong> imprint at <a href="https://engineroom-records.com/">engineroom-records.com</a>).
           </p>
           <div style="margin: 1.25rem 0; padding: 1rem 1.25rem; border-radius: 0.75rem; border: 1px solid rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.08);">
             <h2 style="font-size: 1rem; margin: 0 0 0.4rem 0; color: var(--stardust-gold, #ffd700);">
               🛡️ Dual Timelines Policy (In-Universe Lore Dates vs. Real-World 2026 Production Dates)
             </h2>
             <p style="margin: 0; font-size: 0.92rem; line-height: 1.55;">
-              <strong>The Stardust Engine</strong> is a multimedia Rock Opera concept project set between <strong>1986 and 2016</strong>. Historical years in album URLs and lore descriptions (such as <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> (<code>schema:temporalCoverage</code>). <strong>100% of all sound recordings, lyrics, vocal melodies, and studio masters were created and produced in 2026</strong> (<code>schema:datePublished: 2026</code>) by <strong>Michael P. Ragsdale</strong> under commercial license, with zero third-party samples or stems.
+              <strong>The Stardust Engine</strong> is a multimedia Rock Opera concept project set between <strong>1986 and 2016</strong>. Historical years in album URLs and lore descriptions (such as <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> (<code>schema:temporalCoverage</code>). <strong>100% of all sound recordings, lyrics, vocal melodies, and studio masters were created and produced in 2026</strong> (<code>schema:datePublished: 2026</code>) by <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) under commercial license, with zero third-party samples or stems.
             </p>
           </div>
           <div class="btn-row">
-            <a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine" class="btn btn-primary">
-              🏛️ Open Full Engine Room Records Master DSP Ledger (?artist=the-stardust-engine) →
+            <a href="https://engineroom.raggiesoft.com/dsp-verification/?artist=the-stardust-engine&album=2011-starfield-calibration&track=1-13-the-horizon-line" class="btn btn-primary">
+              🏛️ View Track 13 (&ldquo;The Horizon Line&rdquo;) Affidavit on Engine Room Records →
             </a>
             <button type="button" class="btn btn-gold" onclick="window.print()">
               🖨️ Print / Save Official PDF Verification Dossier
@@ -370,7 +370,9 @@ function buildStardustSite() {
             <span class="eyebrow">First-Party Remaster Chain of Custody • DistroKid Ref: Z0MB5RT4</span>
             <h2 id="horizon-line-verification-heading">Chain-of-Custody Verification: &ldquo;The Horizon Line&rdquo; (2001 Lore Original &amp; 2011 Lore Remaster)</h2>
             <p style="margin-top: 0.5rem;">
-              Track 13 of <em>Starfield Calibration</em> (<strong>&ldquo;The Horizon Line&rdquo; — Cosmic Tidal Lock Mix</strong>, Catalog ID <code>ERR-001-2011-113</code>, Album UPC <code>700299965607</code>) is a 100% first-party studio remaster of Michael P. Ragsdale&rsquo;s own original song <strong>&ldquo;The Horizon Line&rdquo;</strong> from <em>Midnight Drivers</em> (Catalog ID <code>ERR-001-2001-105</code>, DistroKid ISRC <code>QZWFW2601360</code>, Album UPC <code>825324114857</code>), which was distributed via DistroKid on <strong>May 1, 2026</strong>—53 days prior to an unrelated third-party Suno-generated track of the same title uploaded by <code>coffeeandpop</code> on June 23, 2026 (UPC <code>882518230267</code>) that shares only a title and Suno&rsquo;s synthesized female vocal timbre.
+              <strong>1. Original Release (May 1, 2026):</strong> Michael P. Ragsdale released his original song <strong>&ldquo;The Horizon Line&rdquo;</strong> on <em>Midnight Drivers</em> (Catalog ID <code>ERR-001-2001-105</code>, DistroKid ISRC <code>QZWFW2601360</code>, Album UPC <code>825324114857</code>) via DistroKid on <strong>2026-05-01</strong>.<br>
+              <strong>2. Independent Third-Party Release (June 23, 2026):</strong> Fifty-three days later, on <strong>2026-06-23</strong>, third-party artist <code>coffeeandpop</code> released a 100% independent Suno AI generation titled <em>&ldquo;Horizon Line&rdquo;</em> (UPC <code>882518230267</code>) that shares only the common title and Suno&rsquo;s synthesized female vocal model.<br>
+              <strong>3. First-Party Remaster (October 17, 2026):</strong> Track 13 of <em>Starfield Calibration</em> (<strong>&ldquo;The Horizon Line [Cosmic Tidal Lock Mix]&rdquo;</strong>, Catalog ID <code>ERR-001-2011-113</code>, Album UPC <code>700299965607</code>, uploaded <strong>2026-10-17</strong>) is a 100% first-party studio remaster of Michael P. Ragsdale&rsquo;s own May 1, 2026 song (<code>ISRC: QZWFW2601360</code>). Neither artist sampled or copied from the other.
             </p>
           </div>
           <div class="table-responsive">
