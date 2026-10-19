@@ -344,9 +344,17 @@ function buildStardustSite() {
           <span class="eyebrow">Official Artist Claim &amp; Chain-of-Custody Verification</span>
           <h1 id="stardust-dsp-heading">DSP Identity &amp; Copyright Verification: The Stardust Engine</h1>
           <p class="lead">
-            <strong>Notice to Platform Verification Teams (Apple Music for Artists, Spotify for Artists, Amazon Music for Artists, YouTube Music, DistroKid):</strong>
-            This official portal confirms that <strong>Michael P. Ragsdale</strong> (<code>mpragsdale@raggiesoft.com</code>) is the sole real-world human creator, producer, copyright owner, and authorized claimant for <strong>The Stardust Engine</strong> (${stardustTracks.length} registered sound recordings under the <strong>Engine Room Records</strong> imprint).
+            <strong>Notice to Platform Verification Teams (DistroKid, Apple Music for Artists, Spotify for Artists, Amazon Music, YouTube Music):</strong>
+            This official portal confirms that <strong>Michael P. Ragsdale</strong> (<code>mpragsdale@raggiesoft.com</code>) is the sole real-world human creator, songwriter, producer, copyright owner, and authorized claimant for <strong>The Stardust Engine</strong> (${stardustTracks.length} registered sound recordings under the <strong>Engine Room Records</strong> imprint).
           </p>
+          <div style="margin: 1.25rem 0; padding: 1rem 1.25rem; border-radius: 0.75rem; border: 1px solid rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.08);">
+            <h2 style="font-size: 1rem; margin: 0 0 0.4rem 0; color: var(--stardust-gold, #ffd700);">
+              🛡️ Dual Timelines Policy (In-Universe Lore Dates vs. Real-World 2026 Production Dates)
+            </h2>
+            <p style="margin: 0; font-size: 0.92rem; line-height: 1.55;">
+              <strong>The Stardust Engine</strong> is a multimedia Rock Opera concept project set between <strong>1986 and 2016</strong>. Historical years in album URLs and lore descriptions (such as <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> (<code>schema:temporalCoverage</code>). <strong>100% of all sound recordings, lyrics, vocal melodies, and studio masters were created and produced in 2026</strong> (<code>schema:datePublished: 2026</code>) by <strong>Michael P. Ragsdale</strong> under commercial license, with zero third-party samples or stems.
+            </p>
+          </div>
           <div class="btn-row">
             <a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine" class="btn btn-primary">
               🏛️ Open Full Engine Room Records Master DSP Ledger (?artist=the-stardust-engine) →
@@ -356,10 +364,57 @@ function buildStardustSite() {
             </button>
           </div>
         </section>
+
+        <section class="section-block" aria-labelledby="horizon-line-verification-heading" style="border: 1px solid rgba(102, 252, 241, 0.4); border-radius: 1rem; padding: 1.5rem; margin-bottom: 2rem; background: rgba(11, 12, 16, 0.75);">
+          <div class="section-header" style="margin-bottom: 1rem;">
+            <span class="eyebrow">First-Party Remaster Chain of Custody • DistroKid Ref: Z0MB5RT4</span>
+            <h2 id="horizon-line-verification-heading">Chain-of-Custody Verification: &ldquo;The Horizon Line&rdquo; (2001 Lore Original &amp; 2011 Lore Remaster)</h2>
+            <p style="margin-top: 0.5rem;">
+              Track 13 of <em>Starfield Calibration</em> (<strong>&ldquo;The Horizon Line&rdquo; — Cosmic Tidal Lock Mix</strong>, Catalog ID <code>ERR-001-2011-113</code>, Album UPC <code>700299965607</code>) is a 100% first-party studio remaster of Michael P. Ragsdale&rsquo;s own original song <strong>&ldquo;The Horizon Line&rdquo;</strong> from <em>Midnight Drivers</em> (Catalog ID <code>ERR-001-2001-105</code>, DistroKid ISRC <code>QZWFW2601360</code>, Album UPC <code>825324114857</code>), which was distributed via DistroKid on <strong>May 1, 2026</strong>—53 days prior to an unrelated third-party instrumental track of the same title uploaded by <code>coffeeandpop</code> on June 23, 2026 (UPC <code>882518230267</code>).
+            </p>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Version / Mix</th>
+                  <th scope="col">ERR-ID</th>
+                  <th scope="col">ISRC</th>
+                  <th scope="col">Album &amp; UPC</th>
+                  <th scope="col">Lore Era vs. Real Release</th>
+                  <th scope="col">Audio &amp; Lyrics Verification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Original Studio Master</strong><br><small>Track 5 — &ldquo;The Horizon Line&rdquo; (4:26)</small></td>
+                  <td><code>ERR-001-2001-105</code></td>
+                  <td><code>QZWFW2601360</code></td>
+                  <td><em>Midnight Drivers</em><br><span class="badge">UPC: 825324114857</span></td>
+                  <td>Lore Era: <strong>2001</strong><br>Real Release: <strong>2026-05-01</strong></td>
+                  <td>
+                    <a href="https://music.raggiesoft.com/the-stardust-engine/2001-midnight-drivers/?track=1-05-the-horizon-line" class="btn btn-primary" style="padding:0.3rem 0.65rem;font-size:0.78rem;">🎧 Listen &amp; View Lyrics (2001 Original) ↗</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Cosmic Tidal Lock Mix (Remaster)</strong><br><small>Track 13 — &ldquo;The Horizon Line&rdquo; (4:01)</small></td>
+                  <td><code>ERR-001-2011-113</code></td>
+                  <td><em>Pending Assignment (Ref: Z0MB5RT4)</em></td>
+                  <td><em>Starfield Calibration</em><br><span class="badge">UPC: 700299965607</span></td>
+                  <td>Lore Era: <strong>2011</strong><br>Real Production: <strong>2026</strong></td>
+                  <td>
+                    <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration/?track=1-13-the-horizon-line" class="btn btn-gold" style="padding:0.3rem 0.65rem;font-size:0.78rem;">🎧 Listen &amp; View Lyrics (2011 Remaster) ↗</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <section class="section-block" aria-labelledby="stardust-isrc-heading">
           <div class="section-header">
             <span class="eyebrow">Registered Works • DistroKid &amp; Suno Commercial Pro Clearance</span>
-            <h2 id="stardust-isrc-heading">The Stardust Engine ISRC &amp; UPC Registry (${stardustTracks.length} Tracks)</h2>
+            <h2 id="stardust-isrc-heading">The Stardust Engine Master ISRC &amp; UPC Registry (${stardustTracks.length} Tracks)</h2>
           </div>
           <div class="table-responsive">
             <table class="table">
@@ -369,8 +424,8 @@ function buildStardustSite() {
                   <th scope="col">ISRC</th>
                   <th scope="col">Track Title</th>
                   <th scope="col">Album &amp; UPC</th>
-                  <th scope="col">Release Date</th>
-                  <th scope="col">Affidavit</th>
+                  <th scope="col">Lore / Real Date</th>
+                  <th scope="col">Verification Links</th>
                 </tr>
               </thead>
               <tbody>
@@ -379,11 +434,14 @@ function buildStardustSite() {
                     (t) => `
                   <tr>
                     <td><code>${escapeHtml(t.err_id || '')}</code></td>
-                    <td><code>${escapeHtml(t.isrc || '')}</code></td>
+                    <td><code>${escapeHtml(t.isrc || 'Pending')}</code></td>
                     <td><strong>${escapeHtml(t.trackTitle || '')}</strong></td>
                     <td>${escapeHtml(t.albumTitle || '')} <span class="badge">${escapeHtml(t.albumUPC || '')}</span></td>
-                    <td>${escapeHtml(t.realReleaseDate || '')}</td>
-                    <td><a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine&album=${encodeURIComponent(t.albumSlug || '')}&track=${encodeURIComponent(t.trackSlug || '')}" class="btn" style="padding:0.25rem 0.6rem;font-size:0.78rem;">📄 Affidavit ↗</a></td>
+                    <td>Lore: ${escapeHtml(String(t.loreYear || ''))}<br><small>Real: ${escapeHtml(t.realReleaseDate || '2026')}</small></td>
+                    <td style="display:flex;gap:0.35rem;flex-wrap:wrap;">
+                      <a href="https://music.raggiesoft.com/the-stardust-engine/${encodeURIComponent(t.albumSlug || '')}/?track=${encodeURIComponent(t.trackSlug || '')}" class="btn" style="padding:0.25rem 0.55rem;font-size:0.75rem;">🎧 Audio ↗</a>
+                      <a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine&album=${encodeURIComponent(t.albumSlug || '')}&track=${encodeURIComponent(t.trackSlug || '')}" class="btn" style="padding:0.25rem 0.55rem;font-size:0.75rem;">📄 Affidavit ↗</a>
+                    </td>
                   </tr>`
                   )
                   .join('\n')}
