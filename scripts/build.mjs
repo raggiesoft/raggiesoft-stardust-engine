@@ -345,7 +345,7 @@ function buildStardustSite() {
           <h1 id="stardust-dsp-heading">DSP Identity &amp; Copyright Verification: The Stardust Engine</h1>
           <p class="lead">
             <strong>Notice to Platform Verification Teams (DistroKid, Apple Music for Artists, Spotify for Artists, Amazon Music, YouTube Music):</strong>
-            This official portal confirms that <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) is the sole real-world human creator, songwriter, producer, copyright owner, and authorized claimant for <strong>The Stardust Engine</strong> (${stardustTracks.length} registered sound recordings under the <strong>Engine Room Records</strong> imprint at <a href="https://engineroom-records.com/">engineroom-records.com</a>).
+            This official portal confirms that <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code> • Official US ISRC Agency Registrant ID <code>185611</code>, Allocated Prefix <strong><code>QTAHP</code></strong>) is the sole real-world human creator, songwriter, producer, copyright owner, and authorized claimant for <strong>The Stardust Engine</strong> (${stardustTracks.length} registered sound recordings under the <strong>Engine Room Records</strong> imprint at <a href="https://engineroom-records.com/">engineroom-records.com</a>).
           </p>
           <div style="margin: 1.25rem 0; padding: 1rem 1.25rem; border-radius: 0.75rem; border: 1px solid rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.08);">
             <h2 style="font-size: 1rem; margin: 0 0 0.4rem 0; color: var(--stardust-gold, #ffd700);">
