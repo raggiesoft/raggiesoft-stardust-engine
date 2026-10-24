@@ -189,7 +189,7 @@ export function loadCosmicNovels(narrativesRoot) {
     for (const era of ['e001', 'e002', 'e003', 'e004', 'e005']) {
       const eraJsonPath = path.join(seDir, era, 'ovab.json');
       const chapJsonPath = path.join(seDir, era, 'c001', 'ovab.json');
-      const sceneMdPath = path.join(seDir, era, 'c001', 's001.md');
+      const partMdPath = path.join(seDir, era, 'c001', 'p001.md');
       let eraTitle = era.toUpperCase();
       let chapTitle = 'Chapter 1';
       let summary = '';
@@ -208,8 +208,8 @@ export function loadCosmicNovels(narrativesRoot) {
         } catch {}
       }
       let sceneHtml = '';
-      if (fs.existsSync(sceneMdPath)) {
-        sceneHtml = renderMarkdownScene(fs.readFileSync(sceneMdPath, 'utf-8'));
+      if (fs.existsSync(partMdPath)) {
+        sceneHtml = renderMarkdownScene(fs.readFileSync(partMdPath, 'utf-8'));
       } else if (summary) {
         sceneHtml = `<p>${escapeHtml(summary)}</p>`;
       }
