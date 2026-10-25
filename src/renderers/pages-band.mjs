@@ -161,7 +161,7 @@ export function renderStardustHome(stardustAlbums) {
           <div>
             <h3>3. Deep Band Lore (/lore)</h3>
             <p style="font-size: 0.9rem; color: var(--text-secondary);">
-              From the 1992 <em>Friction</em> walkout and <em>Echoes in the Wire</em> (replacing <em>If You Walked Away</em>) to the 2011 <em>Starfield Calibration</em> sessions and the 2016 <em>Live at The Crucible</em> return.
+              From the 1992 <em>Friction</em> walkout and <em>Echoes in the Wire</em> (replacing <em>If You Walked Away</em>) to the 2011 <em>Starfield Calibration</em> sessions and the 2016 <em>Live at the Crucible</em> return.
             </p>
           </div>
           <div class="btn-row">
