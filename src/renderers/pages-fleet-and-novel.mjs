@@ -120,7 +120,7 @@ export function renderFleetPage() {
           <div>
             <h3>Front-Door-Only Low-Floor Architecture &amp; Kneeling Ramp</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary);">
-              When navigating narrow campus streets in Blacksburg, Virginia around <strong>512 Progress Street NW</strong> and CPI, a 45-foot interstate motorcoach is impractical. In 2004, The Stardust Engine became the launch customer for <strong>Serial #001 of the Prairie Coachworks RLFD30</strong>—a 30-foot Restyled Low-Floor Diesel shuttle ordered in a custom <strong>front-door-only</strong> executive layout (eliminating the rear transit exit door to maximize interior lounge seating and wheelchair securement space).
+              When navigating narrow campus streets in Blacksburg, Virginia around <strong>Progress Street</strong> and CPI, a 45-foot interstate motorcoach is impractical. In 2004, The Stardust Engine became the launch customer for <strong>Serial #001 of the Prairie Coachworks RLFD30</strong>—a 30-foot Restyled Low-Floor Diesel shuttle ordered in a custom <strong>front-door-only</strong> executive layout (eliminating the rear transit exit door to maximize interior lounge seating and wheelchair securement space).
             </p>
           </div>
           <div>
