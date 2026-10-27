@@ -58,10 +58,10 @@ const BAND_MEMBERS = [
   },
   {
     name: 'Evan Wright',
-    role: 'Bass Guitar, Fretless Bass, Moog Taurus Pedals & Co-Driver (Class A CDL)',
+    role: 'Bass Guitar, Fretless Bass, Sub-Bass Synth Pedals & Co-Driver (Class A CDL)',
     badge: 'CPI Class of 1989 • Identical Twin Maternal Cousin (Age 20 in ’87) • Joined Band at CPI in 1986',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/evan.jpg',
-    bio: "Ryan, Cassidy, and Holly's maternal cousin (age 20 in 1987). Joining Ryan and Cassidy at CPI in 1986 alongside his identical twin brother Tyler, Evan's driving basslines and sub-orbital Moog Taurus pedal sustains form the gravitational floor of The Stardust Engine. Holds a Class A Commercial Driver's License with Passenger and Airbrake endorsements.",
+    bio: "Ryan, Cassidy, and Holly's maternal cousin (age 20 in 1987). Joining Ryan and Cassidy at CPI in 1986 alongside his identical twin brother Tyler, Evan's driving basslines and sub-orbital analog bass pedal sustains form the gravitational floor of The Stardust Engine. Holds a Class A Commercial Driver's License with Passenger and Airbrake endorsements.",
     dossierUrl: '/band/evan-wright',
     signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/2001-midnight-drivers',
     signatureTrackLabel: '🎧 Stream "Midnight Drivers (2001)"'
@@ -71,7 +71,7 @@ const BAND_MEMBERS = [
     role: 'Acoustic & Electronic Drums, Percussion & Lead Fleet Driver (Class A CDL)',
     badge: 'CPI Class of 1989 • Identical Twin Maternal Cousin (Age 20 in ’87) • Joined Band at CPI in 1986',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/tyler.jpg',
-    bio: "Evan's identical twin brother, maternal cousin to Ryan, Cassidy, and Holly O'Connell (age 20 in 1987), and the rhythmic propellant ('Engine') behind every stadium anthem. After the December 10, 1990 I-81 Mile Marker 98 crash, Tyler earned his Class A CDL with Passenger and Airbrake endorsements to personally command the wheel of the 2002 Sainte-Claire 45H3 ('The Iron Horse') and the 2004 Prairie Coachworks RLFD30.",
+    bio: "Evan's identical twin brother, maternal cousin to Ryan, Cassidy, and Holly O'Connell (age 20 in 1987), and the rhythmic propellant ('Engine') behind every stadium anthem. After the December 10, 1990 I-81 Mile Marker 98 crash, Tyler earned his Class A CDL with Passenger and Airbrake endorsements to personally command the wheel of the 2002 Sainte-Claire 45H3 ('The Iron Horse'), the 2004 Prairie Coachworks RLFD30, and its 2015 Prairie Coachworks RLFD30 replacement.",
     dossierUrl: '/band/tyler-wright',
     signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/2004-progress-street',
     signatureTrackLabel: '🎧 Stream "Progress Street (2004)"'
@@ -121,7 +121,7 @@ export function renderStardustHome(stardustAlbums) {
           <a href="https://books.raggiesoft.com/stardust-engine" target="_blank" rel="noopener noreferrer">
             <img
               src="https://assets.raggiesoft.com/raggiesoft-books/images/covers/2x3/stardust-engine.jpg"
-              alt="Book cover of The Stardust Engine: The Story of the Iron Five by Michael Ragsdale, showing Ryan O'Connell in his manual wheelchair playing his sunburst Les Paul electric guitar beside Cassidy, Holly, Evan, and Tyler on stage inside The Crucible under a deep-space nebula."
+              alt="Book cover of The Stardust Engine: The Story of the Iron Five by Michael Ragsdale, showing Ryan O'Connell in his manual wheelchair playing his sunburst electric guitar beside Cassidy, Holly, Evan, and Tyler on stage inside The Crucible under a deep-space nebula."
               style="width: 100%; max-width: 240px; border-radius: 0.75rem; border: 1px solid var(--border-strong); box-shadow: 0 10px 28px rgba(0,0,0,0.45);"
               loading="lazy"
             />
