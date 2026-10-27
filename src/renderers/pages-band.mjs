@@ -288,15 +288,15 @@ export function renderBandMembersPage() {
 }
 
 /**
- * Renders `/discography` page from `catalog.json`.
+ * Renders `/discography` page from `catalog.json`, grouped into Studio Albums,
+ * Live Concert Recordings, and Compilations & Archival Anthologies.
  * @param {Array<any>} stardustAlbums
  * @returns {string}
  */
 export function renderDiscographyPage(stardustAlbums) {
-  const albumsHtml = stardustAlbums
-    .map((album) => {
-      const streamUrl = `https://music.raggiesoft.com/${album.artistSlug}/${album.slug}`;
-      return `
+  const renderAlbumCard = (album) => {
+    const streamUrl = `https://music.raggiesoft.com/${album.artistSlug}/${album.slug}`;
+    return `
         <article class="card card-accent-cyan">
           <div>
             <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.9rem;">
@@ -337,6 +337,44 @@ export function renderDiscographyPage(stardustAlbums) {
             }
           </div>
         </article>`;
+  };
+
+  const categoryDefs = [
+    {
+      id: 'studio',
+      eyebrow: 'Studio Releases • 1987–2015',
+      title: '🎙️ Studio Albums & Singles',
+      description: 'Original studio albums, concept suites, and singles recorded across Blacksburg, The Fortress, and the Planetarium.'
+    },
+    {
+      id: 'live',
+      eyebrow: 'Concert Recordings • 1990–2016',
+      title: '⚡ Live Concert Recordings',
+      description: 'Full-length live concert albums from Chicago, Charlottesville, Virginia Beach, Norfolk, and The Crucible in Blacksburg.'
+    },
+    {
+      id: 'compilation',
+      eyebrow: 'Vault Anthologies • 1997–2016',
+      title: '💿 Compilations & Archival Anthologies',
+      description: 'Curated war chests, Apex-era rarities (Lost Sounds), and the 30th-Anniversary CPI & Blacksburg archival anthology (The Forger\'s Call).'
+    }
+  ];
+
+  const sectionsHtml = categoryDefs
+    .map((cat) => {
+      const items = stardustAlbums.filter((a) => (a.albumType || 'studio') === cat.id);
+      if (items.length === 0) return '';
+      return `
+    <section class="section-block" aria-labelledby="discog-cat-${cat.id}">
+      <div class="section-header">
+        <span class="eyebrow">${escapeHtml(cat.eyebrow)} (${items.length})</span>
+        <h2 id="discog-cat-${cat.id}">${escapeHtml(cat.title)}</h2>
+        <p style="margin: 0; color: var(--text-secondary);">${escapeHtml(cat.description)}</p>
+      </div>
+      <div class="grid-2">
+        ${items.map(renderAlbumCard).join('\n')}
+      </div>
+    </section>`;
     })
     .join('\n');
 
@@ -357,11 +395,7 @@ export function renderDiscographyPage(stardustAlbums) {
       </div>
     </section>
 
-    <section class="section-block" aria-label="Stardust Engine Releases">
-      <div class="grid-2">
-        ${albumsHtml}
-      </div>
-    </section>
+    ${sectionsHtml}
   `;
 
   return renderCosmicShell({
