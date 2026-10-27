@@ -155,7 +155,7 @@ export function renderFleetPage() {
           <a href="https://music.raggiesoft.com/playlists/john-and-erin" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
             🎧 Stream John &amp; Erin Playlist on music.raggiesoft.com ↗
           </a>
-          <a href="https://books.raggiesoft.com/books/erin" class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+          <a href="https://books.raggiesoft.com/erin" class="btn btn-gold" target="_blank" rel="noopener noreferrer">
             📖 Read Before the Distance on Book Reader ↗
           </a>
         </div>
@@ -181,16 +181,24 @@ export function loadCosmicNovels(narrativesRoot) {
   const stardustChapters = [];
   const erinChapters = [];
 
-  // 1. Load The Stardust Engine (e001 - e005)
+  // 1. Load The Stardust Engine (e001 - e006)
+  const seEraReaderUrls = {
+    e001: 'https://books.raggiesoft.com/stardust-engine/book-1-cpi-electric-color-1986-1989',
+    e002: 'https://books.raggiesoft.com/stardust-engine/book-2-live-in-chicago-mile-marker-98-1990',
+    e003: 'https://books.raggiesoft.com/stardust-engine/book-3-the-friction-catastrophe-the-warehouse-tapes-1992-1995',
+    e004: 'https://books.raggiesoft.com/stardust-engine/book-4-ad-astra-hard-reset-the-stadium-years-1996-2005/chapter-1-escape-velocity-ad-astra-main-engine-cutoff-1995-1997/main-engine-cutoff-the-magnum-opus',
+    e005: 'https://books.raggiesoft.com/stardust-engine/book-5-burnout-hiatus-our-own-frequency-the-150m-refusal-2005-2014',
+    e006: 'https://books.raggiesoft.com/stardust-engine/book-6-reignition-live-at-the-crucible-2015-2016/chapter-1-live-at-the-crucible-may-21-2016'
+  };
   const seDir = path.join(narrativesRoot, 'books', 'stardust-engine');
   if (fs.existsSync(seDir)) {
     const landingPath = path.join(seDir, 'landing.md');
     if (fs.existsSync(landingPath)) {
       stardustChapters.push({
         title: 'Prologue & Archive Overview',
-        subtitle: 'The Stardust Engine: The Story of the Iron Five',
+        subtitle: 'The Stardust Engine: The Story of the Iron Five (Ryan O\'Connell\'s POV)',
         html: renderMarkdownScene(fs.readFileSync(landingPath, 'utf-8')),
-        readerUrl: 'https://books.raggiesoft.com/books/stardust-engine'
+        readerUrl: 'https://books.raggiesoft.com/stardust-engine'
       });
     }
     for (const era of ['e001', 'e002', 'e003', 'e004', 'e005', 'e006']) {
@@ -233,7 +241,7 @@ export function loadCosmicNovels(narrativesRoot) {
         title: `${eraTitle} — ${chapTitle}`,
         subtitle: summary,
         html: sceneHtml,
-        readerUrl: 'https://books.raggiesoft.com/stardust-engine'
+        readerUrl: seEraReaderUrls[era] || 'https://books.raggiesoft.com/stardust-engine'
       });
     }
   }
@@ -265,7 +273,7 @@ export function loadCosmicNovels(narrativesRoot) {
         title: chapTitle,
         subtitle: chapSub,
         html: scenes,
-        readerUrl: `https://books.raggiesoft.com/books/erin/e001/${chap}`
+        readerUrl: 'https://books.raggiesoft.com/erin'
       });
     }
   }
@@ -331,25 +339,65 @@ export function renderNovelPage(narrativesRoot) {
       <span class="eyebrow">Cosmic Literary Sanctuary • Synchronized with books.raggiesoft.com</span>
       <h1 id="novel-heading">The Stardust Engine Cosmic Novel Reader</h1>
       <p class="lead">
-        Because our novels are authored in pure flat-file Markdown and JSON inside <code>/raggiesoft-narratives</code>, you can read both <strong>The Stardust Engine: The Story of the Iron Five</strong> and <strong>Before the Distance: The Story of John &amp; Erin</strong> right here inside our Exoplanet / Deep Space environment—or open them in the full <a href="https://books.raggiesoft.com">RaggieSoft Book Reader (books.raggiesoft.com)</a>.
+        Because our novels are authored in pure flat-file Markdown and JSON inside <code>/raggiesoft-narratives</code>, you can read both <strong>The Stardust Engine: The Story of the Iron Five</strong> (told from Ryan O'Connell's third-person limited POV) and <strong>Before the Distance: The Story of John &amp; Erin</strong> right here inside our Exoplanet / Deep Space environment—or open them in the full <a href="https://books.raggiesoft.com/stardust-engine">RaggieSoft Book Reader (books.raggiesoft.com/stardust-engine)</a>.
       </p>
-      <div class="btn-row">
-        <a href="https://books.raggiesoft.com/books/stardust-engine" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-          📚 The Stardust Engine on books.raggiesoft.com ↗
-        </a>
-        <a href="https://books.raggiesoft.com/books/erin" class="btn btn-gold" target="_blank" rel="noopener noreferrer">
-          📖 Before the Distance (John &amp; Erin) on books.raggiesoft.com ↗
-        </a>
-        <a href="#book-erin" class="btn">
-          Jump to Before the Distance (4 Chapters) ↓
-        </a>
+      <div class="grid-2" style="margin: 1.5rem 0;">
+        <div class="card card-accent-gold" style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+          <img
+            src="https://assets.raggiesoft.com/raggiesoft-books/images/covers/2x3/stardust-engine.jpg"
+            alt="Cover of The Stardust Engine: The Story of the Iron Five by Michael Ragsdale"
+            width="120"
+            height="180"
+            style="border-radius: 0.6rem; object-fit: cover; border: 1px solid var(--border-strong); flex-shrink: 0;"
+            loading="lazy"
+          />
+          <div style="flex: 1; min-width: 200px;">
+            <span class="badge" style="margin-bottom: 0.35rem;">Volume 01 • Ryan O'Connell's POV</span>
+            <h2 style="font-size: 1.2rem; margin: 0 0 0.35rem;">The Stardust Engine</h2>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0 0 0.75rem;">
+              Six chronological eras (1986–2016), including the complete 6-part May 21, 2016 <em>Live at the Crucible</em> concert from Ryan's onstage perspective.
+            </p>
+            <div class="btn-row">
+              <a href="https://books.raggiesoft.com/stardust-engine" class="btn btn-primary" target="_blank" rel="noopener noreferrer">📚 Open on Book Reader ↗</a>
+              <a href="https://assets.raggiesoft.com/raggiesoft-books/books/stardust-engine/stardust-engine.epub" class="btn btn-emerald" target="_blank" rel="noopener noreferrer">⬇ EPUB</a>
+              <a href="https://assets.raggiesoft.com/raggiesoft-books/books/stardust-engine/stardust-engine.pdf" class="btn" target="_blank" rel="noopener noreferrer">⬇ PDF</a>
+            </div>
+          </div>
+        </div>
+        <div class="card card-accent-cyan" style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+          <img
+            src="https://assets.raggiesoft.com/raggiesoft-books/images/covers/2x3/erin.jpg"
+            alt="Cover of Before the Distance: The Story of John & Erin"
+            width="120"
+            height="180"
+            style="border-radius: 0.6rem; object-fit: cover; border: 1px solid var(--border-strong); flex-shrink: 0;"
+            loading="lazy"
+          />
+          <div style="flex: 1; min-width: 200px;">
+            <span class="badge" style="margin-bottom: 0.35rem;">Volume 02 • Companion CPI Novel</span>
+            <h2 style="font-size: 1.2rem; margin: 0 0 0.35rem;">Before the Distance (John &amp; Erin)</h2>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0 0 0.75rem;">
+              Complete 4-chapter companion story portrayed by Ryan and Cassidy O'Connell aboard Blue Ridge Transit at CPI.
+            </p>
+            <div class="btn-row">
+              <a href="https://books.raggiesoft.com/erin" class="btn btn-gold" target="_blank" rel="noopener noreferrer">📖 Open on Book Reader ↗</a>
+              <a href="#book-erin" class="btn">Jump to Chapters ↓</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout-box card-accent-violet" style="margin-top: 1rem;">
+        <h3 style="font-size: 1.05rem; margin: 0 0 0.35rem;">🔄 Dual-Perspective Concert Experience: May 21, 2016 (<em>Live at the Crucible</em>)</h3>
+        <p style="margin: 0 0 0.65rem; font-size: 0.9rem; color: var(--text-secondary);">
+          Experience all 6 parts of the May 21, 2016 homecoming concert inside <strong>The Crucible</strong> from both sides of the stage rail: <strong>Ryan O'Connell's onstage perspective</strong> in <a href="https://books.raggiesoft.com/stardust-engine/book-6-reignition-live-at-the-crucible-2015-2016/chapter-1-live-at-the-crucible-may-21-2016" target="_blank" rel="noopener noreferrer"><em>The Stardust Engine</em> (Book 6, Chapter 1)</a> and <strong>Jordan Fuller's front-row perspective</strong> in <code>Section 104, Row A, Seat 1</code> in <a href="https://books.raggiesoft.com/aubrie/spring-semester-2016/live-at-the-crucible-senior-commencement" target="_blank" rel="noopener noreferrer"><em>The Eleventh Child</em> (Spring 2016, Chapter 4)</a>.
+        </p>
       </div>
     </section>
 
     <section id="book-stardust" class="section-block" aria-labelledby="book-se-heading">
       <div class="section-header">
-        <span class="eyebrow">Volume 01 • The Story of the Iron Five</span>
-        <h2 id="book-se-heading">Book I: The Stardust Engine (Narrative Eras &amp; Excerpts)</h2>
+        <span class="eyebrow">Volume 01 • The Story of the Iron Five (Ryan O'Connell's POV)</span>
+        <h2 id="book-se-heading">Book I: The Stardust Engine (6 Chronological Eras &amp; Live at the Crucible)</h2>
       </div>
       ${seHtml}
     </section>
@@ -370,6 +418,7 @@ export function renderNovelPage(narrativesRoot) {
     title: 'Cosmic Novel Reader | The Stardust Engine',
     description: 'Read The Stardust Engine and Before the Distance (John & Erin) wrapped in a cosmic environment, linked with books.raggiesoft.com.',
     canonicalPath: '/novel',
+    ogImage: 'https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/stardust-engine.jpg',
     bodyHtml
   });
 }

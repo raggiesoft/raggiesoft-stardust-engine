@@ -104,9 +104,54 @@ export function renderStardustHome(stardustAlbums) {
         <a href="/novel" class="btn btn-gold">
           📖 Read the Band Novel in the Cosmic Reader →
         </a>
-        <a href="https://books.raggiesoft.com/books/stardust-engine" class="btn btn-emerald" target="_blank" rel="noopener noreferrer">
-          📚 Open in RaggieSoft Book Reader ↗
+        <a href="https://books.raggiesoft.com/stardust-engine" class="btn btn-emerald" target="_blank" rel="noopener noreferrer">
+          📚 Open Companion Novel on books.raggiesoft.com ↗
         </a>
+      </div>
+    </section>
+
+    <!-- COMPANION NOVEL SHOWCASE: THE STARDUST ENGINE (RYAN'S POV) -->
+    <section class="section-block" aria-labelledby="companion-novel-heading">
+      <div class="section-header">
+        <span class="eyebrow">Ocean View Archives Companion Novel • 6 Chronological Books (Ryan O'Connell's POV)</span>
+        <h2 id="companion-novel-heading">The Stardust Engine: The Story of the Iron Five</h2>
+      </div>
+      <div class="card card-accent-gold" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; align-items: center;">
+        <div style="text-align: center;">
+          <a href="https://books.raggiesoft.com/stardust-engine" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://assets.raggiesoft.com/raggiesoft-books/images/covers/2x3/stardust-engine.jpg"
+              alt="Book cover of The Stardust Engine: The Story of the Iron Five by Michael Ragsdale, showing Ryan O'Connell in his manual wheelchair playing his sunburst Les Paul electric guitar beside Cassidy, Holly, Evan, and Tyler on stage inside The Crucible under a deep-space nebula."
+              style="width: 100%; max-width: 240px; border-radius: 0.75rem; border: 1px solid var(--border-strong); box-shadow: 0 10px 28px rgba(0,0,0,0.45);"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div>
+          <div class="badge-row" style="margin-bottom: 0.5rem;">
+            <span class="badge">Third-Person Limited (Ryan O'Connell)</span>
+            <span class="badge">6 Chronological Eras (1986–2016)</span>
+            <span class="badge">EPUB &amp; PDF Editions</span>
+          </div>
+          <h3 style="margin: 0 0 0.5rem; font-size: 1.35rem;">Read the Band's Journey &amp; <em>Live at the Crucible</em> from Onstage</h3>
+          <p style="font-size: 0.94rem; color: var(--text-secondary); margin: 0 0 0.75rem;">
+            Synchronized directly between <a href="/novel">stardust.raggiesoft.com/novel</a> and <a href="https://books.raggiesoft.com/stardust-engine" target="_blank" rel="noopener noreferrer">books.raggiesoft.com/stardust-engine</a>, the official companion novel chronicles the Iron Five from their 1986 student contest cassette on Progress Street through the 1995 warehouse sessions of <em>&ldquo;Escape Velocity (Ad Astra)&rdquo;</em> (known to fans simply as <em>&ldquo;Ad Astra&rdquo;</em>) and the complete <strong>6-part May 21, 2016 <em>Live at the Crucible</em> homecoming concert</strong> told from Ryan's onstage perspective—mirroring sophomore <a href="https://books.raggiesoft.com/aubrie/spring-semester-2016/live-at-the-crucible-senior-commencement" target="_blank" rel="noopener noreferrer">Jordan Fuller's front-row perspective in Section 104, Row A</a>.
+          </p>
+          <div class="btn-row">
+            <a href="https://books.raggiesoft.com/stardust-engine" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              📚 Read on RaggieSoft Book Reader ↗
+            </a>
+            <a href="https://books.raggiesoft.com/stardust-engine/book-6-reignition-live-at-the-crucible-2015-2016/chapter-1-live-at-the-crucible-may-21-2016" class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+              🎸 Book 6: Live at the Crucible (Ryan's POV) ↗
+            </a>
+            <a href="/novel" class="btn">
+              🪐 Read Here in Cosmic View →
+            </a>
+            <a href="https://assets.raggiesoft.com/raggiesoft-books/books/stardust-engine/stardust-engine.epub" class="btn btn-emerald" target="_blank" rel="noopener noreferrer">
+              ⬇ Download Illustrated EPUB
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -183,13 +228,14 @@ export function renderStardustHome(stardustAlbums) {
 
         <article class="card card-accent-gold">
           <div>
-            <h3>5. Cosmic Novel Reader (/novel)</h3>
+            <h3>5. Companion Novel &amp; Cosmic Reader (/novel)</h3>
             <p style="font-size: 0.9rem; color: var(--text-secondary);">
-              Read the Markdown/JSON chapters of <em>The Stardust Engine</em> and <em>Before the Distance: The Story of John &amp; Erin</em> wrapped in our cosmic environment, or jump directly to <a href="https://books.raggiesoft.com">books.raggiesoft.com</a>.
+              Read all six chronological eras of <em>The Stardust Engine</em> (told from Ryan O'Connell's perspective) and <em>Before the Distance: The Story of John &amp; Erin</em> inside our cosmic environment or on <a href="https://books.raggiesoft.com/stardust-engine">books.raggiesoft.com/stardust-engine</a>.
             </p>
           </div>
           <div class="btn-row">
             <a href="/novel" class="btn btn-gold">Open Cosmic Novel Reader →</a>
+            <a href="https://books.raggiesoft.com/stardust-engine" class="btn" target="_blank" rel="noopener noreferrer">RaggieSoft Book Reader ↗</a>
           </div>
         </article>
 
@@ -475,6 +521,34 @@ export function renderDeepLorePage() {
           <li><strong>Celebrating Freedom from Apex Records:</strong> Stripping away the last remnants of 1980s executive interference so every lyric reflects the Iron Five's true voice.</li>
           <li><strong>Acoustic &amp; Phonetic Vowel Extensions (The 74% Cover Protocol):</strong> Opening clipped phrasing into sustained vowel harmonics (<code>ooh</code>, <code>aah</code>, <code>ee</code>, <code>oh</code>) calibrated at a precise 74% audio influence ratio so the vocals float effortlessly inside Cassidy's zero-gravity analog synth field.</li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="era-4-heading">
+      <div class="section-header">
+        <span class="eyebrow">Era 04 • May 21, 2016 (The 30-Year Full-Circle Homecoming)</span>
+        <h2 id="era-4-heading">4. <em>Live at the Crucible</em> &amp; The Companion Novel</h2>
+      </div>
+      <div class="grid-2">
+        <article class="card card-accent-cyan">
+          <h3>Thirty Years After 1986: Returning to CPI</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary);">
+            On May 21, 2016—exactly thirty years after writing their namesake track at CPI—the Iron Five returned to Blacksburg to headline the Class of 2016 Senior Commencement Concert at <strong>The Crucible</strong> before 65,632 screaming Forgers, joined on the 50-yard line by the 330-piece <strong>Marching Forgers</strong> and accompanied by the archival anthology <a href="https://music.raggiesoft.com/the-stardust-engine/2016-the-forgers-call"><em>The Forger's Call</em></a>.
+          </p>
+          <div class="btn-row">
+            <a href="https://music.raggiesoft.com/the-stardust-engine/2016-live-at-the-crucible" class="btn btn-primary" target="_blank" rel="noopener noreferrer">🎧 Stream Live at the Crucible ↗</a>
+          </div>
+        </article>
+        <article class="card card-accent-gold">
+          <h3>Read the Full Novel in Ryan O'Connell's POV</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary);">
+            Experience the band's entire 30-year journey—including the six-part <em>Live at the Crucible</em> homecoming concert written from Ryan's stage-center perspective—in the official companion novel on <a href="https://books.raggiesoft.com/stardust-engine">books.raggiesoft.com/stardust-engine</a> or inside our <a href="/novel#stardust-engine">Cosmic Novel Reader</a>.
+          </p>
+          <div class="btn-row">
+            <a href="https://books.raggiesoft.com/stardust-engine" class="btn btn-gold" target="_blank" rel="noopener noreferrer">📖 Read on books.raggiesoft.com ↗</a>
+            <a href="/novel#stardust-engine" class="btn">🌌 Cosmic Novel Reader →</a>
+          </div>
+        </article>
       </div>
     </section>
   `;
