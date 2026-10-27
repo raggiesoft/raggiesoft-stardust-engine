@@ -29,9 +29,9 @@ const BAND_MEMBERS = [
   {
     name: "Ryan O'Connell",
     role: 'Co-Lead Vocals, Lead Electric Guitar & Lyricist',
-    badge: 'CPI Class of 1988 • T10 Paraplegic Wheelchair User • Cassidy’s Safe Person',
+    badge: 'CPI Class of 1989 • Oldest O’Connell Sibling (Age 23 in ’87) • T10 Paraplegic Wheelchair User • Cassidy’s Safe Person',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/ryan.jpg',
-    bio: "Born in Blacksburg, Virginia, Ryan co-founded the band with his sister Cassidy at Commonwealth Polytechnic Institute (CPI) in 1985. After surviving the December 1990 I-81 black-ice tour crash as a T10 paraplegic, Ryan refused to surrender the stage—performing from his custom manual wheelchair and anchoring Cassidy as her lifelong safe person.",
+    bio: "The oldest of the three O'Connell siblings (age 23 in 1987), Ryan delayed his own college entry so he could matriculate at Commonwealth Polytechnic Institute (CPI) with his younger sister Cassidy in 1985 and graduate together in the Class of 1989. After surviving the December 10, 1990 I-81 Mile Marker 98 black-ice crash as a T10 paraplegic, Ryan refused to surrender the stage—performing from his custom manual wheelchair and anchoring Cassidy as her lifelong safe person.",
     dossierUrl: '/band/ryan-oconnell',
     signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9',
     signatureTrackLabel: '🎧 Hear "Echoes in the Wire" (Ryan & Cassidy)'
@@ -39,9 +39,9 @@ const BAND_MEMBERS = [
   {
     name: "Cassidy O'Connell",
     role: 'Co-Lead Vocals, Analog Synthesizers, Grand Piano & Chief Audio Architect',
-    badge: 'Pioneer of The Cosmic Tidal Lock Sound™ • Composer of "Escape Velocity (Ad Astra)"',
+    badge: 'CPI Class of 1989 • Middle O’Connell Sibling (Age 21 in ’87) • Pioneer of The Cosmic Tidal Lock Sound™',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/cassidy.jpg',
-    bio: "The sonic architect of The Stardust Engine. Operating from the center of her 360-degree circular analog synthesizer rig ('The Engine Room'), Cassidy engineered the zero-gravity Cosmic Tidal Lock Sound™ and composed the 15-minute two-disc magnum opus 'Escape Velocity (Ad Astra)' after escaping Apex Records' coerced pop formulas.",
+    bio: "Ryan's younger sister, Holly's older sister (age 21 in 1987), and the sonic architect of The Stardust Engine. Operating from the center of her 360-degree circular analog synthesizer rig ('The Engine Room'), Cassidy engineered the zero-gravity Cosmic Tidal Lock Sound™ and composed the four-movement magnum opus 'Escape Velocity (Ad Astra)' (known to fans simply as 'Ad Astra') after escaping Apex Records' coerced pop formulas.",
     dossierUrl: '/band/cassidy-oconnell',
     signatureTrack: 'https://music.raggiesoft.com/playlists/cosmic-tidal-lock-sound',
     signatureTrackLabel: '🎧 Explore The Cosmic Tidal Lock Sound™ Playlist'
@@ -49,9 +49,9 @@ const BAND_MEMBERS = [
   {
     name: "Holly O'Connell, J.D., CFA",
     role: 'Band Manager, Legal Architect & Co-Driver (Class A CDL w/ Passenger & Airbrake)',
-    badge: 'Architect of the 1992 Friction Walkout & 1994 Apex Settlement',
+    badge: 'CPI Class of 1989 • Youngest O’Connell Sibling (Age 18 in ’87) • Architect of the 1986 $1.00 Cross-License & 1992 Friction Walkout',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/holly.jpg',
-    bio: "Ryan and Cassidy's fiercely protective younger sister. When Apex executive Julian Vance attempted to coerce Ryan and Cassidy during the October 14, 1992 'Friction' sessions, Holly pulled the plug, led the 1994 legal victory that reclaimed 100% of the band's master tapes, and earned her Class A CDL alongside Evan and Tyler so no outside driver could ever endanger her family again.",
+    bio: "Ryan and Cassidy's fiercely protective youngest sister (dual-enrolled at Blacksburg High School and CPI at 16 in 1986; age 18 in 1987). When Apex executive Julian Vance attempted to coerce Ryan and Cassidy during the October 14, 1992 'Friction' sessions, Holly pulled the plug, led the 1994 legal victory that reclaimed 100% of the band's master tapes, and earned her Class A CDL alongside Evan and Tyler so no outside driver could ever endanger her family again.",
     dossierUrl: '/band/holly-oconnell',
     signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/1997-forger-nation-war-chest',
     signatureTrackLabel: '🎧 Stream "Forger Nation: The War Chest (1997)"'
@@ -59,9 +59,9 @@ const BAND_MEMBERS = [
   {
     name: 'Evan Wright',
     role: 'Bass Guitar, Fretless Bass, Moog Taurus Pedals & Co-Driver (Class A CDL)',
-    badge: 'Identical Twin Maternal Cousin • Joined at CPI in 1986',
+    badge: 'CPI Class of 1989 • Identical Twin Maternal Cousin (Age 20 in ’87) • Joined Band at CPI in 1986',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/evan.jpg',
-    bio: "Joining Ryan and Cassidy at CPI in 1986 alongside his identical twin brother Tyler, Evan's driving basslines and sub-orbital Moog Taurus pedal sustains form the gravitational floor of The Stardust Engine. Holds a Class A Commercial Driver's License with Passenger and Airbrake endorsements.",
+    bio: "Ryan, Cassidy, and Holly's maternal cousin (age 20 in 1987). Joining Ryan and Cassidy at CPI in 1986 alongside his identical twin brother Tyler, Evan's driving basslines and sub-orbital Moog Taurus pedal sustains form the gravitational floor of The Stardust Engine. Holds a Class A Commercial Driver's License with Passenger and Airbrake endorsements.",
     dossierUrl: '/band/evan-wright',
     signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/2001-midnight-drivers',
     signatureTrackLabel: '🎧 Stream "Midnight Drivers (2001)"'
@@ -69,9 +69,9 @@ const BAND_MEMBERS = [
   {
     name: 'Tyler Wright',
     role: 'Acoustic & Electronic Drums, Percussion & Lead Fleet Driver (Class A CDL)',
-    badge: 'Identical Twin Maternal Cousin • Joined at CPI in 1986',
+    badge: 'CPI Class of 1989 • Identical Twin Maternal Cousin (Age 20 in ’87) • Joined Band at CPI in 1986',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/tyler.jpg',
-    bio: "Evan's identical twin brother and the rhythmic propellant ('Engine') behind every stadium anthem. After the 1990 I-81 crash, Tyler earned his Class A CDL with Passenger and Airbrake endorsements to personally command the wheel of the 2002 Sainte-Claire 45H3 ('The Iron Horse') and the 2004 Prairie Coachworks RLFD30.",
+    bio: "Evan's identical twin brother, maternal cousin to Ryan, Cassidy, and Holly O'Connell (age 20 in 1987), and the rhythmic propellant ('Engine') behind every stadium anthem. After the December 10, 1990 I-81 Mile Marker 98 crash, Tyler earned his Class A CDL with Passenger and Airbrake endorsements to personally command the wheel of the 2002 Sainte-Claire 45H3 ('The Iron Horse') and the 2004 Prairie Coachworks RLFD30.",
     dossierUrl: '/band/tyler-wright',
     signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/2004-progress-street',
     signatureTrackLabel: '🎧 Stream "Progress Street (2004)"'
