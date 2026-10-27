@@ -26,13 +26,16 @@ import path from 'node:path';
 import { escapeHtml, renderCosmicShell } from './shell.mjs';
 
 /**
- * Simple Markdown-to-HTML converter for novel scenes.
+ * Simple Markdown-to-HTML converter for novel scenes (strips YAML frontmatter).
  * @param {string} md
  * @returns {string}
  */
 function renderMarkdownScene(md) {
-  const blocks = String(md || '')
+  const withoutFrontmatter = String(md || '')
     .replace(/\r\n/g, '\n')
+    .replace(/^---[\s\S]*?---\n*/, '');
+
+  const blocks = withoutFrontmatter
     .split(/\n{2,}/)
     .map((b) => b.trim())
     .filter(Boolean);
@@ -52,6 +55,10 @@ function renderMarkdownScene(md) {
         return `<hr style="border: 0; border-top: 1px solid var(--border-strong); margin: 1.5rem 0;" />`;
       }
       let html = escapeHtml(block);
+      html = html.replace(
+        /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+      );
       html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
       html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
       return `<p>${html}</p>`;
@@ -186,10 +193,10 @@ export function loadCosmicNovels(narrativesRoot) {
         readerUrl: 'https://books.raggiesoft.com/books/stardust-engine'
       });
     }
-    for (const era of ['e001', 'e002', 'e003', 'e004', 'e005']) {
+    for (const era of ['e001', 'e002', 'e003', 'e004', 'e005', 'e006']) {
       const eraJsonPath = path.join(seDir, era, 'ovab.json');
-      const chapJsonPath = path.join(seDir, era, 'c001', 'ovab.json');
-      const partMdPath = path.join(seDir, era, 'c001', 'p001.md');
+      const chapDir = path.join(seDir, era, 'c001');
+      const chapJsonPath = path.join(chapDir, 'ovab.json');
       let eraTitle = era.toUpperCase();
       let chapTitle = 'Chapter 1';
       let summary = '';
@@ -208,16 +215,25 @@ export function loadCosmicNovels(narrativesRoot) {
         } catch {}
       }
       let sceneHtml = '';
-      if (fs.existsSync(partMdPath)) {
-        sceneHtml = renderMarkdownScene(fs.readFileSync(partMdPath, 'utf-8'));
-      } else if (summary) {
+      if (fs.existsSync(chapDir)) {
+        const mdFiles = fs
+          .readdirSync(chapDir)
+          .filter((f) => f.endsWith('.md'))
+          .sort();
+        if (mdFiles.length > 0) {
+          sceneHtml = mdFiles
+            .map((f) => renderMarkdownScene(fs.readFileSync(path.join(chapDir, f), 'utf-8')))
+            .join('<hr style="border: 0; border-top: 1px solid var(--border-strong); margin: 1.5rem 0;" />');
+        }
+      }
+      if (!sceneHtml && summary) {
         sceneHtml = `<p>${escapeHtml(summary)}</p>`;
       }
       stardustChapters.push({
         title: `${eraTitle} — ${chapTitle}`,
         subtitle: summary,
         html: sceneHtml,
-        readerUrl: 'https://books.raggiesoft.com/books/stardust-engine'
+        readerUrl: 'https://books.raggiesoft.com/stardust-engine'
       });
     }
   }
