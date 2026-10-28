@@ -26,10 +26,24 @@ import path from 'node:path';
 import { escapeHtml, renderCosmicShell } from './shell.mjs';
 
 /**
- * Simple Markdown-to-HTML converter for novel scenes (strips YAML frontmatter).
+ * Simple Markdown-to-HTML converter for novel scenes (strips YAML frontmatter
+ * and supports headings, blockquotes, bullet lists, <aac>, and <sms> tags).
  * @param {string} md
  * @returns {string}
  */
+function formatInlineMarkdown(raw) {
+  let html = escapeHtml(raw);
+  html = html.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+  html = html.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  return html;
+}
+
 function renderMarkdownScene(md) {
   const withoutFrontmatter = String(md || '')
     .replace(/\r\n/g, '\n')
@@ -43,25 +57,47 @@ function renderMarkdownScene(md) {
   return blocks
     .map((block) => {
       if (block.startsWith('### ')) {
-        return `<h4>${escapeHtml(block.slice(4))}</h4>`;
+        return `<h4>${formatInlineMarkdown(block.slice(4))}</h4>`;
       }
       if (block.startsWith('## ')) {
-        return `<h3>${escapeHtml(block.slice(3))}</h3>`;
+        return `<h3>${formatInlineMarkdown(block.slice(3))}</h3>`;
       }
       if (block.startsWith('# ')) {
-        return `<h3>${escapeHtml(block.slice(2))}</h3>`;
+        return `<h3>${formatInlineMarkdown(block.slice(2))}</h3>`;
       }
       if (block === '---' || block === '***') {
         return `<hr style="border: 0; border-top: 1px solid var(--border-strong); margin: 1.5rem 0;" />`;
       }
-      let html = escapeHtml(block);
-      html = html.replace(
-        /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
-      );
-      html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-      html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-      return `<p>${html}</p>`;
+      if (block.startsWith('<aac>') && block.endsWith('</aac>')) {
+        const inner = block.slice(5, -6).trim();
+        return `<div class="callout-box card-accent-cyan" style="margin: 0.85rem 0; padding: 0.75rem 1rem; font-family: monospace; font-size: 0.92rem;"><strong>📟 AAC (mPad Mini):</strong> ${formatInlineMarkdown(inner)}</div>`;
+      }
+      if (block.startsWith('<sms>') && block.endsWith('</sms>')) {
+        const inner = block.slice(5, -6).trim();
+        return `<div class="callout-box card-accent-gold" style="margin: 0.85rem 0; padding: 0.75rem 1rem; font-family: monospace; font-size: 0.9rem;"><strong>📱 SMS:</strong> ${formatInlineMarkdown(inner)}</div>`;
+      }
+      if (block.startsWith('>')) {
+        const quoteLines = block
+          .split('\n')
+          .map((line) => line.replace(/^>\s?/, ''))
+          .map((line) => {
+            const hasBr = line.endsWith('<br>');
+            const cleanLine = hasBr ? line.slice(0, -4) : line;
+            return formatInlineMarkdown(cleanLine) + (hasBr ? '<br />' : '');
+          })
+          .join('\n');
+        return `<blockquote style="border-left: 3px solid var(--accent-gold); padding: 0.5rem 1rem; margin: 1rem 0; color: var(--text-secondary); background: rgba(255,255,255,0.02); border-radius: 0 0.5rem 0.5rem 0;">${quoteLines}</blockquote>`;
+      }
+      if (block.startsWith('* ') || block.startsWith('- ')) {
+        const items = block
+          .split('\n')
+          .map((l) => l.replace(/^[*-]\s+/, '').trim())
+          .filter(Boolean)
+          .map((item) => `<li>${formatInlineMarkdown(item)}</li>`)
+          .join('');
+        return `<ul style="padding-left: 1.25rem; margin: 0.75rem 0;">${items}</ul>`;
+      }
+      return `<p>${formatInlineMarkdown(block)}</p>`;
     })
     .join('\n');
 }
@@ -176,40 +212,37 @@ export function renderFleetPage() {
 }
 
 /**
- * Loads chapters from `raggiesoft-narratives/books/stardust-engine` and `raggiesoft-narratives/books/erin`.
+ * Loads books and chapters from `raggiesoft-narratives/books/stardust-engine` and `raggiesoft-narratives/books/erin`.
  * @param {string} narrativesRoot
- * @returns {{ stardustChapters: Array<{ title: string, subtitle: string, html: string, readerUrl: string }>, erinChapters: Array<{ title: string, subtitle: string, html: string, readerUrl: string }> }}
+ * @returns {{ stardustBooks: Array<{ id: string, title: string, description: string, readerUrl: string, chapters: Array<{ id: string, title: string, html: string }> }>, stardustChapters: Array<{ title: string, subtitle: string, html: string, readerUrl: string }>, erinChapters: Array<{ title: string, subtitle: string, html: string, readerUrl: string }> }}
  */
 export function loadCosmicNovels(narrativesRoot) {
+  const stardustBooks = [];
   const stardustChapters = [];
   const erinChapters = [];
 
-  // 1. Load The Stardust Engine (e001 - e006)
+  // 1. Load The Stardust Engine (e001 - e007)
   const seEraReaderUrls = {
-    e001: 'https://books.raggiesoft.com/stardust-engine/book-1-cpi-electric-color-1986-1989',
-    e002: 'https://books.raggiesoft.com/stardust-engine/book-2-live-in-chicago-mile-marker-98-1990',
-    e003: 'https://books.raggiesoft.com/stardust-engine/book-3-the-friction-catastrophe-the-warehouse-tapes-1992-1995',
-    e004: 'https://books.raggiesoft.com/stardust-engine/book-4-ad-astra-hard-reset-the-stadium-years-1996-2005/chapter-1-escape-velocity-ad-astra-main-engine-cutoff-1995-1997/main-engine-cutoff-the-magnum-opus',
-    e005: 'https://books.raggiesoft.com/stardust-engine/book-5-burnout-hiatus-our-own-frequency-the-150m-refusal-2005-2014',
-    e006: 'https://books.raggiesoft.com/stardust-engine/book-6-reignition-live-at-the-crucible-2015-2016/chapter-1-live-at-the-crucible-may-21-2016'
+    e001: 'https://books.raggiesoft.com/stardust-engine',
+    e002: 'https://books.raggiesoft.com/stardust-engine',
+    e003: 'https://books.raggiesoft.com/stardust-engine',
+    e004: 'https://books.raggiesoft.com/stardust-engine',
+    e005: 'https://books.raggiesoft.com/stardust-engine',
+    e006: 'https://books.raggiesoft.com/stardust-engine',
+    e007: 'https://books.raggiesoft.com/stardust-engine'
   };
+
   const seDir = path.join(narrativesRoot, 'books', 'stardust-engine');
   if (fs.existsSync(seDir)) {
-    const landingPath = path.join(seDir, 'landing.md');
-    if (fs.existsSync(landingPath)) {
-      stardustChapters.push({
-        title: 'Prologue & Archive Overview',
-        subtitle: 'The Stardust Engine: The Story of the Iron Five (Ryan O\'Connell\'s POV)',
-        html: renderMarkdownScene(fs.readFileSync(landingPath, 'utf-8')),
-        readerUrl: 'https://books.raggiesoft.com/stardust-engine'
-      });
-    }
-    for (const era of ['e001', 'e002', 'e003', 'e004', 'e005', 'e006']) {
-      const eraJsonPath = path.join(seDir, era, 'ovab.json');
-      const chapDir = path.join(seDir, era, 'c001');
-      const chapJsonPath = path.join(chapDir, 'ovab.json');
+    const eraDirs = fs
+      .readdirSync(seDir)
+      .filter((d) => /^e\d+$/.test(d) && fs.statSync(path.join(seDir, d)).isDirectory())
+      .sort();
+
+    for (const era of eraDirs) {
+      const eraPath = path.join(seDir, era);
+      const eraJsonPath = path.join(eraPath, 'ovab.json');
       let eraTitle = era.toUpperCase();
-      let chapTitle = 'Chapter 1';
       let summary = '';
       if (fs.existsSync(eraJsonPath)) {
         try {
@@ -218,33 +251,51 @@ export function loadCosmicNovels(narrativesRoot) {
           summary = d.description || d.summary || '';
         } catch {}
       }
-      if (fs.existsSync(chapJsonPath)) {
-        try {
-          const c = JSON.parse(fs.readFileSync(chapJsonPath, 'utf-8'));
-          chapTitle = c.title || chapTitle;
-          if (!summary) summary = c.description || c.summary || '';
-        } catch {}
-      }
-      let sceneHtml = '';
-      if (fs.existsSync(chapDir)) {
+
+      const chapDirs = fs
+        .readdirSync(eraPath)
+        .filter((c) => /^c\d+$/.test(c) && fs.statSync(path.join(eraPath, c)).isDirectory())
+        .sort();
+
+      const chapters = [];
+      for (const chap of chapDirs) {
+        const chapDir = path.join(eraPath, chap);
+        const chapJsonPath = path.join(chapDir, 'ovab.json');
+        let chapTitle = chap.toUpperCase();
+        if (fs.existsSync(chapJsonPath)) {
+          try {
+            const c = JSON.parse(fs.readFileSync(chapJsonPath, 'utf-8'));
+            chapTitle = c.title || chapTitle;
+          } catch {}
+        }
         const mdFiles = fs
           .readdirSync(chapDir)
           .filter((f) => f.endsWith('.md'))
           .sort();
-        if (mdFiles.length > 0) {
-          sceneHtml = mdFiles
-            .map((f) => renderMarkdownScene(fs.readFileSync(path.join(chapDir, f), 'utf-8')))
-            .join('<hr style="border: 0; border-top: 1px solid var(--border-strong); margin: 1.5rem 0;" />');
-        }
+        const sceneHtml = mdFiles
+          .map((f) => renderMarkdownScene(fs.readFileSync(path.join(chapDir, f), 'utf-8')))
+          .join('<hr style="border: 0; border-top: 1px solid var(--border-strong); margin: 1.5rem 0;" />');
+
+        chapters.push({
+          id: `${era}-${chap}`,
+          title: chapTitle,
+          html: sceneHtml
+        });
+
+        stardustChapters.push({
+          title: `${eraTitle} — ${chapTitle}`,
+          subtitle: summary,
+          html: sceneHtml,
+          readerUrl: seEraReaderUrls[era] || 'https://books.raggiesoft.com/stardust-engine'
+        });
       }
-      if (!sceneHtml && summary) {
-        sceneHtml = `<p>${escapeHtml(summary)}</p>`;
-      }
-      stardustChapters.push({
-        title: `${eraTitle} — ${chapTitle}`,
-        subtitle: summary,
-        html: sceneHtml,
-        readerUrl: seEraReaderUrls[era] || 'https://books.raggiesoft.com/stardust-engine'
+
+      stardustBooks.push({
+        id: era,
+        title: eraTitle,
+        description: summary,
+        readerUrl: seEraReaderUrls[era] || 'https://books.raggiesoft.com/stardust-engine',
+        chapters
       });
     }
   }
@@ -281,7 +332,7 @@ export function loadCosmicNovels(narrativesRoot) {
     }
   }
 
-  return { stardustChapters, erinChapters };
+  return { stardustBooks, stardustChapters, erinChapters };
 }
 
 /**
@@ -290,42 +341,78 @@ export function loadCosmicNovels(narrativesRoot) {
  * @returns {string}
  */
 export function renderNovelPage(narrativesRoot) {
-  const { stardustChapters, erinChapters } = loadCosmicNovels(narrativesRoot);
+  const { stardustBooks, erinChapters } = loadCosmicNovels(narrativesRoot);
 
-  const seHtml = stardustChapters
+  const tocHtml = stardustBooks
     .map(
-      (ch) => `
-      <article class="novel-chapter">
+      (book, idx) => `
+      <div class="card" style="padding: 1rem 1.15rem;">
+        <span class="badge" style="margin-bottom: 0.35rem;">Book 0${idx + 1} • Ryan O'Connell POV</span>
+        <h3 style="font-size: 1.02rem; margin: 0 0 0.35rem;">
+          <a href="#book-${escapeHtml(book.id)}" style="color: var(--text-primary); text-decoration: none;">${escapeHtml(book.title)}</a>
+        </h3>
+        <p style="font-size: 0.84rem; color: var(--text-secondary); margin: 0 0 0.65rem;">
+          ${escapeHtml(book.description)}
+        </p>
+        <ul style="font-size: 0.84rem; color: var(--text-secondary); padding-left: 1.15rem; margin: 0;">
+          ${book.chapters
+            .map(
+              (ch) =>
+                `<li><a href="#chap-${escapeHtml(ch.id)}">${escapeHtml(ch.title)}</a></li>`
+            )
+            .join('')}
+        </ul>
+      </div>`
+    )
+    .join('\n');
+
+  const seHtml = stardustBooks
+    .map(
+      (book, bIdx) => `
+      <section id="book-${escapeHtml(book.id)}" class="novel-chapter" style="margin-bottom: 2rem;">
         <div class="badge-row">
-          <span class="badge">The Stardust Engine Novel Archive</span>
+          <span class="badge">Book 0${bIdx + 1} • Third-Person Limited (Ryan O'Connell)</span>
         </div>
-        <h3>${escapeHtml(ch.title)}</h3>
-        ${ch.subtitle ? `<p style="font-size: 0.88rem; color: var(--accent-gold); font-weight: 700;">${escapeHtml(ch.subtitle)}</p>` : ''}
-        <div class="novel-prose">
-          ${ch.html}
+        <h3 style="font-size: 1.35rem; margin-bottom: 0.35rem;">${escapeHtml(book.title)}</h3>
+        ${book.description ? `<p style="font-size: 0.92rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 1.15rem;">${escapeHtml(book.description)}</p>` : ''}
+        <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+          ${book.chapters
+            .map(
+              (ch, cIdx) => `
+              <details id="chap-${escapeHtml(ch.id)}" ${bIdx === 0 && cIdx === 0 ? 'open' : ''} style="border: 1px solid var(--border-strong); border-radius: 0.75rem; padding: 0.9rem 1.15rem; background: rgba(15, 23, 42, 0.32);">
+                <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; color: var(--text-primary); display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
+                  <span>📖 ${escapeHtml(ch.title)}</span>
+                  <span class="badge" style="font-size: 0.75rem;">Click to Expand / Collapse</span>
+                </summary>
+                <div class="novel-prose" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-strong);">
+                  ${ch.html}
+                </div>
+              </details>`
+            )
+            .join('\n')}
         </div>
-        <div class="btn-row">
-          <a href="${escapeHtml(ch.readerUrl)}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            📚 Open Full Interactive Edition on RaggieSoft Book Reader ↗
+        <div class="btn-row" style="margin-top: 1.15rem;">
+          <a href="${escapeHtml(book.readerUrl)}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            📚 Read Full Interactive Edition in RaggieSoft Book Reader ↗
           </a>
         </div>
-      </article>`
+      </section>`
     )
     .join('\n');
 
   const erinHtml = erinChapters
     .map(
-      (ch) => `
-      <article class="novel-chapter">
-        <div class="badge-row">
-          <span class="badge">Before the Distance: The Story of John &amp; Erin</span>
-        </div>
-        <h3>${escapeHtml(ch.title)}</h3>
-        ${ch.subtitle ? `<p style="font-size: 0.88rem; color: var(--accent-cyan); font-weight: 700;">${escapeHtml(ch.subtitle)}</p>` : ''}
-        <div class="novel-prose">
+      (ch, idx) => `
+      <details class="novel-chapter" ${idx === 0 ? 'open' : ''} style="margin-bottom: 1rem; cursor: pointer;">
+        <summary style="font-weight: 700; font-size: 1.08rem; color: var(--text-primary); display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
+          <span>📖 ${escapeHtml(ch.title)}</span>
+          <span class="badge">Before the Distance</span>
+        </summary>
+        ${ch.subtitle ? `<p style="font-size: 0.88rem; color: var(--accent-cyan); font-weight: 700; margin-top: 0.65rem;">${escapeHtml(ch.subtitle)}</p>` : ''}
+        <div class="novel-prose" style="margin-top: 0.85rem;">
           ${ch.html}
         </div>
-        <div class="btn-row">
+        <div class="btn-row" style="margin-top: 1rem;">
           <a href="${escapeHtml(ch.readerUrl)}" class="btn btn-gold" target="_blank" rel="noopener noreferrer">
             📖 Read Chapter in RaggieSoft Book Reader ↗
           </a>
@@ -333,7 +420,7 @@ export function renderNovelPage(narrativesRoot) {
             🎧 Stream Companion Soundtrack ↗
           </a>
         </div>
-      </article>`
+      </details>`
     )
     .join('\n');
 
@@ -342,7 +429,7 @@ export function renderNovelPage(narrativesRoot) {
       <span class="eyebrow">Cosmic Literary Sanctuary • Synchronized with books.raggiesoft.com</span>
       <h1 id="novel-heading">The Stardust Engine Cosmic Novel Reader</h1>
       <p class="lead">
-        Because our novels are authored in pure flat-file Markdown and JSON inside <code>/raggiesoft-narratives</code>, you can read both <strong>The Stardust Engine: The Story of the Iron Five</strong> (told from Ryan O'Connell's third-person limited POV) and <strong>Before the Distance: The Story of John &amp; Erin</strong> right here inside our Exoplanet / Deep Space environment—or open them in the full <a href="https://books.raggiesoft.com/stardust-engine">RaggieSoft Book Reader (books.raggiesoft.com/stardust-engine)</a>.
+        Read <strong>The Stardust Engine: The Story of the Iron Five (1978–2018)</strong>—streamlined across <strong>seven chronological books</strong> and locked strictly into <strong>Ryan O'Connell's Third-Person Limited POV</strong>—alongside the companion CPI novel <strong>Before the Distance: The Story of John &amp; Erin</strong>, or open them in the dedicated <a href="https://books.raggiesoft.com/stardust-engine">RaggieSoft Book Reader (books.raggiesoft.com/stardust-engine)</a>.
       </p>
       <div class="grid-2" style="margin: 1.5rem 0;">
         <div class="card card-accent-gold" style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
@@ -355,10 +442,10 @@ export function renderNovelPage(narrativesRoot) {
             loading="lazy"
           />
           <div style="flex: 1; min-width: 200px;">
-            <span class="badge" style="margin-bottom: 0.35rem;">Volume 01 • Ryan O'Connell's POV</span>
+            <span class="badge" style="margin-bottom: 0.35rem;">Volume 01 • 7 Chronological Books (1978–2018)</span>
             <h2 style="font-size: 1.2rem; margin: 0 0 0.35rem;">The Stardust Engine</h2>
             <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0 0 0.75rem;">
-              Six chronological eras (1986–2016), including the complete 6-part May 21, 2016 <em>Live at the Crucible</em> concert from Ryan's onstage perspective.
+              From 1978 Blacksburg (` + '`124 Draper Road`' + ` &amp; Aunt Martha's farmhouse on Progress Street NE) to the 1992 Beverly Hills Mansion &amp; <em>Friction</em> trial, 2016's <em>Live at the Crucible</em>, and 2018's <em>The Nine-Figure Refusal</em>.
             </p>
             <div class="btn-row">
               <a href="https://books.raggiesoft.com/stardust-engine" class="btn btn-primary" target="_blank" rel="noopener noreferrer">📚 Open on Book Reader ↗</a>
@@ -390,17 +477,20 @@ export function renderNovelPage(narrativesRoot) {
         </div>
       </div>
       <div class="callout-box card-accent-violet" style="margin-top: 1rem;">
-        <h3 style="font-size: 1.05rem; margin: 0 0 0.35rem;">🔄 Dual-Perspective Concert Experience: May 21, 2016 (<em>Live at the Crucible</em>)</h3>
-        <p style="margin: 0 0 0.65rem; font-size: 0.9rem; color: var(--text-secondary);">
-          Experience all 6 parts of the May 21, 2016 homecoming concert inside <strong>The Crucible</strong> from both sides of the stage rail: <strong>Ryan O'Connell's onstage perspective</strong> in <a href="https://books.raggiesoft.com/stardust-engine/book-6-reignition-live-at-the-crucible-2015-2016/chapter-1-live-at-the-crucible-may-21-2016" target="_blank" rel="noopener noreferrer"><em>The Stardust Engine</em> (Book 6, Chapter 1)</a> and <strong>Jordan Fuller's front-row perspective</strong> in <code>Section 104, Row A, Seat 1</code> in <a href="https://books.raggiesoft.com/aubrie/spring-semester-2016/live-at-the-crucible-senior-commencement" target="_blank" rel="noopener noreferrer"><em>The Eleventh Child</em> (Spring 2016, Chapter 4)</a>.
+        <h3 style="font-size: 1.05rem; margin: 0 0 0.35rem;">🗂️ Streamlined 7-Book Navigation Index (1978–2018)</h3>
+        <p style="margin: 0 0 0.85rem; font-size: 0.9rem; color: var(--text-secondary);">
+          Select any book or chapter below to jump directly to its collapsible reader section, or open the paginated edition on <code>books.raggiesoft.com/stardust-engine</code>:
         </p>
+        <div class="grid-2">
+          ${tocHtml}
+        </div>
       </div>
     </section>
 
     <section id="book-stardust" class="section-block" aria-labelledby="book-se-heading">
       <div class="section-header">
-        <span class="eyebrow">Volume 01 • The Story of the Iron Five (Ryan O'Connell's POV)</span>
-        <h2 id="book-se-heading">Book I: The Stardust Engine (6 Chronological Eras &amp; Live at the Crucible)</h2>
+        <span class="eyebrow">Volume 01 • The Story of the Iron Five (Ryan O'Connell's Third-Person Limited POV)</span>
+        <h2 id="book-se-heading">Book I: The Stardust Engine (7 Chronological Books, 1978–2018)</h2>
       </div>
       ${seHtml}
     </section>
@@ -419,7 +509,7 @@ export function renderNovelPage(narrativesRoot) {
 
   return renderCosmicShell({
     title: 'Cosmic Novel Reader | The Stardust Engine',
-    description: 'Read The Stardust Engine and Before the Distance (John & Erin) wrapped in a cosmic environment, linked with books.raggiesoft.com.',
+    description: 'Read The Stardust Engine (1978–2018) and Before the Distance wrapped in a cosmic environment, linked with books.raggiesoft.com.',
     canonicalPath: '/novel',
     ogImage: 'https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/stardust-engine.jpg',
     bodyHtml
