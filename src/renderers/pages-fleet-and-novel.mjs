@@ -61,9 +61,15 @@ function renderMarkdownScene(md) {
       if (imgs.length > 0) {
         const figures = imgs
           .map((relPath, idx) => {
+            const cleanRel = relPath
+              .replace(/^\{\{CDN\}\}\/?/, '')
+              .replace(/^https?:\/\/assets\.raggiesoft\.com\/?/, '')
+              .replace(/^\/+/, '');
             const fullUrl = relPath.startsWith('http')
               ? relPath
-              : `https://assets.raggiesoft.com/raggiesoft-books/images/${relPath.replace(/^\/+/, '')}`;
+              : cleanRel.startsWith('raggiesoft-books/') || cleanRel.startsWith('engine-room-records/') || cleanRel.startsWith('stardust-engine/images/')
+                ? `https://assets.raggiesoft.com/${cleanRel}`
+                : `https://assets.raggiesoft.com/raggiesoft-books/images/${cleanRel}`;
             const altText = alts[idx] || 'Scene illustration from The Stardust Engine novel';
             return `
               <figure style="margin: 0;">
