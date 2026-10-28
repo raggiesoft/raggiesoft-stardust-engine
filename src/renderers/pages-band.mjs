@@ -469,19 +469,19 @@ export function renderDeepLorePage() {
     <section class="section-block" aria-labelledby="era-1-heading">
       <div class="section-header">
         <span class="eyebrow">Era 01 • 1985–1990 (CPI &amp; The Apex Years)</span>
-        <h2 id="era-1-heading">1. 1986: The First Song (&ldquo;The Stardust Engine&rdquo;) &amp; The Apex Gimmick</h2>
+        <h2 id="era-1-heading">1. 1986: Discovered via &ldquo;Ignition,&rdquo; Writing &ldquo;The Stardust Engine,&rdquo; &amp; The Apex Gimmick</h2>
       </div>
       <div class="grid-2">
         <article class="card card-accent-gold">
           <h3>The True Meaning of &ldquo;Stardust&rdquo; + &ldquo;Engine&rdquo;</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            In 1986, when identical twins Evan and Tyler Wright joined Cassidy and Ryan O'Connell at Commonwealth Polytechnic Institute (CPI), the very first song the four of them wrote together was <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color?track=the-stardust-engine-1987-electric-color-1-13"><em>The Stardust Engine</em></a>. Too nervous to shop the track around at first, they adopted its title as their band name before releasing it as Track 13 on 1987's <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a>. To the family, <strong>&ldquo;Stardust&rdquo;</strong> celebrates the wonder of the cosmos, and <strong>&ldquo;Engine&rdquo;</strong> celebrates the rockets to get you there.
+            In 1986, when identical twins Evan and Tyler Wright joined Cassidy and Ryan O'Connell at Commonwealth Polytechnic Institute (CPI), the very first song the four of them wrote together was <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color?track=the-stardust-engine-1987-electric-color-1-13"><em>The Stardust Engine</em></a>. Too nervous to shop the track around at first, they adopted its title as their band name and entered <a href="https://music.raggiesoft.com/the-stardust-engine/2016-the-forgers-call?track=1-01-ignition"><em>Ignition</em></a> into the 1986 CPI student cassette contest—where an Apex Records A&amp;R scout heard the tape and signed them prior to 1987's <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a>. To the family, <strong>&ldquo;Stardust&rdquo;</strong> celebrates the wonder of the cosmos, and <strong>&ldquo;Engine&rdquo;</strong> celebrates the rockets to get you there.
           </p>
         </article>
         <article class="card card-accent-violet">
           <h3>Why the Band Hated Apex Records' 1980s Branding</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            When Apex Records signed the group for <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a> (1987) and <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts"><em>Neon Hearts</em></a> (1989), Apex marketing executives twisted the band's name into a cheap 1980s corporate persona gimmick—branding Cassidy as their <em>&ldquo;Stardust&rdquo;</em> and Ryan as their <em>&ldquo;Engine&rdquo;</em>, while forcing them to record manufactured heartbreak ballads like <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts?track=the-stardust-engine-1989-neon-hearts-1-4"><em>If You Walked Away</em></a>.
+            When Apex Records signed the group for <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a> (1987) and <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts"><em>Neon Hearts</em></a> (1989)—after sixteen-year-old Holly O'Connell quietly executed her <code>$1.00</code> Perpetual Mutual Cross-License—Apex marketing executives twisted the band's name into a cheap 1980s corporate persona gimmick, branding Cassidy as their <em>&ldquo;Stardust&rdquo;</em> and Ryan as their <em>&ldquo;Engine&rdquo;</em> while forcing them to record manufactured heartbreak ballads like <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts?track=the-stardust-engine-1989-neon-hearts-1-4"><em>If You Walked Away</em></a>.
           </p>
         </article>
       </div>
@@ -489,14 +489,14 @@ export function renderDeepLorePage() {
 
     <section class="section-block" aria-labelledby="era-2-heading">
       <div class="section-header">
-        <span class="eyebrow">Era 02 • 1990–1997 (I-81 Crash, Friction Walkout &amp; Hard Reset)</span>
-        <h2 id="era-2-heading">2. From the 1992 <em>Friction</em> Walkout to <em>Echoes in the Wire</em> (1997)</h2>
+        <span class="eyebrow">Era 02 • 1990–1997 (I-81 Crash, The Beverly Hills Mansion Trap, Friction Walkout &amp; Hard Reset)</span>
+        <h2 id="era-2-heading">2. From the 1992 Beverly Hills Mansion &amp; <em>Friction</em> Walkout to <em>Echoes in the Wire</em> (1997)</h2>
       </div>
       <div class="grid-2">
         <article class="card card-accent-cyan">
-          <h3>December 1990 &amp; October 14, 1992 (&ldquo;The Fatal Assumption&rdquo;)</h3>
+          <h3>1992: The Rented Beverly Hills Mansion Trap &amp; October 14 Walkout</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            In December 1990, following <a href="https://music.raggiesoft.com/the-stardust-engine/1990-live-in-chicago"><em>Live in Chicago</em></a>, a black-ice tour bus crash on I-81 left Ryan with a permanent T10 spinal cord injury. During the October 14, 1992 sessions for the unreleased album <em>Friction</em>, Apex executive Julian Vance attempted to exploit Ryan and Cassidy's sibling closeness with a coerced, fabricated tabloid romance narrative. Holly O'Connell terminated the session on the spot, launching the two-year legal war that liberated their masters in 1994.
+            Following <a href="https://music.raggiesoft.com/the-stardust-engine/1990-live-in-chicago"><em>Live in Chicago</em></a> (October 1990), the December 10, 1990 black-ice crash on I-81 left Ryan with a complete T10 spinal cord injury. In September 1992, to isolate the band from Virginia while tracking their third project <em>Friction</em>, Apex leased a gated mansion in <strong>Beverly Hills</strong>—charging 100% of the <code>$25,000/month</code> rent back against the band's recoupable royalties. With twenty slick marble front steps and zero wheelchair ramps (forcing Evan and Tyler to carry Ryan's chair up and down the stairs daily), smog, and paparazzi, the family hated every second of it: <strong>it wasn't Blacksburg, and it wasn't home</strong>. When executive Julian Vance attempted to coerce Ryan and Cassidy at the October 14, 1992 photo shoot, Holly triggered the 1986 <code>$1.00</code> Cross-License, the family packed out of the Beverly Hills mansion that very night, drove straight home to buy their <strong>Progress Street</strong> house outright in cash, and liberated their masters.
           </p>
         </article>
         <article class="card card-accent-emerald">
