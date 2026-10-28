@@ -45,16 +45,51 @@ function formatInlineMarkdown(raw) {
 }
 
 function renderMarkdownScene(md) {
-  const withoutFrontmatter = String(md || '')
-    .replace(/\r\n/g, '\n')
-    .replace(/^---[\s\S]*?---\n*/, '');
+  const normalized = String(md || '').replace(/\r\n/g, '\n');
+  const fmMatch = normalized.match(/^---\n([\s\S]*?)\n---\n*/);
+  let galleryHtml = '';
+
+  if (fmMatch) {
+    const fm = fmMatch[1];
+    const imgBlockMatch = fm.match(/^image:\n((?:\s+-\s+"[^"]+"\n?)+)/m);
+    const altBlockMatch = fm.match(/^image_alt:\n((?:\s+-\s+"[^"]+"\n?)+)/m);
+    if (imgBlockMatch) {
+      const imgs = [...imgBlockMatch[1].matchAll(/-\s+"([^"]+)"/g)].map((m) => m[1]);
+      const alts = altBlockMatch
+        ? [...altBlockMatch[1].matchAll(/-\s+"([^"]+)"/g)].map((m) => m[1])
+        : [];
+      if (imgs.length > 0) {
+        const figures = imgs
+          .map((relPath, idx) => {
+            const fullUrl = relPath.startsWith('http')
+              ? relPath
+              : `https://assets.raggiesoft.com/raggiesoft-books/images/${relPath.replace(/^\/+/, '')}`;
+            const altText = alts[idx] || 'Scene illustration from The Stardust Engine novel';
+            return `
+              <figure style="margin: 0;">
+                <img
+                  src="${escapeHtml(fullUrl)}"
+                  alt="${escapeHtml(altText)}"
+                  loading="lazy"
+                  style="width: 100%; height: auto; border-radius: 0.75rem; border: 1px solid var(--border-strong); display: block;"
+                />
+              </figure>
+            `;
+          })
+          .join('');
+        galleryHtml = `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">${figures}</div>\n`;
+      }
+    }
+  }
+
+  const withoutFrontmatter = normalized.replace(/^---[\s\S]*?---\n*/, '');
 
   const blocks = withoutFrontmatter
     .split(/\n{2,}/)
     .map((b) => b.trim())
     .filter(Boolean);
 
-  return blocks
+  const renderedBlocks = blocks
     .map((block) => {
       if (block.startsWith('### ')) {
         return `<h4>${formatInlineMarkdown(block.slice(4))}</h4>`;
@@ -100,6 +135,8 @@ function renderMarkdownScene(md) {
       return `<p>${formatInlineMarkdown(block)}</p>`;
     })
     .join('\n');
+
+  return galleryHtml + renderedBlocks;
 }
 
 /**
