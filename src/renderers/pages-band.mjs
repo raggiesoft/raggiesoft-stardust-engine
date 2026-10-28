@@ -41,7 +41,7 @@ const BAND_MEMBERS = [
     role: 'Co-Lead Vocals, Analog Synthesizers, Grand Piano & Chief Audio Architect',
     badge: 'CPI Class of 1989 • Middle O’Connell Sibling (Age 21 in ’87) • Autistic Audio Architect • Pioneer of The Cosmic Tidal Lock Sound™',
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/cassidy.jpg',
-    bio: "Ryan's younger sister, Holly's older sister (age 21 in 1987), and the autistic sonic architect of The Stardust Engine. Because both Cassidy and Ryan are autistic, the warm 1980s cosmic synth-prog genre is their lifelong routine and safe harbor—and Cassidy's enduring, child-like wonder (always a wide-eyed teenage girl at heart inside a grown woman's body) inspired her four-movement progressive rock autobiography 'Escape Velocity (Ad Astra)', a literal voyage through the cosmos where Movement IV lands on the surface of a distant exoplanet in her mind.",
+    bio: "Ryan's younger sister, Holly's older sister (age 21 in 1987), and the autistic sonic architect of The Stardust Engine. Because both Cassidy and Ryan are autistic, the warm 1980s cosmic synth-prog genre is their lifelong routine and safe harbor—and Cassidy's enduring, child-like wonder (always a wide-eyed teenage girl at heart inside a grown woman's body) inspired her 15:33, four-movement progressive rock autobiography 'Escape Velocity (Ad Astra)', a literal voyage through the cosmos where Movement IV lands on the surface of a distant exoplanet in her mind.",
     dossierUrl: '/band/cassidy-oconnell',
     signatureTrack: 'https://music.raggiesoft.com/playlists/cosmic-tidal-lock-sound',
     signatureTrackLabel: '🎧 Explore The Cosmic Tidal Lock Sound™ Playlist'
