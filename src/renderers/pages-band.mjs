@@ -171,6 +171,30 @@ export function renderStardustHome(stardustAlbums) {
       </div>
     </section>
 
+    <!-- PERMANENT CREATOR'S COSMIC DEDICATION: SIR PATRICK STEWART (1940–2026) -->
+    <section class="section-block" aria-labelledby="cosmic-dedication-heading">
+      <div class="section-header">
+        <span class="eyebrow">Creator&rsquo;s Dedication • Second Star to the Right (1940–2026)</span>
+        <h2 id="cosmic-dedication-heading">In Memoriam: Sir Patrick Stewart &amp; The Spark Behind This Universe</h2>
+      </div>
+      <div class="callout-box card-accent-cyan">
+        <p style="margin: 0 0 0.85rem; font-size: 0.96rem;">
+          In real life, the cosmic soul of <strong>The Stardust Engine</strong>—from Cassidy O&rsquo;Connell&rsquo;s 15-minute four-movement voyage in <a href="https://music.raggiesoft.com/the-stardust-engine/1995-the-warehouse-tapes?track=1-06-escape-velocity-ad-astra" target="_blank" rel="noopener noreferrer"><strong>&ldquo;Escape Velocity (Ad Astra)&rdquo;</strong></a> to the orbital sanctuary of <a href="https://music.raggiesoft.com/the-stardust-engine/2003-sanctuary-zero-g?track=1-01-moon-1-tidal-lock" target="_blank" rel="noopener noreferrer"><strong><em>The Twin Moons</em></strong></a>—began in a childhood living room. Growing up, weekday evening television with my family always followed the same five-part cadence: <em>Local News</em>, <em>National News</em>, <em>Wheel of Fortune</em>, <em>Jeopardy!</em>, and <strong><em>Star Trek: The Next Generation</em></strong>.
+        </p>
+        <p style="margin: 0 0 1rem; font-size: 0.94rem; color: var(--text-secondary);">
+          Watching <strong>Sir Patrick Stewart (July 13, 1940 – October 28, 2026)</strong> command the bridge of the <em>NCC-1701-D</em> with curiosity, empathy, and moral courage taught a kid to look up at the night sky and wonder what is out there. Without those weeknights watching <em>The Next Generation</em> together as a family, this cosmic universe of websites, songs, and stories would never have existed. <em>Ad Astra, Captain.</em>
+        </p>
+        <div class="btn-row">
+          <a href="https://raggiesoft.com/in-memoriam" class="btn btn-gold">
+            ✦ Read the Full Creator&rsquo;s Tribute on raggiesoft.com →
+          </a>
+          <a href="https://music.raggiesoft.com/the-stardust-engine/1995-the-warehouse-tapes?track=1-06-escape-velocity-ad-astra" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            🎧 Stream &ldquo;Escape Velocity (Ad Astra)&rdquo; ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- GATEWAY CARDS -->
     <section class="section-block" aria-labelledby="explore-heading">
       <div class="section-header">
