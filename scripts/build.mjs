@@ -352,7 +352,7 @@ function buildStardustSite() {
               🛡️ Dual Timelines Policy (In-Universe Lore Dates vs. Real-World 2026 Production Dates)
             </h2>
             <p style="margin: 0; font-size: 0.92rem; line-height: 1.55;">
-              <strong>The Stardust Engine</strong> is a multimedia Rock Opera concept project set between <strong>1986 and 2016</strong>. Historical years in album URLs and lore descriptions (such as <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong> (<code>schema:temporalCoverage</code>). <strong>100% of all sound recordings, lyrics, vocal melodies, and studio masters were created and produced in 2026</strong> (<code>schema:datePublished: 2026</code>) by <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) under commercial license, with zero third-party samples or stems.
+              <strong>The Stardust Engine</strong> is a multimedia Rock Opera concept project set between <strong>1986 and 2016</strong>. Historical years in album URLs and lore descriptions (such as <strong>2001</strong> for <em>Midnight Drivers</em> and <strong>2011</strong> for <em>Starfield Calibration</em>) represent fictional <strong>In-Universe Narrative Lore Eras</strong>. <strong>100% of all sound recordings, lyrics, vocal melodies, and studio masters were created and produced in 2026</strong> by <strong>Michael P. Ragsdale</strong> (<code>dsp.operations@engineroom-records.com</code>) under commercial license, with zero third-party samples or stems.
             </p>
           </div>
           <div class="btn-row">
