@@ -418,9 +418,9 @@ export function renderDiscographyPage(stardustAlbums) {
     },
     {
       id: 'live',
-      eyebrow: 'Concert Recordings • 1990–2016',
+      eyebrow: 'Concert Recordings • 1990–2017',
       title: '⚡ Live Concert Recordings',
-      description: 'Full-length live concert albums from Chicago, Charlottesville, Virginia Beach, Norfolk, and The Crucible in Blacksburg.'
+      description: 'Full-length live concert albums from Chicago, Charlottesville, Virginia Beach, Norfolk, The Crucible in Blacksburg, and the 2015–2016 Reignition World Tour indoor arena recordings (Reignition Live).'
     },
     {
       id: 'compilation',
