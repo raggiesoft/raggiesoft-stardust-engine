@@ -278,7 +278,9 @@ function buildStardustSite() {
     'engine-room-records',
     'catalog.json'
   );
-  const narrativesRoot = path.join(workspaceRoot, 'raggiesoft-narratives');
+  const narrativesRoot = fs.existsSync(path.join(workspaceRoot, 'raggiesoft-novels'))
+    ? path.join(workspaceRoot, 'raggiesoft-novels')
+    : path.join(workspaceRoot, 'raggiesoft-narratives');
   const portedPagesPath = path.join(projectRoot, 'src', 'data', 'ported-pages.json');
 
   const catalog = fs.existsSync(catalogPath)
