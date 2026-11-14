@@ -9,7 +9,7 @@
  *    - Cosmic portal overview, 1986 Band Name Canon ("Stardust" = cosmos,
  *      "Engine" = rockets vs. Apex Records' hated 1980s marketing gimmick),
  *      and direct handoffs to `https://music.raggiesoft.com/the-stardust-engine`
- *      and `https://books.raggiesoft.com/books/stardust-engine`.
+ *      and `https://books.raggiesoft.com/stardust-engine`.
  * 2. `renderBandMembersPage` (`/band`):
  *    - Detailed biographies & portraits for The Iron Five (Ryan O'Connell,
  *      Cassidy O'Connell, Holly O'Connell, Evan Wright, and Tyler Wright).
@@ -33,7 +33,7 @@ const BAND_MEMBERS = [
     portrait: 'https://assets.raggiesoft.com/stardust-engine/images/band-members/ryan.jpg',
     bio: "The oldest of the three O'Connell siblings (age 23 in 1987), Ryan delayed his own college entry so he could matriculate at Commonwealth Polytechnic Institute (CPI) with his younger sister Cassidy in 1985 and graduate together in the Class of 1989. After surviving the December 10, 1990 I-81 Mile Marker 98 black-ice crash as a T10 paraplegic, Ryan refused to surrender the stage—performing from his custom manual wheelchair and anchoring Cassidy as her lifelong safe person.",
     dossierUrl: '/band/ryan-oconnell',
-    signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9',
+    signatureTrack: 'https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset/echoes-in-the-wire',
     signatureTrackLabel: '🎧 Hear "Echoes in the Wire" (Ryan & Cassidy)'
   },
   {
@@ -163,7 +163,7 @@ export function renderStardustHome(stardustAlbums) {
       </div>
       <div class="callout-box card-accent-gold">
         <p style="margin: 0 0 0.85rem; font-size: 0.96rem;">
-          In <strong>1986</strong>, when identical twin cousins <strong>Evan and Tyler Wright</strong> joined siblings <strong>Cassidy and Ryan O'Connell</strong> at Commonwealth Polytechnic Institute (CPI) in Blacksburg, Virginia, the very first song the four of them wrote together was <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color?track=the-stardust-engine-1987-electric-color-1-13"><strong>&ldquo;The Stardust Engine&rdquo;</strong></a>—celebrating their shared love of the cosmos (<strong>&ldquo;Stardust&rdquo;</strong>) and the rockets to get you there (<strong>&ldquo;Engine&rdquo;</strong>).
+          In <strong>1986</strong>, when identical twin cousins <strong>Evan and Tyler Wright</strong> joined siblings <strong>Cassidy and Ryan O'Connell</strong> at Commonwealth Polytechnic Institute (CPI) in Blacksburg, Virginia, the very first song the four of them wrote together was <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color/the-stardust-engine"><strong>&ldquo;The Stardust Engine&rdquo;</strong></a>—celebrating their shared love of the cosmos (<strong>&ldquo;Stardust&rdquo;</strong>) and the rockets to get you there (<strong>&ldquo;Engine&rdquo;</strong>).
         </p>
         <p style="margin: 0; font-size: 0.94rem; color: var(--text-secondary);">
           Too scared to shop the song around at first, they used its title to name the band before finally releasing it in <strong>1987 as Track 13 on <em>Electric Color</em></strong>. When <strong>Apex Records</strong> signed them, Apex executives screwed around and cheaply branded Cassidy as their <em>&ldquo;Stardust&rdquo;</em> and Ryan as their <em>&ldquo;Engine&rdquo;</em>—a 1980s corporate naming gimmick that the band <strong>hates</strong> because it takes away from their genuine love of the cosmos and the rockets to get you there.
@@ -179,7 +179,7 @@ export function renderStardustHome(stardustAlbums) {
       </div>
       <div class="callout-box card-accent-cyan">
         <p style="margin: 0 0 0.85rem; font-size: 0.96rem;">
-          In real life, the cosmic soul of <strong>The Stardust Engine</strong>—from Cassidy O&rsquo;Connell&rsquo;s 15-minute four-movement voyage in <a href="https://music.raggiesoft.com/the-stardust-engine/1995-the-warehouse-tapes?track=1-06-escape-velocity-ad-astra" target="_blank" rel="noopener noreferrer"><strong>&ldquo;Escape Velocity (Ad Astra)&rdquo;</strong></a> to the orbital sanctuary of <a href="https://music.raggiesoft.com/the-stardust-engine/2003-sanctuary-zero-g?track=1-01-moon-1-tidal-lock" target="_blank" rel="noopener noreferrer"><strong><em>The Twin Moons</em></strong></a>—began in a childhood living room. Growing up, weekday evening television with my family always followed the same five-part cadence: <em>Local News</em>, <em>National News</em>, <em>Wheel of Fortune</em>, <em>Jeopardy!</em>, and <strong><em>Star Trek: The Next Generation</em></strong>.
+          In real life, the cosmic soul of <strong>The Stardust Engine</strong>—from Cassidy O&rsquo;Connell&rsquo;s 15-minute four-movement voyage in <a href="https://music.raggiesoft.com/the-stardust-engine/1995-the-warehouse-tapes/escape-velocity-ad-astra" target="_blank" rel="noopener noreferrer"><strong>&ldquo;Escape Velocity (Ad Astra)&rdquo;</strong></a> to the orbital sanctuary of <a href="https://music.raggiesoft.com/the-stardust-engine/2003-sanctuary-zero-g/moon-1-tidal-lock" target="_blank" rel="noopener noreferrer"><strong><em>The Twin Moons</em></strong></a>—began in a childhood living room. Growing up, weekday evening television with my family always followed the same five-part cadence: <em>Local News</em>, <em>National News</em>, <em>Wheel of Fortune</em>, <em>Jeopardy!</em>, and <strong><em>Star Trek: The Next Generation</em></strong>.
         </p>
         <p style="margin: 0 0 1rem; font-size: 0.94rem; color: var(--text-secondary);">
           Watching <strong>Sir Patrick Stewart (July 13, 1940 – October 28, 2026)</strong> command the bridge of the <em>NCC-1701-D</em> with curiosity, empathy, and moral courage taught a kid to look up at the night sky and wonder what is out there. Without those weeknights watching <em>The Next Generation</em> together as a family, this cosmic universe of websites, songs, and stories would never have existed. <em>Ad Astra, Captain.</em>
@@ -188,7 +188,7 @@ export function renderStardustHome(stardustAlbums) {
           <a href="https://raggiesoft.com/in-memoriam" class="btn btn-gold">
             ✦ Read the Full Creator&rsquo;s Tribute on raggiesoft.com →
           </a>
-          <a href="https://music.raggiesoft.com/the-stardust-engine/1995-the-warehouse-tapes?track=1-06-escape-velocity-ad-astra" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <a href="https://music.raggiesoft.com/the-stardust-engine/1995-the-warehouse-tapes/escape-velocity-ad-astra" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
             🎧 Stream &ldquo;Escape Velocity (Ad Astra)&rdquo; ↗
           </a>
         </div>
@@ -499,13 +499,13 @@ export function renderDeepLorePage() {
         <article class="card card-accent-gold">
           <h3>The True Meaning of &ldquo;Stardust&rdquo; + &ldquo;Engine&rdquo;</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            In 1986, when identical twins Evan and Tyler Wright joined Cassidy and Ryan O'Connell at Commonwealth Polytechnic Institute (CPI), the very first song the four of them wrote together was <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color?track=the-stardust-engine-1987-electric-color-1-13"><em>The Stardust Engine</em></a>. Too nervous to shop the track around at first, they adopted its title as their band name and entered <a href="https://music.raggiesoft.com/the-stardust-engine/2016-the-forgers-call?track=1-01-ignition"><em>Ignition</em></a> into the 1986 CPI student cassette contest—where an Apex Records A&amp;R scout heard the tape and signed them prior to 1987's <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a>. To the family, <strong>&ldquo;Stardust&rdquo;</strong> celebrates the wonder of the cosmos, and <strong>&ldquo;Engine&rdquo;</strong> celebrates the rockets to get you there.
+            In 1986, when identical twins Evan and Tyler Wright joined Cassidy and Ryan O'Connell at Commonwealth Polytechnic Institute (CPI), the very first song the four of them wrote together was <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color/the-stardust-engine"><em>The Stardust Engine</em></a>. Too nervous to shop the track around at first, they adopted its title as their band name and entered <a href="https://music.raggiesoft.com/the-stardust-engine/2016-the-forgers-call/ignition-the-forgers-call"><em>Ignition</em></a> into the 1986 CPI student cassette contest—where an Apex Records A&amp;R scout heard the tape and signed them prior to 1987's <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a>. To the family, <strong>&ldquo;Stardust&rdquo;</strong> celebrates the wonder of the cosmos, and <strong>&ldquo;Engine&rdquo;</strong> celebrates the rockets to get you there.
           </p>
         </article>
         <article class="card card-accent-violet">
           <h3>Why the Band Hated Apex Records' 1980s Branding</h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            When Apex Records signed the group for <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a> (1987) and <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts"><em>Neon Hearts</em></a> (1989)—after sixteen-year-old Holly O'Connell quietly executed her <code>$1.00</code> Perpetual Mutual Cross-License—Apex marketing executives twisted the band's name into a cheap 1980s corporate persona gimmick, branding Cassidy as their <em>&ldquo;Stardust&rdquo;</em> and Ryan as their <em>&ldquo;Engine&rdquo;</em> while forcing them to record manufactured heartbreak ballads like <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts?track=the-stardust-engine-1989-neon-hearts-1-4"><em>If You Walked Away</em></a>.
+            When Apex Records signed the group for <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color"><em>Electric Color</em></a> (1987) and <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts"><em>Neon Hearts</em></a> (1989)—after sixteen-year-old Holly O'Connell quietly executed her <code>$1.00</code> Perpetual Mutual Cross-License—Apex marketing executives twisted the band's name into a cheap 1980s corporate persona gimmick, branding Cassidy as their <em>&ldquo;Stardust&rdquo;</em> and Ryan as their <em>&ldquo;Engine&rdquo;</em> while forcing them to record manufactured heartbreak ballads like <a href="https://music.raggiesoft.com/the-stardust-engine/1989-neon-hearts/if-you-walked-away"><em>If You Walked Away</em></a>.
           </p>
         </article>
       </div>
@@ -526,7 +526,7 @@ export function renderDeepLorePage() {
         <article class="card card-accent-emerald">
           <h3>How <em>Echoes in the Wire</em> Replaced <em>If You Walked Away</em></h3>
           <p style="font-size: 0.92rem; color: var(--text-secondary);">
-            On 1997's <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset"><em>Hard Reset</em></a> (and later on 2011's <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration?track=the-stardust-engine-2011-starfield-calibration-1-10"><em>Starfield Calibration</em></a>), the band permanently retired Apex's coerced 1989 ballad <em>If You Walked Away</em> and replaced it in their canon and live setlists with <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset?track=the-stardust-engine-1997-hard-reset-1-9"><strong>&ldquo;Echoes in the Wire&rdquo;</strong></a>. Rather than a fake corporate breakup song, <em>Echoes in the Wire</em> tells the true story of Cassidy finding immediate comfort, grounding, and safety when her brother Ryan is hugging her tightly in the quiet of the studio.
+            On 1997's <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset"><em>Hard Reset</em></a> (and later on 2011's <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration/inertia-unstoppable"><em>Starfield Calibration</em></a>), the band permanently retired Apex's coerced 1989 ballad <em>If You Walked Away</em> and replaced it in their canon and live setlists with <a href="https://music.raggiesoft.com/the-stardust-engine/1997-hard-reset/echoes-in-the-wire"><strong>&ldquo;Echoes in the Wire&rdquo;</strong></a>. Rather than a fake corporate breakup song, <em>Echoes in the Wire</em> tells the true story of Cassidy finding immediate comfort, grounding, and safety when her brother Ryan is hugging her tightly in the quiet of the studio.
           </p>
         </article>
       </div>

@@ -17,7 +17,7 @@
  *    - Cosmic Novel Reader wrapping the Markdown/JSON chapters of
  *      `raggiesoft-narratives/books/stardust-engine` and `raggiesoft-narratives/books/erin`
  *      inside the Exoplanet / Deep Space reading environment, with direct links to
- *      `https://books.raggiesoft.com/books/stardust-engine` and `https://books.raggiesoft.com/books/erin`.
+ *      `https://books.raggiesoft.com/stardust-engine` and `https://books.raggiesoft.com/erin`.
  * ============================================================================
  */
 
@@ -33,10 +33,22 @@ import { escapeHtml, renderCosmicShell } from './shell.mjs';
  */
 function formatInlineMarkdown(raw) {
   let html = escapeHtml(raw);
-  html = html.replace(
-    /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
-  );
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_, label, rawHref) => {
+    const cleanHref = String(rawHref)
+      .replace(/https:\/\/books\.raggiesoft\.com\/books\/([a-z0-9/-]+)/gi, 'https://books.raggiesoft.com/$1')
+      .replace(
+        /https:\/\/music\.raggiesoft\.com\/(?:artists\/)?([a-z0-9-]+)\/([a-z0-9-]+)\/?\?track=([a-z0-9-]+)/gi,
+        (__, art, alb, trk) => {
+          const songSlug = String(trk)
+            .toLowerCase()
+            .replace(/\.mp3$/i, '')
+            .replace(/^\d+-\d+-/, '')
+            .replace(/^\d+-/, '');
+          return `https://music.raggiesoft.com/${art.toLowerCase()}/${alb.toLowerCase()}/${songSlug}`;
+        }
+      );
+    return `<a href="${cleanHref}" target="_blank" rel="noopener">${label}</a>`;
+  });
   html = html.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');

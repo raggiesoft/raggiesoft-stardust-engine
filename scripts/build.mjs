@@ -397,7 +397,7 @@ function buildStardustSite() {
                   <td><em>Midnight Drivers</em><br><span class="badge">UPC: 825324114857</span></td>
                   <td>Lore Era: <strong>2001</strong><br>Real Release: <strong>2026-05-01</strong></td>
                   <td>
-                    <a href="https://music.raggiesoft.com/the-stardust-engine/2001-midnight-drivers/?track=1-05-the-horizon-line" class="btn btn-primary" style="padding:0.3rem 0.65rem;font-size:0.78rem;">🎧 Listen &amp; View Lyrics (2001 Original) ↗</a>
+                    <a href="https://music.raggiesoft.com/the-stardust-engine/2001-midnight-drivers/the-horizon-line" class="btn btn-primary" style="padding:0.3rem 0.65rem;font-size:0.78rem;">🎧 Listen &amp; View Lyrics (2001 Original) ↗</a>
                   </td>
                 </tr>
                 <tr>
@@ -407,7 +407,7 @@ function buildStardustSite() {
                   <td><em>Starfield Calibration</em><br><span class="badge">UPC: 700299965607</span></td>
                   <td>Lore Era: <strong>2011</strong><br>Real Release: <strong>2026-10-17</strong></td>
                   <td>
-                    <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration/?track=1-13-the-horizon-line" class="btn btn-gold" style="padding:0.3rem 0.65rem;font-size:0.78rem;">🎧 Listen &amp; View Lyrics (2011 Remaster) ↗</a>
+                    <a href="https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration/the-horizon-line" class="btn btn-gold" style="padding:0.3rem 0.65rem;font-size:0.78rem;">🎧 Listen &amp; View Lyrics (2011 Remaster) ↗</a>
                   </td>
                 </tr>
               </tbody>
@@ -443,7 +443,7 @@ function buildStardustSite() {
                     <td>${escapeHtml(t.albumTitle || '')} <span class="badge">${escapeHtml(t.albumUPC || '')}</span></td>
                     <td>Lore: ${escapeHtml(String(t.loreYear || ''))}<br><small>Real: ${escapeHtml(t.realReleaseDate || '2026')}</small></td>
                     <td style="display:flex;gap:0.35rem;flex-wrap:wrap;">
-                      <a href="https://music.raggiesoft.com/the-stardust-engine/${encodeURIComponent(t.albumSlug || '')}/?track=${encodeURIComponent(t.trackSlug || '')}" class="btn" style="padding:0.25rem 0.55rem;font-size:0.75rem;">🎧 Audio ↗</a>
+                      <a href="https://music.raggiesoft.com/the-stardust-engine/${encodeURIComponent(t.albumSlug || '')}/${encodeURIComponent(String(t.trackSlug || '').toLowerCase().replace(/\.mp3$/i, '').replace(/^\d+-\d+-/, '').replace(/^\d+-/, ''))}" class="btn" style="padding:0.25rem 0.55rem;font-size:0.75rem;">🎧 Audio ↗</a>
                       <a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine&album=${encodeURIComponent(t.albumSlug || '')}&track=${encodeURIComponent(t.trackSlug || '')}" class="btn" style="padding:0.25rem 0.55rem;font-size:0.75rem;">📄 Affidavit ↗</a>
                     </td>
                   </tr>`
