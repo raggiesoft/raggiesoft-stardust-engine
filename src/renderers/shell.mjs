@@ -49,11 +49,19 @@ export function renderCosmicShell({
   description,
   canonicalPath = '/',
   ogImage = 'https://assets.raggiesoft.com/engine-room-records/artists/the-stardust-engine/social-preview.jpg',
+  noindex = false,
   bodyHtml
 }) {
   const safeTitle = escapeHtml(title.slice(0, 60));
   const safeDesc = escapeHtml(description.slice(0, 155));
+  const isErrorPage = canonicalPath === '/404';
   const canonicalUrl = `https://stardust.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
+  const robotsMetaHtml = noindex
+    ? '\n    <meta name="robots" content="noindex, follow" />'
+    : '';
+  const canonicalLinkHtml = isErrorPage
+    ? ''
+    : `\n    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`;
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -92,8 +100,7 @@ export function renderCosmicShell({
       } catch (e) {}
     </script>
     <title>${safeTitle}</title>
-    <meta name="description" content="${safeDesc}" />
-    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
+    <meta name="description" content="${safeDesc}" />${robotsMetaHtml}${canonicalLinkHtml}
     <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDesc}" />
     <meta property="og:image" content="${escapeHtml(ogImage)}" />
@@ -118,10 +125,15 @@ export function renderCosmicShell({
           '@id': 'https://stardust.raggiesoft.com/#musicgroup',
           name: 'The Stardust Engine',
           url: 'https://stardust.raggiesoft.com',
+          sameAs: [
+            'https://music.raggiesoft.com/the-stardust-engine',
+            'https://engineroom.raggiesoft.com/artists/the-stardust-engine'
+          ],
           genre: ['Progressive Rock', 'Space Rock', 'Arena Rock', 'Synth-Rock'],
           foundingDate: '1986',
           recordLabel: {
             '@type': 'Organization',
+            '@id': 'https://engineroom.raggiesoft.com/#organization',
             name: 'Engine Room Records',
             url: 'https://engineroom.raggiesoft.com'
           },
@@ -132,6 +144,24 @@ export function renderCosmicShell({
             url: 'https://michaelpragsdale.com'
           },
           subjectOf: [
+            {
+              '@type': 'Book',
+              '@id': 'https://books.raggiesoft.com/stardust-engine#book',
+              name: 'The Stardust Engine',
+              url: 'https://books.raggiesoft.com/stardust-engine'
+            },
+            {
+              '@type': 'Book',
+              '@id': 'https://books.raggiesoft.com/ad-astra#book',
+              name: 'Escape Velocity: Ad Astra',
+              url: 'https://books.raggiesoft.com/ad-astra'
+            },
+            {
+              '@type': 'Book',
+              '@id': 'https://books.raggiesoft.com/erin#book',
+              name: 'Before the Distance: John & Erin',
+              url: 'https://books.raggiesoft.com/erin'
+            },
             {
               '@type': 'Article',
               '@id': 'https://raggiesoft.com/in-memoriam#article',

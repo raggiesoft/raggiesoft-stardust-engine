@@ -358,7 +358,7 @@ function buildStardustSite() {
             </p>
           </div>
           <div class="btn-row">
-            <a href="https://engineroom.raggiesoft.com/dsp-verification/?artist=the-stardust-engine&album=2011-starfield-calibration&track=1-13-the-horizon-line" class="btn btn-primary">
+            <a href="https://engineroom.raggiesoft.com/dsp-verification?artist=the-stardust-engine&album=2011-starfield-calibration&track=1-13-the-horizon-line" class="btn btn-primary">
               🏛️ View Track 13 (&ldquo;The Horizon Line&rdquo;) Affidavit on Engine Room Records →
             </a>
             <button type="button" class="btn btn-gold" onclick="window.print()">
@@ -457,6 +457,15 @@ function buildStardustSite() {
   );
 
   // 2. Render all ported routes from src/data/ported-pages.json
+  const canonicalSitemapRoutes = new Set([
+    '/',
+    '/band',
+    '/discography',
+    '/lore',
+    '/fleet',
+    '/novel',
+    '/dsp-verification'
+  ]);
   let portedRenderedCount = 0;
   for (const page of portedPages) {
     if (page.route === '/' || page.route === '/band' || page.route === '/discography') {
@@ -468,8 +477,9 @@ function buildStardustSite() {
         renderCosmicShell({
           title: page.title,
           description: page.description,
-          canonicalPath: altRoute,
+          canonicalPath: page.route,
           ogImage: page.ogImage || undefined,
+          noindex: true,
           bodyHtml: page.html
         })
       );
@@ -477,6 +487,7 @@ function buildStardustSite() {
       continue;
     }
 
+    canonicalSitemapRoutes.add(page.route);
     const relFile = `${page.route.slice(1)}/index.html`;
     const bodyContent =
       page.route === '/story' ? `${page.html}\n${archiveIndexHtml}` : page.html;
@@ -494,8 +505,52 @@ function buildStardustSite() {
     portedRenderedCount++;
   }
 
+  // 3. Emit accessible consumer-friendly /404.html, robots.txt, sitemap.xml, and IndexNow key
+  writeStaticOutput(
+    '404.html',
+    renderCosmicShell({
+      title: 'Page Not Found | The Stardust Engine',
+      description: 'The requested Stardust Engine dossier, story file, or fleet log could not be found.',
+      canonicalPath: '/404',
+      noindex: true,
+      bodyHtml: `
+        <section class="hero-card" aria-labelledby="stardust-404-heading" style="margin-top: 1.5rem;">
+          <span class="eyebrow">The Stardust Engine • Coordinates Not Found</span>
+          <h1 id="stardust-404-heading">We Could Not Find That Page</h1>
+          <p class="lead">
+            The band dossier, story archive, or fleet log you followed may have moved across the Stardust Engine portal or <a href="https://music.raggiesoft.com/the-stardust-engine">The Listening Room</a>.
+          </p>
+          <div class="btn-row">
+            <a href="/" class="btn btn-primary">🚀 Stardust Engine Home</a>
+            <a href="/story" class="btn btn-gold">🗂️ Browse All 64 Story Dossiers</a>
+            <a href="https://music.raggiesoft.com/the-stardust-engine" class="btn">🎧 Listen in The Listening Room</a>
+            <a href="https://books.raggiesoft.com/stardust-engine" class="btn">📚 Read Companion Novel</a>
+          </div>
+        </section>`
+    })
+  );
+
+  const todayIso = new Date().toISOString().split('T')[0];
+  const sortedRoutes = Array.from(canonicalSitemapRoutes).sort((a, b) => {
+    if (a === '/') return -1;
+    if (b === '/') return 1;
+    return a.localeCompare(b);
+  });
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sortedRoutes
+    .map((route) => {
+      const loc = `https://stardust.raggiesoft.com${route === '/' ? '/' : route}`;
+      return `  <url>\n    <loc>${escapeHtml(loc)}</loc>\n    <lastmod>${todayIso}</lastmod>\n  </url>`;
+    })
+    .join('\n')}\n</urlset>\n`;
+  writeStaticOutput('sitemap.xml', sitemapXml);
+  writeStaticOutput(
+    'robots.txt',
+    `User-agent: *\nAllow: /\n\nSitemap: https://stardust.raggiesoft.com/sitemap.xml\n`
+  );
+  writeStaticOutput('726167676965736f6674696e6465786e.txt', '726167676965736f6674696e6465786e\n');
+
   console.log(
-    `✅ Built stardust.raggiesoft.com static bundle in ${distDir} and ${nitroPublicDir} (${stardustAlbums.length} Stardust Engine albums + ${portedRenderedCount} deep lore dossiers compiled).`
+    `✅ Built stardust.raggiesoft.com static bundle in ${distDir} and ${nitroPublicDir} (${stardustAlbums.length} Stardust Engine albums, ${portedRenderedCount} deep lore dossiers, and ${sortedRoutes.length} sitemap URLs compiled).`
   );
 }
 
