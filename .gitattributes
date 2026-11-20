@@ -1,0 +1,10 @@
+# ============================================================================
+# .gitattributes — raggiesoft-stardust-engine (stardust.raggiesoft.com)
+# ============================================================================
+# Marks pre-rendered Nuxt/static build outputs and serialized data payloads as
+# generated so GitHub Linguist reports true TypeScript/ESM + CSS source code.
+# ============================================================================
+.output/** linguist-generated=true
+dist/** linguist-generated=true
+src/data/** linguist-generated=true
+package-lock.json linguist-generated=true
