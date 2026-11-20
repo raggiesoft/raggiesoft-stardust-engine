@@ -3,21 +3,21 @@
  * ============================================================================
  * src/renderers/pages-fleet-and-novel.mjs — The Stardust Engine
  * ============================================================================
- * Architectural Overview:
- * Renders:
- * 1. `renderFleetPage` (`/fleet`):
- *    - Detailed visual & technical showcase of the band's barrier-free coaches:
- *      - 2002 Sainte-Claire 45H3 ("The Iron Horse") — 45-foot high-deck stainless
- *        steel cruiser with mid-ship hydraulic wheelchair lift (60" vertical rise).
- *      - 2004 Prairie Coachworks RLFD30 (Serial #001 / Fleet Unit #1985) — 30-foot
- *        low-floor shuttle with front-door flip-out ADA ramp on Progress Street.
- *      - Blue Ridge Transit low-floor campus buses (featured in Before the Distance:
- *        The Story of John & Erin).
- * 2. `renderNovelPage` (`/novel`):
- *    - Cosmic Novel Reader wrapping the Markdown/JSON chapters of
- *      `raggiesoft-narratives/books/stardust-engine` and `raggiesoft-narratives/books/erin`
- *      inside the Exoplanet / Deep Space reading environment, with direct links to
- *      `https://books.raggiesoft.com/stardust-engine` and `https://books.raggiesoft.com/erin`.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This ES Module powers two signature experiences on `stardust.raggiesoft.com`:
+ *   1. `renderFleetPage()` (`/fleet`) — Visual and engineering dossier for the
+ *      band's barrier-free coaches: the 2002 *Sainte-Claire 45H3* ("The Iron Horse"),
+ *      the 2004 & 2015 *Prairie Coachworks RLFD30* low-floor shuttles on Progress
+ *      Street, and *Blue Ridge Transit* campus buses.
+ *   2. `renderNovelPage(narrativesRoot)` (`/novel`) — A zero-database Markdown-to-HTML
+ *      book compiler! At build time, `loadCosmicNovels()` walks the era (`e001..e007`)
+ *      and chapter (`c001..`) folders inside `raggiesoft-narratives/books/stardust-engine`
+ *      and `raggiesoft-narratives/books/erin`, converts Markdown scenes (`*.md`) and
+ *      YAML frontmatter illustrations into semantic HTML via `renderMarkdownScene()`,
+ *      and wraps every chapter inside native HTML5 `<details>` / `<summary>` accordions
+ *      so readers can expand and read chapters right inside the Exoplanet / Deep Space
+ *      environment without needing client-side JavaScript!
  * ============================================================================
  */
 
@@ -26,13 +26,19 @@ import path from 'node:path';
 import { escapeHtml, renderCosmicShell } from './shell.mjs';
 
 /**
- * Simple Markdown-to-HTML converter for novel scenes (strips YAML frontmatter
- * and supports headings, blockquotes, bullet lists, <aac>, and <sms> tags).
- * @param {string} md
- * @returns {string}
+ * Converts inline Markdown syntax inside a single paragraph or heading into safe HTML:
+ *   1. Escapes raw HTML characters first via `escapeHtml(raw)` for XSS safety.
+ *   2. Converts `[label](https://...)` links into `<a href="..." target="_blank">` tags,
+ *      rewriting legacy `/books/...` and `?track=...` URLs to modern clean routes.
+ *   3. Converts `***bold-italic***`, `**bold**`, `*italic*`, and `` `inline code` ``
+ *      using Regular Expression capture groups (`$1` inserts the matched text inside the stars/backticks).
+ *
+ * @param {string} raw - Unformatted inline Markdown string.
+ * @returns {string} HTML string with inline formatting tags applied.
  */
 function formatInlineMarkdown(raw) {
   let html = escapeHtml(raw);
+  // Match Markdown links `[Link Text](https://example.com)` and normalize cross-site URLs.
   html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_, label, rawHref) => {
     const cleanHref = String(rawHref)
       .replace(/https:\/\/books\.raggiesoft\.com\/books\/([a-z0-9/-]+)/gi, 'https://books.raggiesoft.com/$1')
@@ -49,6 +55,7 @@ function formatInlineMarkdown(raw) {
       );
     return `<a href="${cleanHref}" target="_blank" rel="noopener">${label}</a>`;
   });
+  // Order matters! Replace 3-asterisk `***bold italic***` BEFORE 2-asterisk `**bold**` and 1-asterisk `*italic*`.
   html = html.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
@@ -56,11 +63,28 @@ function formatInlineMarkdown(raw) {
   return html;
 }
 
+/**
+ * Converts a full Markdown scene file (`pXXX.md` / `sXXX.md`) into HTML:
+ *   - Extracts `image:` and `image_alt:` lists from the top `--- ... ---` YAML
+ *     frontmatter block (if present) to render a responsive illustration gallery.
+ *   - Strips the YAML frontmatter block and splits the remaining narrative prose
+ *     on blank lines (`\n{2,}`) into paragraph/heading/quote blocks.
+ *   - Renders `#`/`##`/`###` headings, `---` scene breaks, `<aac>` tablet speech
+ *     callouts, `<sms>` text message callouts, `>` blockquotes, `*` lists, and `<p>` paragraphs.
+ *
+ * @param {string} md - Raw UTF-8 contents of a `.md` novel file.
+ * @returns {string} Rendered HTML string for the scene.
+ */
 function renderMarkdownScene(md) {
+  // Normalize Windows CRLF (`\r\n`) line endings to Unix LF (`\n`) so regexes behave identically across OSes.
   const normalized = String(md || '').replace(/\r\n/g, '\n');
+
+  // Check for a YAML frontmatter block (`---\n...\n---`) at the very start of the file (`^`).
   const fmMatch = normalized.match(/^---\n([\s\S]*?)\n---\n*/);
   let galleryHtml = '';
 
+  // If frontmatter exists and contains `image:` paths, pair each image with its matching
+  // `image_alt:` accessibility description and build a `<figure>` grid above the prose.
   if (fmMatch) {
     const fm = fmMatch[1];
     const imgBlockMatch = fm.match(/^image:\n((?:\s+-\s+"[^"]+"\n?)+)/m);
@@ -100,6 +124,8 @@ function renderMarkdownScene(md) {
     }
   }
 
+  // Strip the top YAML `--- ... ---` metadata block and split the prose into blocks
+  // separated by one or more empty lines (`\n{2,}`).
   const withoutFrontmatter = normalized.replace(/^---[\s\S]*?---\n*/, '');
 
   const blocks = withoutFrontmatter
@@ -107,6 +133,7 @@ function renderMarkdownScene(md) {
     .map((b) => b.trim())
     .filter(Boolean);
 
+  // Convert each Markdown block into its corresponding semantic HTML element.
   const renderedBlocks = blocks
     .map((block) => {
       if (block.startsWith('### ')) {
@@ -276,7 +303,8 @@ export function loadCosmicNovels(narrativesRoot) {
   const stardustChapters = [];
   const erinChapters = [];
 
-  // 1. Load The Stardust Engine (e001 - e007)
+  // 1. Walk `books/stardust-engine/e001..e007` (Eras/Books) and nested `c001..` (Chapters)
+  // in sorted chronological folder order, reading titles from `ovab.json` and prose from `*.md`.
   const seEraReaderUrls = {
     e001: 'https://books.raggiesoft.com/stardust-engine',
     e002: 'https://books.raggiesoft.com/stardust-engine',
@@ -396,8 +424,10 @@ export function loadCosmicNovels(narrativesRoot) {
  * @returns {string}
  */
 export function renderNovelPage(narrativesRoot) {
+  // Compile all Markdown chapters from disk into structured arrays at build time.
   const { stardustBooks, erinChapters } = loadCosmicNovels(narrativesRoot);
 
+  // Build the Table of Contents jump-link cards (`#book-...` and `#chap-...`).
   const tocHtml = stardustBooks
     .map(
       (book, idx) => `

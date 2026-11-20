@@ -3,28 +3,36 @@
  * ============================================================================
  * src/renderers/pages-band.mjs — The Stardust Engine (stardust.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Renders the core band lore routes of `stardust.raggiesoft.com`:
- * 1. `renderStardustHome` (`/`):
- *    - Cosmic portal overview, 1986 Band Name Canon ("Stardust" = cosmos,
- *      "Engine" = rockets vs. Apex Records' hated 1980s marketing gimmick),
- *      and direct handoffs to `https://music.raggiesoft.com/the-stardust-engine`
- *      and `https://books.raggiesoft.com/stardust-engine`.
- * 2. `renderBandMembersPage` (`/band`):
- *    - Detailed biographies & portraits for The Iron Five (Ryan O'Connell,
- *      Cassidy O'Connell, Holly O'Connell, Evan Wright, and Tyler Wright).
- * 3. `renderDiscographyPage` (`/discography`):
- *    - Complete chronological discography from `catalog.json` + curated playlists
- *      with direct links to stream and download free CC BY-SA 4.0 128kbps MP3 ZIPs.
- * 4. `renderDeepLorePage` (`/lore`):
- *    - Deep band lore from 1985 CPI origins through the 1992 Friction walkout,
- *      Echoes in the Wire (replacing If You Walked Away), Starfield Calibration,
- *      and the 2016 Crucible return.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This ES Module contains the structured band-member dataset (`BAND_MEMBERS`)
+ *   and the four build-time HTML renderers for the core musical & biographical
+ *   portals of `stardust.raggiesoft.com`:
+ *   1. `renderStardustHome(stardustAlbums)` (`/`) — Cosmic portal landing page,
+ *      companion novel showcase, 1986 Band Name Canon ("Stardust" = cosmos +
+ *      "Engine" = rockets vs. Apex Records' hated gimmick), permanent creator's
+ *      dedication to Sir Patrick Stewart (1940–2026), and 6 gateway cards.
+ *   2. `renderBandMembersPage()` (`/band`) — Portrait & biography cards for
+ *      **The Iron Five** (Ryan, Cassidy, and Holly O'Connell + identical twin
+ *      cousins Evan and Tyler Wright).
+ *   3. `renderDiscographyPage(stardustAlbums)` (`/discography`) — Groups all
+ *      Stardust Engine releases from `catalog.json` into Studio Albums, Live
+ *      Concert Recordings, and Compilations with direct links to stream and
+ *      download free CC BY-SA 4.0 128kbps MP3 `.zip` archives on `music.raggiesoft.com`.
+ *   4. `renderDeepLorePage()` (`/lore`) — Four-era historical narrative from
+ *      1986 CPI origins and the 1992 Beverly Hills Mansion walkout through
+ *      *Echoes in the Wire*, *Starfield Calibration*, and *Live at the Crucible*.
+ *
+ * Safety Note:
+ *   All JavaScript `//` comments live strictly OUTSIDE HTML template literals
+ *   so comment characters never appear in rendered webpages.
  * ============================================================================
  */
 
 import { escapeHtml, renderCosmicShell } from './shell.mjs';
 
+// Canonical roster array for The Iron Five, iterated by `renderBandMembersPage()`
+// using `.map()` to generate accessible member cards on `/band`.
 const BAND_MEMBERS = [
   {
     name: "Ryan O'Connell",
@@ -84,6 +92,7 @@ const BAND_MEMBERS = [
  * @returns {string}
  */
 export function renderStardustHome(stardustAlbums) {
+  // Sum total tracks across all Stardust Engine albums using `.reduce()` starting at `0`.
   const totalTracks = stardustAlbums.reduce(
     (sum, a) => sum + Number(a.totalTracksCount || a.tracks?.length || 0),
     0
@@ -364,6 +373,9 @@ export function renderBandMembersPage() {
  * @returns {string}
  */
 export function renderDiscographyPage(stardustAlbums) {
+  // Helper arrow function converting a single album object from `catalog.json`
+  // into a release card with cover art, badges, description, Listening Room link,
+  // and optional free CC BY-SA 4.0 128kbps MP3 `.zip` download button.
   const renderAlbumCard = (album) => {
     const streamUrl = `https://music.raggiesoft.com/${album.artistSlug}/${album.slug}`;
     return `
@@ -409,6 +421,7 @@ export function renderDiscographyPage(stardustAlbums) {
         </article>`;
   };
 
+  // Define the three discography sections matching `album.albumType` (`'studio'`, `'live'`, `'compilation'`).
   const categoryDefs = [
     {
       id: 'studio',
@@ -430,6 +443,7 @@ export function renderDiscographyPage(stardustAlbums) {
     }
   ];
 
+  // Filter `stardustAlbums` into each category bucket; skip any category with 0 matching releases.
   const sectionsHtml = categoryDefs
     .map((cat) => {
       const items = stardustAlbums.filter((a) => (a.albumType || 'studio') === cat.id);

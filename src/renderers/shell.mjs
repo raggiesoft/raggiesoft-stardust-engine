@@ -3,24 +3,38 @@
  * ============================================================================
  * src/renderers/shell.mjs — The Stardust Engine (stardust.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Renders the outer cosmic HTML5 document shell for `stardust.raggiesoft.com`:
- * 1. Modern Web Guidance `dark-mode` & `dark-mode-toggle`:
- *    - `<meta name="color-scheme" content="light dark">` + synchronous inline
- *      FOUC-prevention script reading `localStorage.getItem('color-scheme')`.
- * 2. Strict Motion Accessibility (`prefers-reduced-motion: reduce`):
- *    - Synchronous inline check for `localStorage.getItem('cosmic-motion')` and
- *      a persistent **"⏸ Pause Cosmic Motion"** toggle in the sticky header.
- * 3. Mandatory OpenGraph (`og:*`) and Twitter Card tags (`title` <= 60 chars,
- *    `description` <= 155 chars).
- * 4. Global Fictitious Persons & Entities Disclaimer and cross-property handoff
- *    links to `https://music.raggiesoft.com`, `https://books.raggiesoft.com`,
- *    and `https://engineroom.raggiesoft.com`.
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This module builds the reusable outer HTML5 document wrapper (`renderCosmicShell`)
+ *   and HTML-escaping helper (`escapeHtml`) shared by every page on
+ *   `stardust.raggiesoft.com` (70+ static routes in total).
+ *
+ * What does `renderCosmicShell` put around each page's `bodyHtml`?
+ *   1. Flash-Free Theme & Motion Startup (`<head>` inline script):
+ *      Synchronously reads `localStorage.getItem('color-scheme')` (Exoplanet Light
+ *      vs. Deep Space Dark) and `localStorage.getItem('cosmic-motion')` BEFORE
+ *      first paint so returning visitors never experience a theme flash or unwanted
+ *      starfield motion.
+ *   2. SEO, OpenGraph, Twitter Cards & Schema.org `@graph` JSON-LD:
+ *      Clamps titles to <= 60 characters and descriptions to <= 155 characters,
+ *      and links `The Stardust Engine` (`MusicGroup`) to its companion novels on
+ *      `books.raggiesoft.com`, `Engine Room Records`, and the Sir Patrick Stewart
+ *      dedication (`raggiesoft.com/in-memoriam`).
+ *   3. Decorative Starfield Layer (`<div class="cosmos-sky" aria-hidden="true">`):
+ *      Marked `aria-hidden="true"` so screen readers skip right over the visual
+ *      background stars.
+ *   4. Sticky Cosmic Header + Dual Accessibility Controls:
+ *      Includes both `#theme-toggle` (Exoplanet / Deep Space) and `#motion-toggle`
+ *      (Pause / Resume Cosmic Motion), plus the RaggieSoft Network Bar and global
+ *      Fictitious Persons & Entities Disclaimer footer.
  * ============================================================================
  */
 
 /**
- * Escapes HTML special characters for safe interpolation.
+ * Escapes `&`, `<`, `>`, `"`, and `'` into safe HTML entities so dynamic strings
+ * cannot break HTML attributes or inject script tags.
+ * (Notice `&` is replaced first so subsequent entity ampersands aren't double-escaped!)
+ *
  * @param {string} str
  * @returns {string}
  */
@@ -34,15 +48,16 @@ export function escapeHtml(str) {
 }
 
 /**
- * Wraps route body HTML inside the cosmic document shell.
+ * Wraps route body HTML inside the complete cosmic HTML5 document shell.
  *
  * @param {Object} opts
- * @param {string} opts.title - Page title (strictly <= 60 characters)
- * @param {string} opts.description - Meta/OG description (strictly <= 155 characters)
- * @param {string} opts.canonicalPath - Route path starting with `/`
- * @param {string} [opts.ogImage] - Full URL to 1200x630 OpenGraph banner
- * @param {string} opts.bodyHtml - Inner `<main id="content">` HTML markup
- * @returns {string}
+ * @param {string} opts.title - Browser tab & social card title (clamped to <= 60 characters).
+ * @param {string} opts.description - Search & social summary (clamped to <= 155 characters).
+ * @param {string} [opts.canonicalPath='/'] - Route path starting with `/` (or `'/404'`).
+ * @param {string} [opts.ogImage] - Full URL to a 1200x630 OpenGraph preview banner.
+ * @param {boolean} [opts.noindex=false] - Emits `noindex, follow` on legacy overview/404 pages.
+ * @param {string} opts.bodyHtml - Inner `<main id="content">` HTML markup.
+ * @returns {string} Complete HTML5 document string.
  */
 export function renderCosmicShell({
   title,
@@ -52,17 +67,22 @@ export function renderCosmicShell({
   noindex = false,
   bodyHtml
 }) {
+  // Enforce strict SEO length budgets (<= 60 char title, <= 155 char description) and escape HTML entities.
   const safeTitle = escapeHtml(title.slice(0, 60));
   const safeDesc = escapeHtml(description.slice(0, 155));
   const isErrorPage = canonicalPath === '/404';
   const canonicalUrl = `https://stardust.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
+
+  // Add `noindex, follow` only when requested (e.g., `/404` or legacy `/overview` duplicates).
   const robotsMetaHtml = noindex
     ? '\n    <meta name="robots" content="noindex, follow" />'
     : '';
+  // Omit canonical link on `/404` error page; include on all real routes.
   const canonicalLinkHtml = isErrorPage
     ? ''
     : `\n    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`;
 
+  // Primary navigation tabs in the sticky Stardust Engine header.
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/band', label: 'The Band' },
@@ -73,6 +93,8 @@ export function renderCosmicShell({
     { href: '/novel', label: 'Novel' }
   ];
 
+  // Build `<li><a>` markup for each nav item, marking active routes (and their child sub-pages,
+  // e.g., `/story/nine-figure-refusal/...` -> `/story`) with `aria-current="page"`.
   const navHtml = navItems
     .map((item) => {
       const isCurrent = item.href === canonicalPath || (item.href !== '/' && canonicalPath.startsWith(item.href + '/'));
@@ -80,6 +102,8 @@ export function renderCosmicShell({
     })
     .join('\n            ');
 
+  // Return the complete HTML5 document string (all JS comments kept above this template literal
+  // so zero `//` text or commented HTML tags leak into the output webpage).
   return `<!doctype html>
 <html lang="en" data-bs-theme="dark">
   <head>

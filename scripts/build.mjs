@@ -3,28 +3,41 @@
  * ============================================================================
  * scripts/build.mjs — The Stardust Engine (stardust.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Static Site Generation (SSG) compiler for `stardust.raggiesoft.com`.
- * Reads `raggiesoft-assets/engine-room-records/catalog.json` and the Markdown/
- * JSON novels in `raggiesoft-narratives/books/{stardust-engine,erin}` and
- * emits static bundles to both `./dist` and `./.output/public` for deployment
- * via Jenna & Sarah:
- * - `/index.html`
- * - `/band/index.html`
- * - `/discography/index.html`
- * - `/lore/index.html`
- * - `/fleet/index.html`
- * - `/novel/index.html`
- * - `/assets/cosmic.css`
- * - `/assets/cosmic-client.js`
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT & NODE.JS SSG GUIDE):
+ * What is this file?
+ *   This Node.js ES Module is the Static Site Generator (SSG) compiler for
+ *   `stardust.raggiesoft.com` (and its 301 redirect alias `thestardustengine.com`).
+ *   When `npm run build` executes `node scripts/build.mjs`, it reads our shared
+ *   JSON music catalogs and Markdown novel chapters from disk and compiles 100%
+ *   finished HTML, CSS, JS, and XML files—requiring zero database at runtime.
+ *
+ * Data Inputs Read at Build Time:
+ *   1. `raggiesoft-assets/engine-room-records/catalog.json` — Filtered to
+ *      `artistSlug === 'the-stardust-engine'` for live album & song counts.
+ *   2. `raggiesoft-assets/engine-room-records/json/master-catalog.json` — Filtered
+ *      to The Stardust Engine for `/dsp-verification` ISRC/UPC tables.
+ *   3. `raggiesoft-narratives/books/{stardust-engine,erin}` — Markdown (`*.md`)
+ *      scenes and `ovab.json` metadata compiled into the `/novel` Cosmic Reader.
+ *   4. `src/data/ported-pages.json` — 64 deep biographical, fleet, CPI transit,
+ *      and Nine-Figure Refusal forensic exhibit dossiers.
+ *   5. `src/styles/cosmic.css` — Dual Exoplanet (Light) / Deep Space (Dark) stylesheet.
+ *
+ * Dual Static Output & CDN Mirroring:
+ *   - Every compiled page and asset is written to BOTH `./dist` and Nuxt 4 Nitro's
+ *     `./.output/public` via `writeStaticOutput()`.
+ *   - `cosmic.css` and `cosmic-client.js` are ALSO mirrored 1:1 into
+ *     `raggiesoft-assets/stardust-engine/{css/cosmic.css,js/cosmic-client.js}`
+ *     so the shared `https://assets.raggiesoft.com` CDN stays 100% synchronized!
  * ============================================================================
  */
 
+// Import Node.js built-in filesystem, path, local HTTP server, and URL helpers.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
 
+// Import route renderers for core band pages, fleet/novel pages, and the outer HTML shell.
 import {
   renderStardustHome,
   renderBandMembersPage,
@@ -37,6 +50,10 @@ import {
 } from '../src/renderers/pages-fleet-and-novel.mjs';
 import { renderCosmicShell, escapeHtml } from '../src/renderers/shell.mjs';
 
+// Derive directory paths from ES Module `import.meta.url`:
+// - `projectRoot`: `.../subdomains/stardust`
+// - `distDir`: Standard static output directory (`./dist`)
+// - `nitroPublicDir`: Nuxt 4 Nitro static output directory (`./.output/public`)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
@@ -44,8 +61,10 @@ const distDir = path.join(projectRoot, 'dist');
 const nitroPublicDir = path.join(projectRoot, '.output', 'public');
 
 /**
- * Resolves the root workspace directory containing `raggiesoft-assets` and `raggiesoft-narratives`.
- * @returns {string}
+ * Resolves the parent `raggiesoft-servers` (or `/var/www`) directory containing
+ * sibling folders `raggiesoft-assets` and `raggiesoft-narratives`.
+ *
+ * @returns {string} Absolute path to the workspace server root.
  */
 function resolveWorkspaceRoot() {
   const candidates = [
@@ -62,9 +81,11 @@ function resolveWorkspaceRoot() {
 }
 
 /**
- * Writes a static file into both `./dist` and `./.output/public`.
- * @param {string} relPath
- * @param {string} content
+ * Writes a compiled file simultaneously into `./dist` AND `./.output/public`,
+ * creating any missing nested subdirectories automatically (`{ recursive: true }`).
+ *
+ * @param {string} relPath - Relative file path (e.g., `'band/index.html'`).
+ * @param {string} content - UTF-8 string contents to write.
  */
 function writeStaticOutput(relPath, content) {
   for (const base of [distDir, nitroPublicDir]) {
@@ -75,20 +96,47 @@ function writeStaticOutput(relPath, content) {
 }
 
 /**
- * Builds `/assets/cosmic-client.js` implementing:
- * 1. Modern Web Guidance `dark-mode-toggle` (two-state override reverting to
- *    System default when matching OS `prefers-color-scheme`) + Bootstrap `data-bs-theme` sync.
- * 2. Cosmic Motion Pause/Resume control respecting `prefers-reduced-motion: reduce`.
- * @returns {string}
+ * Generates `/assets/cosmic-client.js` (also mirrored 1:1 to
+ * `raggiesoft-assets/stardust-engine/js/cosmic-client.js`).
+ *
+ * Three Progressive-Enhancement Controls Powered by This Script:
+ *   1. Mobile Navigation Drawer (`#mobile-menu-toggle` + `Escape` key support).
+ *   2. Cosmic Theme Switcher (`#theme-toggle`): Toggles between **Exoplanet Surface**
+ *      (Light Mode) and **Deep Space** (Dark Mode), reverting cleanly to OS auto
+ *      mode whenever the user's choice matches `prefers-color-scheme`.
+ *   3. Starfield Motion Accessibility Toggle (`#motion-toggle`): Respects the OS
+ *      `prefers-reduced-motion: reduce` setting by default AND lets any visitor
+ *      manually pause/resume twinkling starfield animations (`data-cosmic-motion="paused"`).
+ *
+ * @returns {string} Browser-ready JavaScript source code.
  */
 function buildCosmicClientJs() {
   return `/**
  * @license MIT
- * cosmic-client.js — Client Progressive Enhancement for stardust.raggiesoft.com
- * Implements Modern Web Guidance dark-mode-toggle (Exoplanet Light vs. Deep Space Dark),
- * strict prefers-reduced-motion + manual Pause Cosmic Motion controls, and mobile menu toggle.
+ * ============================================================================
+ * cosmic-client.js — Client Progressive Enhancement (stardust.raggiesoft.com)
+ * ============================================================================
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL JAVASCRIPT GUIDE):
+ * What is this file?
+ *   This client-side script runs in the visitor's browser after HTML parsing
+ *   completes (via the defer attribute). Built by buildCosmicClientJs() in
+ *   scripts/build.mjs and mirrored 1:1 to both /assets/cosmic-client.js and
+ *   raggiesoft-assets/stardust-engine/js/cosmic-client.js.
+ *
+ * What UI controls does it power?
+ *   1. Mobile Hamburger Menu (#mobile-menu-toggle): Expands/collapses the
+ *      navigation links on phones/tablets and closes on Escape key press.
+ *   2. Exoplanet Light / Deep Space Dark Toggle (#theme-toggle): Updates
+ *      meta[name="color-scheme"], html[data-bs-theme], and localStorage so
+ *      CSS switches seamlessly between sunlit Exoplanet Horizon and Deep Space.
+ *   3. Pause / Resume Cosmic Motion (#motion-toggle): Checks the operating
+ *      system's prefers-reduced-motion accessibility setting and lets visitors
+ *      toggle html[data-cosmic-motion="paused"] to freeze starfield twinkling.
+ * ============================================================================
  */
+// Wrap all browser variables inside an IIFE so nothing leaks onto window.
 (function () {
+  // --- 1. QUERY HEADER & ACCESSIBILITY CONTROL ELEMENTS ---
   var meta = document.querySelector('meta[name="color-scheme"]');
   var themeBtn = document.getElementById('theme-toggle');
   var themeLabel = document.getElementById('theme-toggle-label');
@@ -97,6 +145,7 @@ function buildCosmicClientJs() {
   var mobileToggle = document.getElementById('mobile-menu-toggle');
   var primaryNav = document.getElementById('primary-navigation');
 
+  // --- 2. MOBILE NAVIGATION DRAWER & ESCAPE KEY HANDLER ---
   if (mobileToggle && primaryNav) {
     mobileToggle.addEventListener('click', function () {
       var expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
@@ -112,12 +161,15 @@ function buildCosmicClientJs() {
     });
   }
 
+  // --- 3. EXOPLANET (LIGHT) VS. DEEP SPACE (DARK) THEME TOGGLE ---
+  // Reads whether the visitor's OS prefers Dark Mode via CSS MediaQueryList.
   function getSystemScheme() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light';
   }
 
+  // Returns any explicit user override saved in localStorage, or falls back to OS preference.
   function getRenderedScheme() {
     var stored = null;
     try {
@@ -129,6 +181,7 @@ function buildCosmicClientJs() {
     return getSystemScheme();
   }
 
+  // Syncs html[data-bs-theme] for Bootstrap utility contrast rules and updates the button badge.
   function updateThemeLabel() {
     var current = getRenderedScheme();
     document.documentElement.setAttribute('data-bs-theme', current);
@@ -143,6 +196,8 @@ function buildCosmicClientJs() {
       var target = current === 'dark' ? 'light' : 'dark';
       var sys = getSystemScheme();
       try {
+        // Two-state auto-revert: if the newly chosen theme matches the OS setting,
+        // remove the stored override so future OS schedule changes take effect naturally.
         if (target === sys) {
           localStorage.removeItem('color-scheme');
           meta.content = 'light dark';
@@ -156,6 +211,7 @@ function buildCosmicClientJs() {
       updateThemeLabel();
     });
 
+    // Synchronize theme changes across multiple open tabs of stardust.raggiesoft.com.
     window.addEventListener('storage', function (e) {
       if (e.key === 'color-scheme') {
         meta.content = e.newValue || 'light dark';
@@ -164,15 +220,19 @@ function buildCosmicClientJs() {
     });
   }
 
-  // Cosmic Motion Control (respects prefers-reduced-motion: reduce)
+  // --- 4. STARFIELD MOTION ACCESSIBILITY CONTROL (prefers-reduced-motion) ---
+  // Check whether the visitor enabled "Reduce Motion" in macOS / Windows / iOS / Android settings.
   var osReducedMotion =
     window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Motion is considered paused if EITHER the OS requests reduced motion OR the
+  // html element carries data-cosmic-motion="paused".
   function isMotionPaused() {
     if (osReducedMotion) return true;
     return document.documentElement.getAttribute('data-cosmic-motion') === 'paused';
   }
 
+  // Updates aria-pressed ('true' when paused) for screen readers and swaps the Play/Pause icon.
   function updateMotionLabel() {
     if (!motionLabel || !motionBtn) return;
     var paused = isMotionPaused();
@@ -181,10 +241,12 @@ function buildCosmicClientJs() {
   }
 
   if (motionBtn) {
+    // Automatically stamp data-cosmic-motion="paused" on startup if OS reduced-motion is active.
     if (osReducedMotion) {
       document.documentElement.setAttribute('data-cosmic-motion', 'paused');
     }
     updateMotionLabel();
+    // Toggle between paused and active starfield motion on click and persist in localStorage.
     motionBtn.addEventListener('click', function () {
       var currentlyPaused = document.documentElement.getAttribute('data-cosmic-motion') === 'paused';
       if (currentlyPaused) {
@@ -206,7 +268,9 @@ function buildCosmicClientJs() {
 }
 
 /**
- * Generates an interactive directory card grid for all 64 ported dossiers.
+ * Organizes all 64 ported dossiers in `src/data/ported-pages.json` into four
+ * narrative groups and returns a 3-column HTML directory grid appended to `/lore` and `/story`.
+ *
  * @param {Array<Object>} portedPages
  * @returns {string}
  */
@@ -270,6 +334,16 @@ function renderMasterArchiveDirectoryHtml(portedPages) {
     </section>`;
 }
 
+/**
+ * Runs the complete static site build for `stardust.raggiesoft.com`:
+ *   - Reads `catalog.json`, `master-catalog.json`, `ported-pages.json`, and
+ *     the Markdown novels in `raggiesoft-narratives/`.
+ *   - Cleans and populates `./dist` and `./.output/public`, while mirroring
+ *     `cosmic.css` and `cosmic-client.js` 1:1 into `raggiesoft-assets/stardust-engine/`.
+ *   - Renders primary cosmic portals (`/`, `/band`, `/discography`, `/lore`, `/fleet`,
+ *     `/novel`, `/dsp-verification`), all 64 ported dossiers, `/404.html`,
+ *     `/sitemap.xml`, `/robots.txt`, and the IndexNow verification key.
+ */
 function buildStardustSite() {
   const workspaceRoot = resolveWorkspaceRoot();
   const catalogPath = path.join(
@@ -554,8 +628,10 @@ function buildStardustSite() {
   );
 }
 
+// Execute the static build immediately when invoked via `node scripts/build.mjs`.
 buildStardustSite();
 
+// Optional zero-dependency HTTP preview server (`npm run dev` / `npm run preview` -> `--serve`).
 if (process.argv.includes('--serve')) {
   const port = Number(process.env.PORT || 3005);
   const server = http.createServer((req, res) => {

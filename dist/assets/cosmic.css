@@ -3,32 +3,34 @@
  * ============================================================================
  * cosmic.css — The Stardust Engine (stardust.raggiesoft.com)
  * ============================================================================
- * Architectural Overview:
- * Implements the dual-environment cosmic visual architecture for
- * `stardust.raggiesoft.com` while strictly enforcing WCAG 2.1 AA contrast
- * (>= 4.5:1 normal text, >= 3.0:1 UI components) and motion accessibility:
+ * PLAIN-ENGLISH OVERVIEW (100-LEVEL CSS & MOTION ACCESSIBILITY GUIDE):
+ * What is this file?
+ *   Master stylesheet for `stardust.raggiesoft.com`. Copied at build time by
+ *   `scripts/build.mjs` into `./dist/assets/cosmic.css`, `./.output/public/assets/cosmic.css`,
+ *   AND `raggiesoft-assets/stardust-engine/css/cosmic.css`.
  *
- * 1. Light Mode (`prefers-color-scheme: light` / Exoplanet Surface Horizon):
- *    - Standing on the surface of a distant Earth-like exoplanet looking out
- *      toward a sunlit atmospheric horizon (`#f4f7fb` sky-stone canvas,
- *      warm amber-gold horizon gradients, crisp `#0b1120` deep slate text).
- * 2. Dark Mode (`prefers-color-scheme: dark` / Deep Space Cosmos):
- *    - Suspended in the lush vastness of deep space (`#060814` orbital void,
- *      twinkling starfield layers, distant nebulae in violet `#a78bfa` and
- *      cyan `#38bdf8`, starlight gold `#fbbf24` accents).
- * 3. Modern Web Guidance (`dark-mode` & `dark-mode-toggle`):
- *    - Uses `<meta name="color-scheme" content="light dark">` mapped back to
- *      `:root` via `:has(> head > meta[name="color-scheme"])` alongside
- *      `@media (prefers-color-scheme: dark)` fallbacks and `light-dark()`.
- * 4. Strict Motion Accessibility (`prefers-reduced-motion: reduce`):
- *    - Immediately halts all star-twinkling, nebula drift, and orbital rings
- *      when the OS requests reduced motion OR when the user toggles
- *      `data-cosmic-motion="paused"` on `<html>`.
+ * Narrative-Driven Light & Dark Environments:
+ *   Inspired directly by Cassidy O'Connell's four-movement rock opera
+ *   *"Escape Velocity (Ad Astra)"*:
+ *   1. Light Mode ("Exoplanet Surface Horizon"): Sunlit sky-stone blues fading
+ *      into a warm golden atmospheric horizon (`#dbeafe` -> `#fef3c7`) with deep
+ *      high-contrast slate ink (`#090e1a`) representing Movement IV's landing.
+ *   2. Dark Mode ("Deep Space Cosmos"): Multi-layered violet, cyan, and amber
+ *      radial nebulae over an orbital obsidian void (`#050711`) with crisp
+ *      starlight typography (`#f8fafc`) representing Movement III's drift.
+ *
+ * How Theme & Motion Accessibility Work Without Flash:
+ *   - `:root` defines Light/Dark CSS variable pairs, upgraded via `@supports (color: light-dark(...))`
+ *     and controlled instantaneously via `:has(> head > meta[name="color-scheme"])`.
+ *   - `.cosmos-sky` renders an 8-layer CSS `radial-gradient` starfield pulsing
+ *     gently via `@keyframes starlight-twinkle` (zero heavy canvas/WebGL battery drain!).
+ *   - Both `@media (prefers-reduced-motion: reduce)` AND `html[data-cosmic-motion="paused"]`
+ *     immediately freeze all animations and transitions (`animation: none !important`).
  * ============================================================================
  */
 
 :root {
-  /* Light Mode: Distant Earth-Like Exoplanet Horizon */
+  /* 1. Light Mode Palette: Distant Earth-Like Exoplanet Surface Horizon */
   --bg-canvas-light: #f0f5fa;
   --bg-surface-light: #ffffff;
   --bg-elevated-light: #e2ecf7;
@@ -177,7 +179,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Cosmic Starfield & Exoplanet Horizon Backdrop Layer */
+/* Pure-CSS 8-Point Starfield Backdrop Layer:
+ * Uses `position: fixed; inset: 0; pointer-events: none` so stars stay pinned behind
+ * scrolling content and never intercept mouse clicks or touch taps. */
 .cosmos-sky {
   position: fixed;
   inset: 0;
@@ -662,6 +666,9 @@ h3 {
   object-fit: cover;
 }
 
+/* Cosmic Novel Reader Typography (`/novel`):
+ * `max-width: 72ch` caps line width at ~72 characters—the classic typographic sweet spot
+ * so a reader's eyes never lose their place scanning from the end of one line to the next. */
 .novel-chapter {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-strong);
