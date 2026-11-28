@@ -37,7 +37,32 @@ import { escapeHtml, renderCosmicShell } from './shell.mjs';
  * @returns {string} HTML string with inline formatting tags applied.
  */
 function formatInlineMarkdown(raw) {
-  let html = escapeHtml(raw);
+  // 1. Strip hidden authorial notes and convert LaTeX directional arrows before HTML escaping.
+  let src = String(raw || '')
+    .replace(/\\?\[Note to the AI:[\s\S]*?\\?\]/gi, '')
+    .replace(/\\?\$(?:\\rightarrow|\\to)\\?\$/g, '→')
+    .replace(/\\?\$\\leftarrow\\?\$/g, '←')
+    .replace(/\\?\$\\leftrightarrow\\?\$/g, '↔')
+    .replace(/\\?\$\\updownarrow\\?\$/g, '↕')
+    .replace(/\\?\$\\uparrow\\?\$/g, '↑')
+    .replace(/\\?\$\\downarrow\\?\$/g, '↓');
+
+  // 2. Stash inline `` `code` `` spans FIRST so backslashes/asterisks inside code stay literal.
+  const codeSpans = [];
+  src = src.replace(/`([^`]+)`/g, (_, codeBody) => {
+    const idx = codeSpans.push(`<code>${escapeHtml(codeBody)}</code>`) - 1;
+    return `\uE000CODE${idx}\uE001`;
+  });
+
+  // 3. Stash CommonMark 32-character ASCII punctuation escapes (`\$`, `\*`, `\<`, `\&`, `\"`, etc.)
+  //    so literal backslashes never bleed onto `stardust.raggiesoft.com/novel`.
+  const escapedPunct = [];
+  src = src.replace(/\\([!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])/g, (_, ch) => {
+    const idx = escapedPunct.push(escapeHtml(ch)) - 1;
+    return `\uE000ESC${idx}\uE001`;
+  });
+
+  let html = escapeHtml(src);
   // Match Markdown links `[Link Text](https://example.com)` and normalize cross-site URLs.
   html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_, label, rawHref) => {
     const cleanHref = String(rawHref)
@@ -59,7 +84,9 @@ function formatInlineMarkdown(raw) {
   html = html.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // Restore stashed escaped punctuation and inline code spans.
+  html = html.replace(/\uE000ESC(\d+)\uE001/g, (_, idx) => escapedPunct[Number(idx)] ?? '');
+  html = html.replace(/\uE000CODE(\d+)\uE001/g, (_, idx) => codeSpans[Number(idx)] ?? '');
   return html;
 }
 
